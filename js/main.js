@@ -1,29 +1,21 @@
 /**
- * BCE Setu Alumni Portal - Global Logic
- * Centralized script for Theme, Navigation, and Reveal Animations
+ * BCE Setu Alumni Portal — Global Logic
+ * Handles: Theme, Navigation, Reveal Animations, Notifications
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Theme Toggle Logic (Disabled per user request)
     const body = document.body;
-    const themeToggle = document.getElementById('themeToggle');
-    const mobileThemeToggle = document.getElementById('mobileThemeToggle');
-    if (themeToggle) themeToggle.style.display = 'none';
-    if (mobileThemeToggle) mobileThemeToggle.style.display = 'none';
-    
-    // Ensure light mode is default
-    body.setAttribute('data-theme', 'light');
 
-    // 2. Mobile Menu Logic
+
+    // ─── 2. MOBILE MENU ──────────────────────────────────────────────
     const menuToggle = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
-    
+
     if (menuToggle && mobileMenu) {
         menuToggle.addEventListener('click', () => {
             mobileMenu.classList.toggle('active');
             menuToggle.innerText = mobileMenu.classList.contains('active') ? '✕' : '☰';
         });
-
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('active');
@@ -32,42 +24,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Scroll Progress Logic
+    // ─── 3. SCROLL PROGRESS ──────────────────────────────────────────
     const scrollProgress = document.getElementById('scrollProgress');
     if (scrollProgress) {
         window.addEventListener('scroll', () => {
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (window.scrollY / height) * 100;
-            scrollProgress.style.width = scrolled + '%';
-        });
+            scrollProgress.style.width = ((window.scrollY / height) * 100) + '%';
+        }, { passive: true });
     }
 
-    // 4. Intersection Observer (Reveal Animations & Stats)
+    // ─── 4. REVEAL ANIMATIONS & STATS ────────────────────────────────
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                // Trigger stats animation if it's the quick-nav section
-                if (entry.target.classList.contains('quick-nav')) {
-                    animateStats();
-                }
+                if (entry.target.classList.contains('quick-nav')) animateStats();
             }
         });
     }, { threshold: 0.1 });
-
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // 5. Stats Animation Function
+    // ─── 5. STATS COUNTER ────────────────────────────────────────────
     function animateStats() {
-        const stats = document.querySelectorAll('.stat-number');
-        stats.forEach(stat => {
+        document.querySelectorAll('.stat-number').forEach(stat => {
             if (stat.getAttribute('data-animated') === 'true') return;
-            const target = parseInt(stat.getAttribute('data-target'));
-            const duration = 2000;
-            const step = target / (duration / 16);
-            let current = 0;
-            
             stat.setAttribute('data-animated', 'true');
+            const target = parseInt(stat.getAttribute('data-target'));
+            const step = target / (2000 / 16);
+            let current = 0;
             const update = () => {
                 current += step;
                 if (current < target) {
@@ -81,30 +65,99 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 6. Homepage Specific Content Rendering
+    // ─── 6. BACK TO TOP ──────────────────────────────────────────────
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+        window.addEventListener('scroll', () => {
+            backToTop.classList.toggle('visible', window.scrollY > 400);
+        }, { passive: true });
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+
+    // ─── 7. NOTIFICATION BELL (Feature #15) ──────────────────────────
+    const notifBell = document.getElementById('notifBell');
+    const notifDropdown = document.getElementById('notifDropdown');
+
+    const notifications = JSON.parse(localStorage.getItem('bce-notifications') || 'null') || [
+        { id: 1, text: '🎓 Annual Alumni Meet registration is open!', time: '2h ago', read: false },
+        { id: 2, text: '💼 New job posted by Rahul Mehra (Microsoft)', time: '5h ago', read: false },
+        { id: 3, text: '🌟 Your profile has been verified!', time: '1d ago', read: true }
+    ];
+
+    function renderNotifications() {
+        if (!notifBell || !notifDropdown) return;
+        const unread = notifications.filter(n => !n.read).length;
+        const badge = notifBell.querySelector('.notif-badge');
+        if (badge) badge.textContent = unread > 0 ? unread : '';
+        if (badge) badge.style.display = unread > 0 ? 'flex' : 'none';
+
+        const list = notifDropdown.querySelector('.notif-list');
+        if (list) {
+            list.innerHTML = notifications.map(n => `
+              <div class="notif-item ${n.read ? '' : 'unread'}" data-id="${n.id}">
+                <p>${n.text}</p>
+                <small>${n.time}</small>
+              </div>`).join('');
+            list.querySelectorAll('.notif-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const n = notifications.find(x => x.id === parseInt(item.dataset.id));
+                    if (n) n.read = true;
+                    localStorage.setItem('bce-notifications', JSON.stringify(notifications));
+                    renderNotifications();
+                });
+            });
+        }
+    }
+
+    if (notifBell) {
+        renderNotifications();
+        notifBell.addEventListener('click', (e) => {
+            e.stopPropagation();
+            notifDropdown.classList.toggle('show');
+        });
+        document.addEventListener('click', (e) => {
+            if (notifDropdown && !notifDropdown.contains(e.target) && e.target !== notifBell) {
+                notifDropdown.classList.remove('show');
+            }
+        });
+        const clearBtn = notifDropdown?.querySelector('#clearNotifs');
+        if (clearBtn) {
+            clearBtn.addEventListener('click', () => {
+                notifications.forEach(n => n.read = true);
+                localStorage.setItem('bce-notifications', JSON.stringify(notifications));
+                renderNotifications();
+            });
+        }
+    }
+
+    // ─── 8. HOMEPAGE: FEATURED ALUMNI GRID ───────────────────────────
     const alumniGrid = document.getElementById('featured-grid');
     if (alumniGrid && typeof alumniData !== 'undefined') {
         alumniData.slice(0, 3).forEach(alumnus => {
             const card = document.createElement('div');
             card.className = 'alumni-card reveal';
+            const badgesHtml = alumnus.badges ? alumnus.badges.slice(0, 2).map(b => `<span class="badge-chip">${b}</span>`).join('') : '';
             card.innerHTML = `
                 <div class="card-img" style="height: 240px; overflow: hidden;">
-                    <img src="${alumnus.image}" alt="${alumnus.name}" style="width:100%; height:100%; object-fit:cover;">
+                    <img src="${alumnus.image}" alt="${alumnus.name}" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
                 </div>
-                <div class="card-info" style="padding: 2rem;">
-                    <h3 class="card-name" style="font-size: 1.4rem; color: hsl(var(--primary));">${alumnus.name}</h3>
-                    <span class="card-role" style="color: hsl(var(--text-muted)); display: block; margin-bottom: 1rem;">${alumnus.role} @ ${alumnus.company}</span>
-                    <div class="card-meta" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 1rem;">
+                <div class="card-info" style="padding: 1.5rem;">
+                    <h3 class="card-name" style="font-size: 1.3rem; color: hsl(var(--primary)); margin-bottom:0.3rem;">${alumnus.name}</h3>
+                    <span class="card-role" style="color: hsl(var(--text-muted)); display: block; font-size:0.9rem; margin-bottom:0.75rem;">${alumnus.role} @ ${alumnus.company}</span>
+                    <div class="badge-row">${badgesHtml}</div>
+                    <div class="card-meta" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 1rem; margin-top:0.75rem;">
                         <span class="batch-tag">Class of ${alumnus.batch}</span>
                         <span style="font-weight: 700; color: hsl(var(--secondary)); font-size: 0.85rem;">${alumnus.branch}</span>
                     </div>
-                </div>
-            `;
-            card.onclick = () => window.location.href = `profile.html?id=${alumnus.id}`;
+                </div>`;
+            card.onclick = () => window.location.href = `pages/profile.html?id=${alumnus.id}`;
+            card.style.cursor = 'pointer';
             alumniGrid.appendChild(card);
         });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     }
 
+    // ─── 9. HOMEPAGE: EVENTS PREVIEW GRID ────────────────────────────
     const eventsGrid = document.getElementById('events-preview-grid');
     if (eventsGrid && typeof eventsData !== 'undefined') {
         eventsData.filter(e => e.category === 'Upcoming').slice(0, 3).forEach(event => {
@@ -112,19 +165,24 @@ document.addEventListener('DOMContentLoaded', () => {
             card.className = 'event-card reveal';
             card.innerHTML = `
                 <div class="event-img" style="position: relative; height: 200px; overflow: hidden;">
-                    <img src="${event.image}" alt="${event.title}" style="width:100%; height:100%; object-fit:cover;">
-                    <div class="event-date-badge" style="position: absolute; top: 1rem; right: 1rem; background: white; padding: 0.5rem 1rem; border-radius: 8px; text-align: center; box-shadow: var(--shadow-md); color: var(--primary);">
+                    <img src="${event.image}" alt="${event.title}" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+                    <div class="event-date-badge">
                         <b>${event.date.split(' ')[0]}</b><br>
-                        <span style="font-size: 0.8rem; font-weight: 700;">${event.date.split(' ')[1].replace(',', '')}</span>
+                        <span style="font-size:0.8rem; font-weight:700;">${event.date.split(' ')[1].replace(',','')}</span>
                     </div>
                 </div>
                 <div class="event-content" style="padding: 2rem;">
                     <h3 class="event-title">${event.title}</h3>
+                    <p style="color: hsl(var(--text-muted)); margin-bottom: 0.75rem; font-size:0.9rem;">📍 ${event.location}</p>
                     <p style="color: hsl(var(--text-muted)); margin-bottom: 1.5rem;">${event.description.substring(0, 80)}...</p>
-                    <a href="events.html" class="btn-join" style="width: 100%; font-size: 0.9rem;">Register Now</a>
-                </div>
-            `;
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span style="font-size:0.85rem; color:hsl(var(--text-muted));">👥 ${event.rsvpCount} registered</span>
+                        <a href="pages/events.html" class="btn-join" style="font-size: 0.9rem; padding:0.6rem 1.4rem;">Register</a>
+                    </div>
+                </div>`;
             eventsGrid.appendChild(card);
         });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     }
 });
+
