@@ -23,25 +23,39 @@ A premium, static alumni portal for **Bhagalpur College of Engineering (BCE)**, 
 
 ## 📁 Project Structure
 
-```
+```text
 alumni_web/
-├── index.html               # Homepage
-├── 404.html                 # Error page
-├── README.md
-├── pages/                   # All public HTML pages
-├── admin/                   # Admin panel
-│   ├── login.html           # Admin login (Feature #3)
-│   ├── dashboard.html       # Admin dashboard
-│   └── css/admin.css        # Admin-specific styles
+├── index.html               # Homepage (Overview, Quick Links & Stats)
+├── 404.html                 # Fallback Error Page
+├── README.md                # Project Documentation
+├── pages/                   # Public Platform Pages
+│   ├── directory.html       # Alumni Search & Network filtering
+│   ├── donate.html          # Fundraising & Bank Transfers
+│   ├── events.html          # Event RSVP Manager
+│   ├── jobs.html            # Career Board
+│   ├── login.html           # User Access Point
+│   ├── map.html             # Geolocation plotting
+│   ├── mentorship.html      # Mentor connection platform
+│   ├── profile.html         # Individual portfolio views
+│   ├── register.html        # Registration Flow
+│   └── stories.html         # Success Article Publications
+├── admin/                   # Secure Control Panel Suite
+│   ├── login.html           # Authenticated Entry Point
+│   ├── dashboard.html       # Management Hub
+│   ├── css/
+│   │   └── admin.css        # Dashboard Styles / UI Overrides
+│   └── js/
+│       ├── admin.js         # Application logic controllers
+│       └── data.js          # Core Data Manager / Storage Adapter
 ├── assets/
-│   └── images/              # Logos and assets
+│   └── images/              # Static media
 ├── css/
-│   └── style.css            # Global design system
+│   └── style.css            # Global HSL-based stylesheet
 └── js/
-    ├── main.js              # Global logic (theme, nav, notifications)
+    ├── main.js              # Global utilities & frontend interactions
     └── data/
-        ├── alumni.js        # Alumni data with badges, lat/lng, mentor flags
-        └── events.js        # Events & jobs data
+        ├── alumni.js        # Seed data config: Profiles
+        └── events.js        # Seed data config: Activities
 ```
 
 ## ✨ Features
@@ -52,7 +66,7 @@ alumni_web/
 4. **Interactive World Map** — Leaflet.js map with alumni pins
 5. **Advanced Search** — Keyword, branch, country, industry, batch filters
 6. **Donation Portal** — Campaign progress bars + bank transfer
-7. **Dark Mode Toggle** — Persisted in localStorage
+7. **Modern UI System** — Cohesive SVG iconography & professional glassmorphism
 8. **Notification Bell** — Animated badge with read/clear functionality
 9. **Badge System** — Achievement chips on alumni cards & profiles
 10. **PDF Export** — Print-optimised directory view
@@ -65,9 +79,9 @@ alumni_web/
 ## 🎨 Tech Stack
 
 - **HTML5** — Semantic structure
-- **Vanilla CSS** — Custom design system with HSL tokens, dark mode, animations
+- **Vanilla CSS** — Custom design system with HSL tokens and modern animations
 - **Vanilla JavaScript** — No frameworks, pure ES6+
-- **Leaflet.js** (CDN) — Interactive world map
+- **Leaflet.js & Esri Imagery** — Borderless satellite worldview with English labels
 - **Unsplash** — Placeholder images
 - **Google Fonts** — Outfit + Poppins typography
 

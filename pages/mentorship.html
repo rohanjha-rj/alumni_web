@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -84,9 +84,13 @@
                         <div class="notif-footer"><a href="#">View all</a></div>
                     </div>
                 </div>
-                
+                <a href="../admin/login.html" title="Admin Login" style="display:inline-flex;align-items:center;color:hsl(var(--text-muted));opacity:0.65;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.65'">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </a>
                 <a href="register.html" class="btn-join btn-desktop">Join Network</a>
-                <button class="menu-toggle-btn" id="menuToggle">☰</button>
+                <button class="menu-toggle-btn" id="menuToggle" aria-label="Open menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
             </div>
         </div>
     </nav>
@@ -96,7 +100,10 @@
             <h1 class="reveal text-gradient" style="font-size:3.5rem;">Mentorship Program</h1>
             <p class="reveal" style="transition-delay:0.2s;font-size:1.2rem;color:hsl(var(--bg-main));opacity:0.9;">Get paired with a distinguished BCE alumnus who can guide your career journey.</p>
             <div class="hero-btns reveal" style="transition-delay:0.4s;">
-                <button class="btn-primary" id="openRequestModal">🤝 Request a Mentor</button>
+                <button class="btn-primary" id="openRequestModal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="vertical-align:middle;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    Request a Mentor
+                </button>
                 <a href="register.html" class="btn-secondary">Become a Mentor</a>
             </div>
         </div>
@@ -116,19 +123,25 @@
         </div>
         <div class="hero-how reveal" style="transition-delay:0.2s;">
             <div class="how-step">
-                <div class="step-icon">🔍</div>
+                <div class="step-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--secondary))" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
                 <div class="step-num">1</div>
                 <h3 style="margin-bottom:0.5rem;color:hsl(var(--primary));">Browse Mentors</h3>
                 <p style="color:hsl(var(--text-muted));font-size:0.9rem;">Filter by branch or industry to find the ideal guide for your goals.</p>
             </div>
             <div class="how-step">
-                <div class="step-icon">📩</div>
+                <div class="step-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--secondary))" stroke-width="1.5" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
                 <div class="step-num">2</div>
                 <h3 style="margin-bottom:0.5rem;color:hsl(var(--primary));">Send Request</h3>
                 <p style="color:hsl(var(--text-muted));font-size:0.9rem;">Fill out a short form explaining your goals and what you'd like guidance on.</p>
             </div>
             <div class="how-step">
-                <div class="step-icon">🚀</div>
+                <div class="step-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--secondary))" stroke-width="1.5" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
                 <div class="step-num">3</div>
                 <h3 style="margin-bottom:0.5rem;color:hsl(var(--primary));">Start Growing</h3>
                 <p style="color:hsl(var(--text-muted));font-size:0.9rem;">Connect over video calls, emails, or in-person sessions — on your schedule.</p>
@@ -191,7 +204,9 @@
         </div>
     </footer>
 
-    <button class="back-to-top" id="backToTop">↑</button>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
     <div class="toast-container" id="toastContainer"></div>
 
     <script src="../js/data/alumni.js"></script>
@@ -225,8 +240,8 @@
                         <div class="mentor-role">${m.role} @ ${m.company}</div>
                         <div class="badge-row" style="justify-content:center;">${(m.badges||[]).slice(0,2).map(b=>`<span class="badge-chip">${b}</span>`).join('')}</div>
                         <div class="mentor-tags" style="margin-top:0.75rem;">
-                            ${(m.mentorBranches||[]).map(b=>`<span class="mentor-tag">📚 ${b}</span>`).join('')}
-                            ${(m.mentorIndustries||[]).map(i=>`<span class="mentor-tag">🏭 ${i}</span>`).join('')}
+                            ${(m.mentorBranches||[]).map(b=>`<span class="mentor-tag" style="display:inline-flex;align-items:center;gap:0.3rem;"><svg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5'><path d='M4 19.5A2.5 2.5 0 0 1 6.5 17H20'/><path d='M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z'/></svg>${b}</span>`).join('')}
+                            ${(m.mentorIndustries||[]).map(i=>`<span class="mentor-tag" style="display:inline-flex;align-items:center;gap:0.3rem;"><svg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5'><rect x='2' y='7' width='20' height='14' rx='2'/><path d='M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2'/></svg>${i}</span>`).join('')}
                         </div>
                         <button class="request-btn" data-id="${m.id}" data-name="${m.name}">Request Mentorship</button>
                     </div>`).join('');
