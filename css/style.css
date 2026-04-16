@@ -1,34 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
 
 :root {
-    /* Premium HSL Design System */
-    --primary: 220, 65%, 12%; 
-    --primary-light: 220, 50%, 20%;
-    --secondary: 45, 60%, 52%; 
-    --secondary-hover: 45, 70%, 45%;
-    --accent: 48, 100%, 45%;
-    
-    --bg-main: 210, 40%, 98%;
+    --primary: 226, 42%, 16%;
+    --primary-light: 226, 35%, 26%;
+    --secondary: 40, 95%, 55%;
+    --secondary-hover: 40, 90%, 45%;
+    --accent: 30, 95%, 60%;
+    --bg-main: 35, 30%, 98%;
     --bg-white: 0, 0%, 100%;
-    --bg-glass: rgba(255, 255, 255, 0.75);
-    
-    --text-main: 220, 40%, 15%;
-    --text-muted: 220, 15%, 45%;
-    --text-light: 220, 15%, 65%;
-    
-    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
-    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    --shadow-gold: 0 10px 30px -10px hsla(45, 60%, 52%, 0.3);
-    
-    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-main: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    
-    --radius-sm: 8px;
-    --radius-md: 16px;
-    --radius-lg: 24px;
+    --bg-glass: rgba(255, 255, 255, 0.9);
+    --text-main: 226, 30%, 18%;
+    --text-muted: 226, 15%, 45%;
+    --text-light: 226, 15%, 65%;
+    --shadow-sm: 0 4px 6px -1px rgba(16, 24, 40, 0.05), 0 2px 4px -1px rgba(16, 24, 40, 0.03);
+    --shadow-md: 0 10px 15px -3px rgba(16, 24, 40, 0.08), 0 4px 6px -2px rgba(16, 24, 40, 0.04);
+    --shadow-lg: 0 20px 25px -5px rgba(16, 24, 40, 0.1), 0 10px 10px -5px rgba(16, 24, 40, 0.04);
+    --shadow-gold: 0 10px 30px -10px hsla(40, 95%, 55%, 0.4);
+    --transition-fast: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    --transition-main: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    --radius-sm: 10px;
+    --radius-md: 20px;
+    --radius-lg: 32px;
     --radius-full: 9999px;
-
     --container-max: 1200px;
 }
 
@@ -56,8 +49,10 @@ html {
 }
 
 body {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     background-color: hsl(var(--bg-main));
+    background-image: radial-gradient(hsla(var(--primary), 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
     color: hsl(var(--text-main));
     line-height: 1.6;
     overflow-x: hidden;
@@ -247,7 +242,7 @@ body {
 .hero {
     position: relative;
     padding: 12rem 0 10rem;
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%);
+    background: linear-gradient(145deg, hsl(var(--primary)) 0%, hsl(226, 45%, 10%) 100%);
     color: white;
     text-align: center;
     overflow: hidden;
@@ -257,8 +252,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
-    opacity: 0.1;
+    background: radial-gradient(circle at 15% 50%, hsla(var(--primary-light), 0.6) 0%, transparent 40%), radial-gradient(circle at 85% 30%, hsla(var(--secondary), 0.15) 0%, transparent 50%);
     z-index: 1;
 }
 
@@ -1041,7 +1035,18 @@ footer {
 @media print {
     .navbar, .header-top-bar, footer, .back-to-top, .fab-join,
     .filter-sidebar, .btn-join, .scroll-progress, #printDirBtn { display: none !important; }
-    body { background: white !important; color: black !important; }
+    body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: hsl(var(--bg-main));
+    background-image: radial-gradient(hsla(var(--primary), 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+    color: hsl(var(--text-main));
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
     .alumni-card { break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
     .alumni-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 }
@@ -1055,3 +1060,516 @@ footer {
     border-bottom: 2px solid hsla(var(--secondary), 0.3);
 }
 
+/* ─── Association Logo — Hero ──────────────────────────────────── */
+.hero-logo-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+.hero-assoc-logo {
+    height: 120px;
+    width: auto;
+    border-radius: 50%;
+    border: 4px solid rgba(255,255,255,0.3);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+    background: white;
+    padding: 6px;
+    animation: logo-pulse 3s ease-in-out infinite;
+}
+@keyframes logo-pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 8px 40px rgba(0,0,0,0.3); }
+    50% { transform: scale(1.04); box-shadow: 0 12px 50px hsla(var(--secondary),0.4); }
+}
+
+/* ─── Gold gradient text ────────────────────────────────────────── */
+.text-gradient-gold {
+    background: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--accent)), #fff7c0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* ─── Footer Association Logo ──────────────────────────────────── */
+.footer-brand-wrap {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.footer-assoc-logo {
+    height: 55px;
+    width: auto;
+    border-radius: 50%;
+    background: white;
+    padding: 4px;
+}
+.footer-logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+}
+.footer-logo span { color: hsl(var(--secondary)); }
+
+/* ─── Navbar logo size ──────────────────────────────────────────── */
+.logo-cell img {
+    height: 48px;
+    width: auto;
+    border-radius: 50%;
+    background: white;
+    padding: 3px;
+    box-shadow: var(--shadow-sm);
+}
+
+/* ─── Page Hero Banner ──────────────────────────────────────────── */
+.page-hero {
+    padding: 9rem 0 5rem;
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.page-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+    opacity: 0.07;
+}
+.page-hero h1 { font-size: 3rem; margin-bottom: 1rem; position: relative; z-index: 1; }
+.page-hero p { font-size: 1.2rem; opacity: 0.85; position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+
+/* ─── Contact form ─────────────────────────────────────────────── */
+.contact-form-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    padding: 6rem 0;
+}
+@media (max-width: 768px) {
+    .contact-form-wrap { grid-template-columns: 1fr; gap: 2rem; }
+}
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    border: 1.5px solid rgba(0,0,0,0.1);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    background: hsl(var(--bg-white));
+    color: hsl(var(--text-main));
+    margin-bottom: 1.25rem;
+    transition: border-color 0.2s;
+    outline: none;
+}
+.contact-form input:focus,
+.contact-form textarea:focus { border-color: hsl(var(--secondary)); }
+.contact-form textarea { min-height: 160px; resize: vertical; }
+.contact-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.contact-info-icon {
+    width: 48px; height: 48px;
+    background: hsla(var(--secondary), 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: hsl(var(--secondary));
+}
+
+/* ─── Objectives list ──────────────────────────────────────────── */
+.obj-card {
+    background: hsl(var(--bg-white));
+    border-radius: var(--radius-md);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-md);
+    border-left: 5px solid hsl(var(--secondary));
+    transition: var(--transition-main);
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+.obj-card:hover {
+    transform: translateX(6px);
+    box-shadow: var(--shadow-lg);
+}
+.obj-num {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: hsla(var(--secondary), 0.25);
+    min-width: 50px;
+    line-height: 1;
+}
+
+/* ─── About page styles ─────────────────────────────────────────── */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    padding: 6rem 0;
+}
+@media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+}
+.about-logo-block {
+    text-align: center;
+}
+.about-logo-block img {
+    max-width: 320px;
+    width: 100%;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: 1.5rem;
+    background: white;
+}
+.section-badge {
+    display: inline-block;
+    background: hsla(var(--secondary), 0.15);
+    color: hsl(var(--secondary));
+    padding: 0.4rem 1.2rem;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* ─── Objectives Page: obj-card ──────────────────────────────── */
+.obj-card {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 2rem;
+    align-items: start;
+    background: hsl(var(--bg-main));
+    border-radius: var(--radius-md);
+    padding: 2rem 2.5rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid hsl(var(--secondary));
+    transition: var(--transition-main);
+}
+.obj-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateX(6px);
+}
+.obj-num {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: hsl(var(--secondary));
+    opacity: 0.35;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    padding-top: 0.2rem;
+}
+
+/* ─── About Page: about-grid ─────────────────────────────────── */
+.about-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 5rem;
+    align-items: center;
+    padding: 6rem 0;
+}
+.about-logo-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.about-logo-block img {
+    width: 100%;
+    max-width: 280px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 12px hsla(var(--secondary),0.12), var(--shadow-lg);
+}
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 4rem 0;
+    }
+    .about-logo-block img { max-width: 180px; }
+    .obj-card { grid-template-columns: 48px 1fr; gap: 1.25rem; padding: 1.5rem; }
+    .obj-num { font-size: 1.6rem; }
+}
+
+
+
+
+
+
+
+
+
+
+/* --- EARTHY CLASSIC ELEGANCE OVERRIDES --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+    /* Muted Deep Olive Green */
+    --primary: 85, 30%, 25%;
+    --primary-light: 85, 25%, 32%;
+    
+    /* Warm Taupe / Sand / Beige accent */
+    --secondary: 35, 25%, 55%; 
+    --secondary-hover: 35, 30%, 45%;
+    
+    /* Subtle Gold Accent */
+    --accent: 40, 40%, 60%;
+    
+    /* Creme / Beige Backgrounds */
+    --bg-main: 36, 40%, 96%; /* Creme */
+    --bg-white: 40, 50%, 99%; /* Off-white for cards */
+    --bg-glass: rgba(251, 249, 246, 0.85);
+    
+    /* Warm Charcoal for text */
+    --text-main: 30, 15%, 20%;
+    --text-muted: 30, 10%, 45%;
+    --text-light: 30, 10%, 65%;
+    
+    /* Very soft, diffused shadows */
+    --shadow-sm: 0 4px 15px -5px rgba(44, 42, 41, 0.04);
+    --shadow-md: 0 10px 30px -8px rgba(44, 42, 41, 0.08); 
+    --shadow-lg: 0 30px 60px -15px rgba(44, 42, 41, 0.12);
+    
+    --transition-fast: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    --transition-main: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+}
+
+[data-theme="light"], [data-theme="dark"], body {
+    background-color: hsl(var(--bg-main)) !important;
+    color: hsl(var(--text-main)) !important;
+    font-family: 'Inter', sans-serif !important;
+    background-image: none !important;
+}
+
+h1, h2, h3, h4, h5, h6, .hero h1, .page-hero h1, .logo-text, .footer-logo, .stat-number, .obj-num, .card-name {
+    font-family: 'Playfair Display', serif !important;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: hsl(var(--primary)) !important;
+}
+
+/* Override background defaults for headers to absolute clean Creme */
+.hero {
+    background: hsl(var(--bg-main)) !important;
+    border-bottom: 1px solid rgba(85, 107, 47, 0.1) !important;
+}
+
+.page-hero {
+    background: hsl(36, 35%, 93%) !important; /* Slightly darker creme for variation */
+    border-bottom: 1px solid rgba(85, 107, 47, 0.1) !important;
+}
+
+.hero::after, .page-hero::after, .bg-blobs::before, .bg-blobs::after {
+    display: none !important;
+}
+
+.text-gradient, .text-gradient-gold {
+    background: none !important;
+    color: hsl(var(--primary)) !important;
+    -webkit-text-fill-color: hsl(var(--primary)) !important;
+}
+
+.navbar {
+    background: rgba(251, 249, 246, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    border-bottom: 1px solid rgba(85, 107, 47, 0.1) !important;
+}
+
+.nav-links a {
+    color: hsl(var(--text-muted)) !important;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.nav-links a:hover, .nav-links a.active {
+    color: hsl(var(--primary)) !important;
+}
+.nav-links a::after {
+    background: hsl(var(--primary)) !important;
+}
+
+.btn-primary, .btn-join {
+    background: hsl(var(--primary)) !important;
+    color: hsl(var(--bg-main)) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: none !important;
+    box-shadow: 0 4px 15px -4px rgba(85, 107, 47, 0.3) !important;
+    font-weight: 500 !important;
+    font-family: 'Inter', sans-serif !important;
+    border-radius: 4px !important;
+    transition: var(--transition-main) !important;
+}
+.btn-primary:hover, .btn-join:hover {
+    background: hsl(var(--primary-light)) !important;
+    box-shadow: 0 8px 25px -6px rgba(85, 107, 47, 0.4) !important;
+    transform: translateY(-2px) !important;
+}
+
+.btn-secondary {
+    background: transparent !important;
+    color: hsl(var(--primary)) !important;
+    border: 1px solid hsl(var(--primary)) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 4px !important;
+    font-weight: 500 !important;
+}
+.btn-secondary:hover {
+    background: hsla(var(--primary), 0.05) !important;
+}
+
+.alumni-card, .event-card, .stat-card, .obj-card, .fame-card, .testimonial-card, .filter-sidebar {
+    background: hsl(var(--bg-white)) !important;
+    border: 1px solid rgba(85, 107, 47, 0.08) !important;
+    box-shadow: var(--shadow-sm) !important;
+    border-radius: 6px !important;
+}
+
+.alumni-card:hover, .event-card:hover, .stat-card:hover, .obj-card:hover {
+    border-color: rgba(85, 107, 47, 0.2) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+footer {
+    background: hsl(var(--primary)) !important;
+    border-top: none !important;
+    color: hsl(var(--bg-main)) !important;
+}
+
+/* Make footer text and links proper contrast against olive green */
+footer .footer-text, footer .footer-bottom-text, footer .footer-newsletter-text, footer .footer-links a, footer .footer-links li {
+    color: hsla(36, 40%, 96%, 0.8) !important;
+}
+footer .footer-links a:hover {
+    color: hsl(var(--bg-white)) !important;
+}
+
+footer .footer-logo, footer .footer-links h4, footer .hero-assoc-logo, footer .footer-assoc-logo {
+    color: hsl(var(--bg-white)) !important;
+}
+
+.card-name, .event-title, .obj-card h4, .stat-card h4 {
+    color: hsl(var(--primary)) !important;
+}
+
+.hero p, .page-hero p, .empty-state p {
+    color: hsl(var(--text-muted)) !important;
+}
+.hero h1, .page-hero h1, .cta-banner h2 {
+    color: hsl(var(--primary)) !important;
+}
+
+.contact-form input, .contact-form textarea, .contact-form select, input, select {
+    background: hsl(var(--bg-white)) !important;
+    color: hsl(var(--text-main)) !important;
+    border: 1px solid rgba(85, 107, 47, 0.15) !important;
+    border-radius: 4px !important;
+}
+
+.contact-form input:focus, .contact-form textarea:focus, input:focus, select:focus {
+    border-color: hsl(var(--primary)) !important;
+    box-shadow: 0 0 0 2px hsla(85, 30%, 25%, 0.1) !important;
+}
+
+.hero-assoc-logo, .footer-assoc-logo, .logo-cell img {
+    border: 1px solid hsla(85, 30%, 25%, 0.2) !important;
+    background: rgba(255,255,255,0.9) !important;
+}
+.stat-card.reveal {
+    border-bottom: none !important;
+}
+
+/* Subtlety to the directory cards */
+.card-role {
+    color: hsl(var(--secondary)) !important;
+}
+.badge-chip {
+    background: hsla(35, 25%, 55%, 0.1) !important;
+    color: hsl(var(--secondary)) !important;
+    border: 1px solid hsla(35, 25%, 55%, 0.2) !important;
+}
+
+
+/* --- HERO BANNER UPDATE: CLASSIC BEIGE --- */
+.hero, .page-hero {
+    background: linear-gradient(135deg, hsl(38, 30%, 88%) 0%, hsl(35, 25%, 82%) 100%) !important;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(85, 107, 47, 0.15) !important;
+}
+
+/* Texture overlay for a high-end matte paper feel */
+.hero::after, .page-hero::after {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    opacity: 0.04 !important;
+    background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M54.627 0l1.373 1.373v-1.373h-1.373zm-3.111 0l3.111 3.111-1.373 1.373-3.111-3.111 1.373-1.373zm-3.111 0l3.111 3.111-1.373 1.373-3.111-3.111 1.373-1.373zm-3.111 0l3.111 3.111-1.373 1.373-3.111-3.111 1.373-1.373zm-3.111 0l3.111 3.111-1.373 1.373-3.111-3.111 1.373-1.373zm-3.111 0l3.111 3.111-1.373 1.373-3.111-3.111 1.373-1.373zm-3.111 0l3.111 3.111-1.373 1.373-3.111-3.111 1.373-1.373zm-3.111 0l3.111 3.111-1.373 1.373-3.111-3.111 1.373-1.373zm-3.111 0l3.111 3.111-1.373 1.373-3.111-3.111 1.373-1.373zm-3.111 0l3.111 3.111-1.373 1.373-3.111-3.111 1.373-1.373zm-3.111 0l3.111 3.111-1.373 1.373-3.111-3.111 1.373-1.373zm-3.111 0l3.111 3.111-1.373 1.373-3.111-3.111 1.373-1.373zm-3.111 0l3.111 3.111-1.373 1.373-3.111-3.111 1.373-1.373zm-3.111 0l3.111 3.111-1.373 1.373-3.111-3.111 1.373-1.373zm-3.111 0l3.111 3.111-1.373 1.373-3.111-3.111 1.373-1.373zm-3.111 0l3.111 3.111-1.373 1.373-3.111-3.111 1.373-1.373zm-3.111 0l3.111 3.111-1.373 1.373-3.111-3.111 1.373-1.373zm-3.111 0l3.111 3.111-1.373 1.373-3.111-3.111 1.373-1.373zm-3.111 0l3.111 3.111-1.373 1.373-3.111-3.111 1.373-1.373z" fill="%23000000" fill-opacity="1" fill-rule="evenodd"/%3E%3C/svg%3E') !important;
+    display: block !important;
+    z-index: 0 !important;
+}
+
+/* Because the background is now light Beige, we use Deep Olive / Charcoal for text */
+.hero h1, .page-hero h1 {
+    color: hsl(85, 30%, 25%) !important; /* Deep olive */
+    position: relative;
+    z-index: 10;
+}
+.hero p, .page-hero p {
+    color: hsl(30, 15%, 25%) !important; /* Muted warm charcoal/espresso for paragraph readability */
+    position: relative;
+    z-index: 10;
+}
+
+/* Specific buttons inside the light beige hero */
+.hero .btn-primary, .page-hero .btn-primary {
+    background: hsl(85, 30%, 25%) !important; /* Deep Olive */
+    color: hsl(36, 40%, 96%) !important; /* Creme text */
+    position: relative;
+    z-index: 10;
+}
+.hero .btn-primary:hover, .page-hero .btn-primary:hover {
+    background: hsl(85, 35%, 18%) !important; /* Darker olive on hover */
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px -6px rgba(85, 107, 47, 0.3) !important;
+}
+
+.hero .btn-secondary, .page-hero .btn-secondary {
+    border-color: rgba(85, 107, 47, 0.4) !important; /* Olive border */
+    color: hsl(85, 30%, 25%) !important; /* Olive text */
+    position: relative;
+    z-index: 10;
+}
+.hero .btn-secondary:hover, .page-hero .btn-secondary:hover {
+    background: rgba(85, 107, 47, 0.05) !important;
+}
+
+/* Refined logo appearance matching the beige banner */
+.hero-assoc-logo {
+    border: 3px solid rgba(85, 107, 47, 0.2) !important; /* Thin olive rim */
+    background: rgba(251, 249, 246, 0.95) !important; /* Crisp off-white inside */
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 10px 30px -10px rgba(44, 42, 41, 0.1) !important;
+}

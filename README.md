@@ -1,95 +1,171 @@
-# BCE Setu — Alumni Portal
+# BCE Alumni Welfare Association — Official Website
 
-A premium, static alumni portal for **Bhagalpur College of Engineering (BCE)**, established 1960. Built with vanilla HTML, CSS, and JavaScript.
+The official website of the **BCE Alumni Welfare Association**, representing graduates of Bhagalpur College of Engineering. Built with pure HTML, CSS, and Vanilla JavaScript — no frameworks, no dependencies.
 
-## 🌐 Live Pages
-
-| Page | Path | Description |
-|------|------|-------------|
-| Home | `index.html` | Landing page with hero, stats, events & featured alumni |
-| Directory | `pages/directory.html` | Searchable & filterable alumni directory |
-| Events | `pages/events.html` | Upcoming & past events with RSVP |
-| Stories | `pages/stories.html` | Alumni success story articles |
-| Job Board | `pages/jobs.html` | Jobs posted by alumni, for alumni |
-| Mentorship | `pages/mentorship.html` | Mentor matching & request system |
-| Donation | `pages/donate.html` | Campaign fundraising & bank transfer |
-| World Map | `pages/map.html` | Interactive Leaflet.js alumni world map |
-| Register | `pages/register.html` | Multi-step alumni registration form |
-| Login | `pages/login.html` | Alumni login page |
-| Profile | `pages/profile.html` | Dynamic alumni profile view |
-| Admin Login | `admin/login.html` | Secure admin entry (credentials: admin@bcesetu.ac.in / admin@2026) |
-| Admin Dashboard | `admin/dashboard.html` | Admin overview, pending approvals |
-| 404 | `404.html` | Custom error fallback page |
+---
 
 ## 📁 Project Structure
 
-```text
+```
 alumni_web/
-├── index.html               # Homepage (Overview, Quick Links & Stats)
-├── 404.html                 # Fallback Error Page
-├── README.md                # Project Documentation
-├── pages/                   # Public Platform Pages
-│   ├── directory.html       # Alumni Search & Network filtering
-│   ├── donate.html          # Fundraising & Bank Transfers
-│   ├── events.html          # Event RSVP Manager
-│   ├── jobs.html            # Career Board
-│   ├── login.html           # User Access Point
-│   ├── map.html             # Geolocation plotting
-│   ├── mentorship.html      # Mentor connection platform
-│   ├── profile.html         # Individual portfolio views
-│   ├── register.html        # Registration Flow
-│   └── stories.html         # Success Article Publications
-├── admin/                   # Secure Control Panel Suite
-│   ├── login.html           # Authenticated Entry Point
-│   ├── dashboard.html       # Management Hub
-│   ├── css/
-│   │   └── admin.css        # Dashboard Styles / UI Overrides
-│   └── js/
-│       ├── admin.js         # Application logic controllers
-│       └── data.js          # Core Data Manager / Storage Adapter
-├── assets/
-│   └── images/              # Static media
+│
+├── index.html                   # Home page
+│
+├── pages/
+│   ├── about.html               # About Us — history, mission, vision, executive committee
+│   ├── objectives.html          # Objectives — 8 association objectives
+│   ├── directory.html           # Alumni Directory — searchable & filterable list
+│   ├── events.html              # Events — upcoming events + past events with photo gallery
+│   └── contact.html             # Contact — email, address, and contact form
+│
 ├── css/
-│   └── style.css            # Global HSL-based stylesheet
-└── js/
-    ├── main.js              # Global utilities & frontend interactions
-    └── data/
-        ├── alumni.js        # Seed data config: Profiles
-        └── events.js        # Seed data config: Activities
+│   └── style.css                # Global stylesheet (design system, all components)
+│
+├── js/
+│   ├── main.js                  # Global JS — nav, scroll, animations, stats counter
+│   └── data/
+│       ├── alumni.js            # Alumni data (used by directory page)
+│       └── events.js            # Events data (used by events page)
+│
+├── assets/
+│   └── images/
+│       └── association-logo.png # BCE Alumni Welfare Association official logo
+│
+├── 404.html                     # Custom 404 error page
+└── README.md                    # This file
 ```
 
-## ✨ Features
+---
 
-1. **Alumni Job Board** — Post & browse alumni-exclusive jobs
-2. **Mentorship Matching** — Find & request mentors by branch/industry
-3. **Admin Login** — Secure credential check before dashboard access
-4. **Interactive World Map** — Leaflet.js map with alumni pins
-5. **Advanced Search** — Keyword, branch, country, industry, batch filters
-6. **Donation Portal** — Campaign progress bars + bank transfer
-7. **Modern UI System** — Cohesive SVG iconography & professional glassmorphism
-8. **Notification Bell** — Animated badge with read/clear functionality
-9. **Badge System** — Achievement chips on alumni cards & profiles
-10. **PDF Export** — Print-optimised directory view
-11. **Event RSVP** — One-click registration with localStorage persistence
-12. **Scroll Progress Bar** — Page reading progress indicator
-13. **Skeleton Loaders** — Smooth loading states on directory
-14. **Autocomplete Search** — Name suggestions while typing
-15. **Back to Top Button** — Smooth scroll back to top
+## 🌐 Pages
 
-## 🎨 Tech Stack
-
-- **HTML5** — Semantic structure
-- **Vanilla CSS** — Custom design system with HSL tokens and modern animations
-- **Vanilla JavaScript** — No frameworks, pure ES6+
-- **Leaflet.js & Esri Imagery** — Borderless satellite worldview with English labels
-- **Unsplash** — Placeholder images
-- **Google Fonts** — Outfit + Poppins typography
-
-## 🔐 Admin Access
-
-- URL: `admin/login.html`
-- Email: `admin@bcesetu.ac.in`
-- Password: `admin@2026`
+| Page | File | Description |
+|------|------|-------------|
+| **Home** | `index.html` | Landing page with hero banner, stats, quick links, events preview, and featured alumni |
+| **About Us** | `pages/about.html` | Association history, mission & vision, executive committee |
+| **Objectives** | `pages/objectives.html` | 8 core objectives of the association |
+| **Directory** | `pages/directory.html` | Searchable alumni list with filters (branch, batch, country, industry) |
+| **Events** | `pages/events.html` | Tabbed view — Upcoming Events and Past Events with photo gallery |
+| **Contact** | `pages/contact.html` | Contact form, email address, and physical address |
 
 ---
-© 2026 BCE Setu Alumni Portal
+
+## 🎨 Design System
+
+Defined entirely via CSS custom properties in `css/style.css`:
+
+| Token | Value | Purpose |
+|-------|-------|---------|
+| `--primary` | `hsl(220, 65%, 12%)` | Deep navy — primary brand colour |
+| `--secondary` | `hsl(45, 60%, 52%)` | Gold — accent and highlights |
+| `--accent` | `hsl(48, 100%, 45%)` | Vivid gold — buttons and CTAs |
+| `--bg-main` | `hsl(210, 40%, 98%)` | Light off-white page background |
+| `--radius-md` | `16px` | Standard card border radius |
+| `--transition-main` | `0.4s cubic-bezier(...)` | Smooth hover/reveal transitions |
+
+**Typography:** [Outfit](https://fonts.google.com/specimen/Outfit) (headings & body) via Google Fonts
+
+---
+
+## ⚙️ JavaScript Features (`js/main.js`)
+
+- **Mobile menu** — full-screen overlay with smooth open/close
+- **Scroll progress bar** — top-of-page reading progress indicator
+- **Reveal animations** — IntersectionObserver-powered scroll-in effects
+- **Stats counter** — animated number counting when section enters viewport
+- **Back-to-top button** — appears after scrolling 400px
+- **Featured alumni grid** — dynamically rendered from `js/data/alumni.js`
+- **Events preview grid** — dynamically rendered from `js/data/events.js`
+
+### Events Page (`pages/events.html`)
+- Tabbed UI switching between **Upcoming** and **Past Events**
+- **RSVP** for upcoming events (stored in `localStorage`)
+- **Photo gallery** for past events section
+
+### Directory Page (`pages/directory.html`)
+- Live search with autocomplete
+- Filters: branch, country, industry pills, graduation batch
+- PDF export via browser print
+- Skeleton loaders while filtering
+
+### Contact Page (`pages/contact.html`)
+- Client-side contact form with success state
+- Direct email link: `alumni@bcebhagalpur.ac.in`
+
+---
+
+## 🚀 Running Locally
+
+This is a static website — no build step required.
+
+**Option 1 — Python (recommended):**
+```bash
+cd alumni_web
+python -m http.server 8765
+# Open http://localhost:8765
+```
+
+**Option 2 — VS Code:**  
+Install the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension, right-click `index.html` → **Open with Live Server**.
+
+**Option 3 — Direct file:**  
+Open `index.html` directly in a browser (some JS features may be limited due to CORS).
+
+---
+
+## 🖼️ Logo & Branding
+
+- **Association Logo:** `assets/images/association-logo.png`
+- Used in navbar, hero section, about page, footer (all pages), and contact page
+- All pages are branded as **BCE Alumni Welfare Association**
+
+---
+
+## 📝 Adding Data
+
+### Alumni
+Edit `js/data/alumni.js` — each entry follows this structure:
+```js
+{
+  id: 1,
+  name: "Full Name",
+  role: "Job Title",
+  company: "Company Name",
+  batch: "2015",
+  branch: "CSE",          // CSE, ECE, ME, Civil, EE
+  country: "India",
+  industry: "Technology",
+  image: "https://...",
+  badges: ["Innovation Award"],
+  isMentor: true
+}
+```
+
+### Events
+Edit `js/data/events.js` — each entry follows this structure:
+```js
+{
+  id: 1,
+  title: "Annual Alumni Meet 2026",
+  date: "15 March, 2026",
+  time: "10:00 AM",
+  location: "BCE Campus, Bhagalpur",
+  description: "Brief description of the event.",
+  image: "https://...",
+  category: "Upcoming",   // or "Past"
+  rsvpCount: 142
+}
+```
+
+---
+
+## 📬 Contact
+
+**BCE Alumni Welfare Association**  
+Bhagalpur College of Engineering  
+Bhagalpur, Bihar — 813 210, India  
+✉ alumni@bcebhagalpur.ac.in
+
+---
+
+*© 2026 BCE Alumni Welfare Association. All Rights Reserved.*

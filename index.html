@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BCE Setu | Bhagalpur College of Engineering Alumni</title>
-    <meta name="description" content="Connect with our global network of distinguished alumni. Explore batches, branches, careers, and community events.">
-    <meta property="og:title" content="BCE Setu | BCE Bhagalpur Alumni Portal">
-    <meta property="og:description" content="Connect with our global network of distinguished BCE alumni since 1960.">
+    <title>BCE Alumni Welfare Association</title>
+    <meta name="description" content="Connect with our global network of distinguished BCE alumni. Explore events, directory, and community activities.">
+    <meta property="og:title" content="BCE Alumni Welfare Association">
+    <meta property="og:description" content="Connecting and empowering the global community of BCE graduates.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://bcesetu.ac.in">
-    <link rel="canonical" href="https://bcesetu.ac.in">
-    <link rel="icon" href="assets/images/alumni-cell-logo.png" type="image/png">
+    <link rel="icon" href="assets/images/association-logo.png" type="image/png">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -18,56 +16,30 @@
 
     <div class="mobile-menu-overlay" id="mobileMenu">
         <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="pages/about.html" class="mobile-nav-link">About Us</a>
+        <a href="pages/objectives.html" class="mobile-nav-link">Objectives</a>
         <a href="pages/directory.html" class="mobile-nav-link">Directory</a>
         <a href="pages/events.html" class="mobile-nav-link">Events</a>
-        <a href="pages/stories.html" class="mobile-nav-link">Stories</a>
-        <a href="pages/jobs.html" class="mobile-nav-link">Jobs</a>
-        <a href="pages/mentorship.html" class="mobile-nav-link">Mentorship</a>
-        <button class="btn-primary" onclick="window.location.href='pages/register.html'" style="margin-top:2rem;">Join Network</button>
-        
-    </div>
-
-    <div class="header-top-bar">
-        <div class="container top-bar-content">
-            <div class="institutional-logo">
-                <img src="assets/images/college-logo.png" alt="BCE Institutional Logo">
-                <span>Bhagalpur College of Engineering</span>
-            </div>
-        </div>
+        <a href="pages/contact.html" class="mobile-nav-link">Contact</a>
     </div>
 
     <nav class="navbar">
         <div class="container nav-content">
             <div class="portal-brand">
                 <a href="index.html" class="logo-cell">
-                    <img src="assets/images/alumni-cell-logo.png" alt="Alumni Cell Logo">
+                    <img src="assets/images/association-logo.png" alt="BCE Alumni Welfare Association Logo">
                 </a>
-                <a href="index.html" class="logo-text">BCE<span>Setu</span></a>
+                <a href="index.html" class="logo-text">BCE <span>Alumni</span></a>
             </div>
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="pages/about.html">About Us</a></li>
+                <li><a href="pages/objectives.html">Objectives</a></li>
                 <li><a href="pages/directory.html">Directory</a></li>
                 <li><a href="pages/events.html">Events</a></li>
-                <li><a href="pages/stories.html">Stories</a></li>
-                <li><a href="pages/jobs.html">Jobs</a></li>
-                <li><a href="pages/mentorship.html">Mentorship</a></li>
+                <li><a href="pages/contact.html">Contact</a></li>
             </ul>
             <div style="display:flex;align-items:center;gap:1.25rem;">
-                <div class="notif-wrapper">
-                    <button class="notif-bell-btn" id="notifBell" title="Notifications"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><span class="notif-badge" id="notifCount"></span></button>
-                    <div class="notif-dropdown" id="notifDropdown">
-                        <div class="notif-header">
-                            <h4>Notifications</h4>
-                            <button class="notif-clear-btn" id="clearNotifs">Mark all read</button>
-                        </div>
-                        <div class="notif-list"></div>
-                        <div class="notif-footer"><a href="#">View all</a></div>
-                    </div>
-                </div>
-                <a href="admin/login.html" title="Admin Login" style="display:inline-flex;align-items:center;color:hsl(var(--text-muted));opacity:0.7;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                </a>
-                <a href="pages/register.html" class="btn-join btn-desktop">Join Network</a>
                 <button class="menu-toggle-btn" id="menuToggle" aria-label="Open menu">
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
                 </button>
@@ -77,11 +49,14 @@
 
     <header class="hero bg-blobs">
         <div class="container hero-content">
-            <h1 class="reveal text-gradient" style="position:relative;z-index:1;">Connect with Our <br>Alumni Network</h1>
-            <p class="reveal" style="transition-delay:0.2s;position:relative;z-index:1;">From tech giants to successful startups, our graduates have been shaping the world since 1960. Join our esteemed community of BCEians.</p>
+            <div class="hero-logo-wrap reveal">
+                <img src="assets/images/association-logo.png" alt="BCE Alumni Welfare Association" class="hero-assoc-logo">
+            </div>
+            <h1 class="reveal" style="position:relative;z-index:1;">BCE Alumni Welfare<br><span class="text-gradient-gold">Association</span></h1>
+            <p class="reveal" style="transition-delay:0.2s;position:relative;z-index:1;">Connecting, empowering and celebrating our distinguished community of BCE graduates since 1960. Together we grow stronger.</p>
             <div class="hero-btns reveal" style="transition-delay:0.4s;">
-                <a href="pages/directory.html" class="btn-primary">Explore Alumni</a>
-                <a href="pages/stories.html" class="btn-secondary">View Impact</a>
+                <a href="pages/directory.html" class="btn-primary">Explore Directory</a>
+                <a href="pages/events.html" class="btn-secondary">View Events</a>
             </div>
         </div>
     </header>
@@ -113,50 +88,32 @@
     <!-- Quick Links Section -->
     <section style="padding:0 0 6rem;background:hsl(var(--bg-main));">
         <div class="container">
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;">
-                <a href="pages/jobs.html" class="stat-card reveal" style="display:block;text-align:center;text-decoration:none;padding:2rem;border-bottom:3px solid hsl(var(--secondary));">
-                    <div style="display:flex;justify-content:center;margin-bottom:0.75rem;"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--secondary))" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
-                    <h4 style="color:hsl(var(--primary));margin-bottom:0.3rem;">Job Board</h4>
-                    <p style="font-size:0.85rem;color:hsl(var(--text-muted));">Find exclusive opportunities</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;">
+                <a href="pages/about.html" class="stat-card reveal" style="display:block;text-align:center;text-decoration:none;padding:2rem;border-bottom:3px solid hsl(var(--secondary));">
+                    <div style="display:flex;justify-content:center;margin-bottom:0.75rem;"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--secondary))" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+                    <h4 style="color:hsl(var(--primary));margin-bottom:0.3rem;">About Us</h4>
+                    <p style="font-size:0.85rem;color:hsl(var(--text-muted));">Our story and mission</p>
                 </a>
-                <a href="pages/mentorship.html" class="stat-card reveal" style="display:block;text-align:center;text-decoration:none;padding:2rem;border-bottom:3px solid hsl(var(--secondary));transition-delay:0.1s;">
+                <a href="pages/objectives.html" class="stat-card reveal" style="display:block;text-align:center;text-decoration:none;padding:2rem;border-bottom:3px solid hsl(var(--secondary));transition-delay:0.1s;">
+                    <div style="display:flex;justify-content:center;margin-bottom:0.75rem;"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--secondary))" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+                    <h4 style="color:hsl(var(--primary));margin-bottom:0.3rem;">Objectives</h4>
+                    <p style="font-size:0.85rem;color:hsl(var(--text-muted));">Our goals and vision</p>
+                </a>
+                <a href="pages/directory.html" class="stat-card reveal" style="display:block;text-align:center;text-decoration:none;padding:2rem;border-bottom:3px solid hsl(var(--secondary));transition-delay:0.2s;">
                     <div style="display:flex;justify-content:center;margin-bottom:0.75rem;"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--secondary))" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-                    <h4 style="color:hsl(var(--primary));margin-bottom:0.3rem;">Mentorship</h4>
-                    <p style="font-size:0.85rem;color:hsl(var(--text-muted));">Connect with a senior BCEian</p>
+                    <h4 style="color:hsl(var(--primary));margin-bottom:0.3rem;">Directory</h4>
+                    <p style="font-size:0.85rem;color:hsl(var(--text-muted));">Find fellow BCEians</p>
                 </a>
-                <a href="pages/map.html" class="stat-card reveal" style="display:block;text-align:center;text-decoration:none;padding:2rem;border-bottom:3px solid hsl(var(--secondary));transition-delay:0.2s;">
-                    <div style="display:flex;justify-content:center;margin-bottom:0.75rem;"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--secondary))" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-                    <h4 style="color:hsl(var(--primary));margin-bottom:0.3rem;">World Map</h4>
-                    <p style="font-size:0.85rem;color:hsl(var(--text-muted));">See where BCEians are</p>
+                <a href="pages/events.html" class="stat-card reveal" style="display:block;text-align:center;text-decoration:none;padding:2rem;border-bottom:3px solid hsl(var(--secondary));transition-delay:0.3s;">
+                    <div style="display:flex;justify-content:center;margin-bottom:0.75rem;"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--secondary))" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+                    <h4 style="color:hsl(var(--primary));margin-bottom:0.3rem;">Events</h4>
+                    <p style="font-size:0.85rem;color:hsl(var(--text-muted));">Upcoming & past events</p>
                 </a>
-                <a href="pages/donate.html" class="stat-card reveal" style="display:block;text-align:center;text-decoration:none;padding:2rem;border-bottom:3px solid hsl(var(--secondary));transition-delay:0.3s;">
-                    <div style="display:flex;justify-content:center;margin-bottom:0.75rem;"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--secondary))" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
-                    <h4 style="color:hsl(var(--primary));margin-bottom:0.3rem;">Give Back</h4>
-                    <p style="font-size:0.85rem;color:hsl(var(--text-muted));">Support the next generation</p>
+                <a href="pages/contact.html" class="stat-card reveal" style="display:block;text-align:center;text-decoration:none;padding:2rem;border-bottom:3px solid hsl(var(--secondary));transition-delay:0.4s;">
+                    <div style="display:flex;justify-content:center;margin-bottom:0.75rem;"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--secondary))" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+                    <h4 style="color:hsl(var(--primary));margin-bottom:0.3rem;">Contact</h4>
+                    <p style="font-size:0.85rem;color:hsl(var(--text-muted));">Get in touch with us</p>
                 </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonial-section reveal">
-        <div class="container">
-            <h2 style="font-size:2.5rem;text-align:center;margin-bottom:4rem;">Voices of Our Legacy</h2>
-            <div class="testimonial-track">
-                <div class="testimonial-card">
-                    <p style="margin-bottom:2rem;font-style:italic;">"BCE provided me with the solid foundation I needed to excel in my PhD at Stanford. The community spirit here is unmatched."</p>
-                    <div style="display:flex;align-items:center;gap:1rem;">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop" style="border-radius:50%;" loading="lazy" alt="Arjun Sharma">
-                        <div><h4 style="margin:0;">Dr. Arjun Sharma</h4><small style="color:hsl(var(--text-muted));">Google DeepMind, Class of 2012</small></div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <p style="margin-bottom:2rem;font-style:italic;">"The ECE department at BCE is exceptionally rigorous. It's heartening to see this portal connecting generations of engineers."</p>
-                    <div style="display:flex;align-items:center;gap:1rem;">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=50&h=50&fit=crop" loading="lazy" style="border-radius:50%;" alt="Priya Patel">
-                        <div><h4 style="margin:0;">Priya Patel</h4><small style="color:hsl(var(--text-muted));">Goldman Sachs, Class of 2014</small></div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -184,7 +141,7 @@
             </div>
             <div id="featured-grid" class="alumni-grid"></div>
             <div style="text-align:center;margin-top:4rem;">
-                <a href="pages/directory.html" style="color:hsl(var(--secondary));font-weight:700;font-size:1.1rem;">View All Directory &rarr;</a>
+                <a href="pages/directory.html" style="color:hsl(var(--secondary));font-weight:700;font-size:1.1rem;">View Full Directory &rarr;</a>
             </div>
         </div>
     </section>
@@ -192,9 +149,9 @@
     <!-- CTA Banner -->
     <section class="cta-banner reveal" style="padding:8rem 0;background:#fff;text-align:center;">
         <div class="container">
-            <h2 style="font-size:3rem;margin-bottom:1.5rem;color:hsl(var(--primary));">Ready to be part of the legacy?</h2>
-            <p style="max-width:700px;margin:0 auto 3rem;color:hsl(var(--text-muted));font-size:1.2rem;">Register as an alumnus to stay connected, mentor students, and unlock networking opportunities.</p>
-            <a href="pages/register.html" class="btn-join" style="padding:1.2rem 4rem;font-size:1.2rem;">Register Now</a>
+            <h2 style="font-size:3rem;margin-bottom:1.5rem;color:hsl(var(--primary));">Be part of our legacy</h2>
+            <p style="max-width:700px;margin:0 auto 3rem;color:hsl(var(--text-muted));font-size:1.2rem;">Stay connected with the BCE Alumni Welfare Association — network, mentor, and celebrate our shared heritage.</p>
+            <a href="pages/contact.html" class="btn-join" style="padding:1.2rem 4rem;font-size:1.2rem;">Get In Touch</a>
         </div>
     </section>
 
@@ -202,43 +159,36 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-info">
-                    <a href="index.html" class="footer-logo">BCE<span>Setu</span></a>
-                    <p class="footer-text">Dedicated to fostering strong bonds between Bhagalpur College of Engineering and its global community of graduates.</p>
+                    <div class="footer-brand-wrap">
+                        <img src="assets/images/association-logo.png" alt="BCE Alumni Welfare Association" class="footer-assoc-logo">
+                        <span class="footer-logo">BCE <span>Alumni</span></span>
+                    </div>
+                    <p class="footer-text">Dedicated to fostering strong bonds between BCE graduates and empowering the global alumni community.</p>
                 </div>
-                <div class="footer-links"><h4>Portal</h4><ul>
+                <div class="footer-links"><h4>Navigation</h4><ul>
                     <li><a href="index.html">Home</a></li>
+                    <li><a href="pages/about.html">About Us</a></li>
+                    <li><a href="pages/objectives.html">Objectives</a></li>
                     <li><a href="pages/directory.html">Directory</a></li>
-                    <li><a href="pages/stories.html">Success Stories</a></li>
-                    <li><a href="pages/donate.html">Support BCE</a></li>
-                </ul></div>
-                <div class="footer-links"><h4>Community</h4><ul>
-                    <li><a href="pages/mentorship.html">Mentorship</a></li>
-                    <li><a href="pages/jobs.html">Job Board</a></li>
                     <li><a href="pages/events.html">Events</a></li>
-                    <li><a href="pages/map.html">Alumni Map</a></li>
+                    <li><a href="pages/contact.html">Contact</a></li>
                 </ul></div>
-                <div class="footer-links"><h4>Newsletter</h4>
-                    <p class="footer-newsletter-text">Get the latest updates from the alumni cell.</p>
-                    <div style="display:flex;gap:0.5rem;">
-                        <input type="email" placeholder="Email" style="padding:0.5rem;border-radius:4px;border:none;flex:1;">
-                        <button class="btn-primary" style="padding:0.5rem 1rem;border-radius:4px;cursor:pointer;">Join</button>
-                    </div>
-                    <div style="margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.1);">
-                        <a href="admin/login.html" style="display:inline-flex;align-items:center;gap:0.5rem;color:rgba(255,255,255,0.45);font-size:0.82rem;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.8)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                            Admin Portal
-                        </a>
-                    </div>
+                <div class="footer-links"><h4>Events</h4><ul>
+                    <li><a href="pages/events.html#upcoming">Upcoming Events</a></li>
+                    <li><a href="pages/events.html#past">Past Events</a></li>
+                </ul></div>
+                <div class="footer-links"><h4>Contact Us</h4>
+                    <p class="footer-newsletter-text">Have questions or want to get involved?</p>
+                    <a href="pages/contact.html" class="btn-join" style="display:inline-block;padding:0.75rem 1.5rem;font-size:0.9rem;margin-top:0.5rem;">Send a Message</a>
                 </div>
             </div>
-            <div class="footer-bottom"><p class="footer-bottom-text">&copy; 2026 BCE Setu Alumni Portal. Handcrafted with Excellence.</p></div>
+            <div class="footer-bottom"><p class="footer-bottom-text">&copy; 2026 BCE Alumni Welfare Association. All Rights Reserved.</p></div>
         </div>
     </footer>
 
     <button class="back-to-top" id="backToTop" title="Back to Top" aria-label="Back to top">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
     </button>
-    <a href="pages/register.html" class="fab-join">Join Now</a>
     <div class="toast-container" id="toastContainer"></div>
 
     <script src="js/data/alumni.js"></script>
@@ -246,4 +196,3 @@
     <script src="js/main.js"></script>
 </body>
 </html>
-
