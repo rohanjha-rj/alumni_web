@@ -1,188 +1,160 @@
 /**
- * BCE Setu Alumni Portal — Global Logic
- * Handles: Theme, Navigation, Reveal Animations, Notifications
+ * BCE Alumni Portal — Global Logic
+ * Handles: Reveal Animations, Stats Counter, Navigation, and Dynamic Grids
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    const body = document.body;
-
-
-    // ─── 2. MOBILE MENU ──────────────────────────────────────────────
-    const menuToggle = document.getElementById('menuToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-
-    if (menuToggle && mobileMenu) {
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-            menuToggle.innerText = mobileMenu.classList.contains('active') ? '✕' : '☰';
-        });
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                menuToggle.innerText = '☰';
-            });
-        });
-    }
-
-    // ─── 3. SCROLL PROGRESS ──────────────────────────────────────────
+    
+    // --- 1. Scroll Progress & Header Visibility ---
     const scrollProgress = document.getElementById('scrollProgress');
-    if (scrollProgress) {
-        window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    
+    window.addEventListener('scroll', () => {
+        if (scrollProgress) {
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             scrollProgress.style.width = ((window.scrollY / height) * 100) + '%';
-        }, { passive: true });
-    }
+        }
+        
+        if (navbar) {
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = 'var(--shadow-lg)';
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.boxShadow = 'none';
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        }
+    }, { passive: true });
 
-    // ─── 4. REVEAL ANIMATIONS & STATS ────────────────────────────────
+    // --- 2. Reveal Animations ---
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                if (entry.target.classList.contains('quick-nav')) animateStats();
+                if (entry.target.querySelector('[data-target]')) {
+                    animateStats(entry.target);
+                }
             }
         });
-    }, { threshold: 0.1 });
+    }, observerOptions);
+
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // ─── 5. STATS COUNTER ────────────────────────────────────────────
-    function animateStats() {
-        document.querySelectorAll('.stat-number').forEach(stat => {
+    // --- 3. Stats Counter ---
+    function animateStats(container) {
+        container.querySelectorAll('[data-target]').forEach(stat => {
             if (stat.getAttribute('data-animated') === 'true') return;
             stat.setAttribute('data-animated', 'true');
+            
             const target = parseInt(stat.getAttribute('data-target'));
-            const step = target / (2000 / 16);
-            let current = 0;
+            const duration = 2000;
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+
             const update = () => {
-                current += step;
+                current += increment;
                 if (current < target) {
                     stat.innerText = Math.floor(current).toLocaleString();
                     requestAnimationFrame(update);
                 } else {
-                    stat.innerText = target.toLocaleString();
+                    stat.innerText = target.toLocaleString() + '+';
                 }
             };
             update();
         });
     }
 
-    // ─── 6. BACK TO TOP ──────────────────────────────────────────────
+    // --- 4. Back to Top ---
     const backToTop = document.getElementById('backToTop');
     if (backToTop) {
         window.addEventListener('scroll', () => {
-            backToTop.classList.toggle('visible', window.scrollY > 400);
-        }, { passive: true });
-        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    }
-
-    // ─── 7. NOTIFICATION BELL (Feature #15) ──────────────────────────
-    const notifBell = document.getElementById('notifBell');
-    const notifDropdown = document.getElementById('notifDropdown');
-
-    const notifications = JSON.parse(localStorage.getItem('bce-notifications') || 'null') || [
-        { id: 1, text: '🎓 Annual Alumni Meet registration is open!', time: '2h ago', read: false },
-        { id: 2, text: '💼 New job posted by Rahul Mehra (Microsoft)', time: '5h ago', read: false },
-        { id: 3, text: '🌟 Your profile has been verified!', time: '1d ago', read: true }
-    ];
-
-    function renderNotifications() {
-        if (!notifBell || !notifDropdown) return;
-        const unread = notifications.filter(n => !n.read).length;
-        const badge = notifBell.querySelector('.notif-badge');
-        if (badge) badge.textContent = unread > 0 ? unread : '';
-        if (badge) badge.style.display = unread > 0 ? 'flex' : 'none';
-
-        const list = notifDropdown.querySelector('.notif-list');
-        if (list) {
-            list.innerHTML = notifications.map(n => `
-              <div class="notif-item ${n.read ? '' : 'unread'}" data-id="${n.id}">
-                <p>${n.text}</p>
-                <small>${n.time}</small>
-              </div>`).join('');
-            list.querySelectorAll('.notif-item').forEach(item => {
-                item.addEventListener('click', () => {
-                    const n = notifications.find(x => x.id === parseInt(item.dataset.id));
-                    if (n) n.read = true;
-                    localStorage.setItem('bce-notifications', JSON.stringify(notifications));
-                    renderNotifications();
-                });
-            });
-        }
-    }
-
-    if (notifBell) {
-        renderNotifications();
-        notifBell.addEventListener('click', (e) => {
-            e.stopPropagation();
-            notifDropdown.classList.toggle('show');
+            backToTop.classList.toggle('visible', window.scrollY > 500);
         });
-        document.addEventListener('click', (e) => {
-            if (notifDropdown && !notifDropdown.contains(e.target) && e.target !== notifBell) {
-                notifDropdown.classList.remove('show');
-            }
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-        const clearBtn = notifDropdown?.querySelector('#clearNotifs');
-        if (clearBtn) {
-            clearBtn.addEventListener('click', () => {
-                notifications.forEach(n => n.read = true);
-                localStorage.setItem('bce-notifications', JSON.stringify(notifications));
-                renderNotifications();
-            });
-        }
     }
 
-    // ─── 8. HOMEPAGE: FEATURED ALUMNI GRID ───────────────────────────
+    // --- 5. Homepage: Featured Alumni Grid ---
     const alumniGrid = document.getElementById('featured-grid');
     if (alumniGrid && typeof alumniData !== 'undefined') {
         alumniData.slice(0, 3).forEach(alumnus => {
-            const card = document.createElement('div');
+            const card = document.createElement('a');
+            card.href = `pages/directory.html?id=${alumnus.id}`;
             card.className = 'alumni-card reveal';
-            const badgesHtml = alumnus.badges ? alumnus.badges.slice(0, 2).map(b => `<span class="badge-chip">${b}</span>`).join('') : '';
+            
+            const badgesHtml = alumnus.badges 
+                ? alumnus.badges.slice(0, 2).map(b => `<span class="badge-chip">${b}</span>`).join('') 
+                : '';
+
             card.innerHTML = `
-                <div class="card-img" style="height: 240px; overflow: hidden;">
-                    <img src="${alumnus.image}" alt="${alumnus.name}" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+                <div class="card-img">
+                    <img src="${alumnus.image}" alt="${alumnus.name}" loading="lazy">
                 </div>
-                <div class="card-info" style="padding: 1.5rem;">
-                    <h3 class="card-name" style="font-size: 1.3rem; color: hsl(var(--primary)); margin-bottom:0.3rem;">${alumnus.name}</h3>
-                    <span class="card-role" style="color: hsl(var(--text-muted)); display: block; font-size:0.9rem; margin-bottom:0.75rem;">${alumnus.role} @ ${alumnus.company}</span>
-                    <div class="badge-row">${badgesHtml}</div>
-                    <div class="card-meta" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 1rem; margin-top:0.75rem;">
-                        <span class="batch-tag">Class of ${alumnus.batch}</span>
-                        <span style="font-weight: 700; color: hsl(var(--secondary)); font-size: 0.85rem;">${alumnus.branch}</span>
-                    </div>
-                </div>`;
-            card.onclick = () => window.location.href = `pages/profile.html?id=${alumnus.id}`;
-            card.style.cursor = 'pointer';
+                <h3 class="card-name">${alumnus.name}</h3>
+                <span class="card-role">${alumnus.role} @ ${alumnus.company}</span>
+                <div class="badge-row">${badgesHtml}</div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1.5rem; padding-top:1rem; border-top:1px solid var(--bg-secondary);">
+                    <span class="batch-tag">Class of ${alumnus.batch}</span>
+                    <span style="font-weight:700; font-size:0.85rem; color:var(--nav-navy);">${alumnus.branch}</span>
+                </div>
+            `;
             alumniGrid.appendChild(card);
         });
+        // Re-observe new elements
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     }
 
-    // ─── 9. HOMEPAGE: EVENTS PREVIEW GRID ────────────────────────────
+    // --- 6. Homepage: Events Preview Grid ---
     const eventsGrid = document.getElementById('events-preview-grid');
     if (eventsGrid && typeof eventsData !== 'undefined') {
         eventsData.filter(e => e.category === 'Upcoming').slice(0, 3).forEach(event => {
             const card = document.createElement('div');
             card.className = 'event-card reveal';
             card.innerHTML = `
-                <div class="event-img" style="position: relative; height: 200px; overflow: hidden;">
-                    <img src="${event.image}" alt="${event.title}" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
-                    <div class="event-date-badge">
-                        <b>${event.date.split(' ')[0]}</b><br>
-                        <span style="font-size:0.8rem; font-weight:700;">${event.date.split(' ')[1].replace(',','')}</span>
-                    </div>
+                <div class="card-img">
+                    <img src="${event.image}" alt="${event.title}" loading="lazy">
                 </div>
-                <div class="event-content" style="padding: 2rem;">
-                    <h3 class="event-title">${event.title}</h3>
-                    <p style="color: hsl(var(--text-muted)); margin-bottom: 0.75rem; font-size:0.9rem;">📍 ${event.location}</p>
-                    <p style="color: hsl(var(--text-muted)); margin-bottom: 1.5rem;">${event.description.substring(0, 80)}...</p>
-                    <div style="display:flex; justify-content:space-between; align-items:center;">
-                        <span style="font-size:0.85rem; color:hsl(var(--text-muted));">👥 ${event.rsvpCount} registered</span>
-                        <a href="pages/events.html" class="btn-join" style="font-size: 0.9rem; padding:0.6rem 1.4rem;">Register</a>
-                    </div>
-                </div>`;
+                <div style="font-size:0.8rem; font-weight:700; color:var(--modern-gold); text-transform:uppercase; margin-bottom:0.5rem; letter-spacing:0.05em;">
+                    ${event.date}
+                </div>
+                <h3 class="card-name" style="margin-bottom:0.75rem;">${event.title}</h3>
+                <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1.5rem;">${event.description.substring(0, 85)}...</p>
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <span style="font-size:0.85rem; color:var(--text-light);">📍 ${event.location}</span>
+                    <a href="pages/events.html" style="font-weight:700; color:var(--nav-navy); text-decoration:none; font-size:0.9rem;">Register →</a>
+                </div>
+            `;
             eventsGrid.appendChild(card);
         });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     }
-});
+    // --- 7. Mobile Menu Toggle ---
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            // Toggle icon if needed
+            const isOpen = mobileMenu.classList.contains('active');
+            menuToggle.innerHTML = isOpen 
+                ? `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`
+                : `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>`;
+        });
 
+        // Close menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                menuToggle.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>`;
+            });
+        });
+    }
+});

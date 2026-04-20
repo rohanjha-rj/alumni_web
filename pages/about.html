@@ -4,12 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | BCE Alumni Welfare Association</title>
-    <meta name="description" content="Learn about the BCE Alumni Welfare Association — our history, mission, and leadership.">
+    <meta name="description" content="Learn about the heritage, mission, and leadership of the BCE Alumni Welfare Association.">
     <link rel="icon" href="../assets/images/association-logo.png" type="image/png">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .page-header {
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('../assets/images/campus-hero.png');
+            background-size: cover;
+            background-position: center;
+            padding: 8rem 0;
+            color: white;
+            text-align: center;
+        }
+        .page-header h1 { color: white; font-size: 3.5rem; margin-bottom: 1.5rem; }
+        .page-header p { font-size: 1.25rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+        
+        .about-content { padding: 8rem 0; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+        .about-image { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); }
+        .about-image img { width: 100%; height: auto; display: block; }
+        
+        .mission-section { background: var(--bg-light); padding: 8rem 0; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 4rem; }
+        .feature-card { background: white; padding: 3rem; border-radius: var(--radius); border: 1px solid var(--bg-secondary); }
+        .feature-card h3 { margin-bottom: 1rem; color: var(--nav-navy); }
+        .feature-card p { color: var(--text-muted); }
+
+        @media (max-width: 900px) {
+            .about-grid { grid-template-columns: 1fr; gap: 4rem; text-align: center; }
+            .about-grid div:first-child { order: 2; }
+        }
+    </style>
 </head>
 <body>
     <div class="scroll-progress" id="scrollProgress"></div>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="../index.html" class="portal-brand">
+                <div class="logo-cell">
+                    <img src="../assets/images/association-logo.png" alt="BCE Alumni Logo">
+                </div>
+                <div class="logo-text">BCE <span>Alumni Welfare Association</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="objectives.html">Objectives</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="menu-toggle-btn" id="menuToggle" aria-label="Open menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
 
     <div class="mobile-menu-overlay" id="mobileMenu">
         <a href="../index.html" class="mobile-nav-link">Home</a>
@@ -20,255 +72,153 @@
         <a href="contact.html" class="mobile-nav-link">Contact</a>
     </div>
 
-    <nav class="navbar">
-        <div class="container nav-content">
-            <div class="portal-brand">
-                <a href="../index.html" class="logo-cell">
-                    <img src="../assets/images/association-logo.png" alt="BCE Alumni Welfare Association Logo">
-                </a>
-                <a href="../index.html" class="logo-text">BCE <span>Alumni</span></a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="about.html" class="active">About Us</a></li>
-                <li><a href="objectives.html">Objectives</a></li>
-                <li><a href="directory.html">Directory</a></li>
-                <li><a href="events.html">Events</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div style="display:flex;align-items:center;gap:1.25rem;">
-                <button class="menu-toggle-btn" id="menuToggle" aria-label="Open menu">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <header class="page-hero">
+    <header class="page-banner-premium reveal">
         <div class="container">
-            <h1 class="reveal">About Us</h1>
-            <p class="reveal" style="transition-delay:0.2s;">Learn about our institution, our association, and the initiatives that connect generations of BCEians.</p>
+            <h1>Our Legacy</h1>
+            <p>Bhagalpur College of Engineering Alumni Association — Fostering excellence through community since 1960.</p>
         </div>
     </header>
 
-    <main>
-        <!-- About Intro -->
-        <section style="background:hsl(var(--bg-main));">
-            <div class="container about-grid">
-                <div class="about-logo-block reveal">
-                    <img src="../assets/images/association-logo.png" alt="BCE Alumni Welfare Association">
-                </div>
-                <div class="reveal" style="transition-delay:0.2s;">
-                    <span class="section-badge">Est. 1960</span>
-                    <h2 style="font-size:2.5rem;margin-bottom:1.5rem;color:hsl(var(--primary));">BCE Alumni Welfare Association</h2>
-                    <p style="color:hsl(var(--text-muted));margin-bottom:1.5rem;line-height:1.9;font-size:1.05rem;">
-                        The <strong>BCE Alumni Welfare Association</strong> is the official body representing all graduates of Bhagalpur College of Engineering. Founded to nurture lifelong connections among our alumni, the association works tirelessly to support its members and contribute to the institution's legacy.
-                    </p>
-                    <p style="color:hsl(var(--text-muted));margin-bottom:1.5rem;line-height:1.9;font-size:1.05rem;">
-                        With members spanning six decades of engineering education across India and around the world, we are more than an alumni network — we are a family united by our shared experience, values, and pride in our alma mater.
-                    </p>
-                    <p style="color:hsl(var(--text-muted));line-height:1.9;font-size:1.05rem;">
-                        Our association actively organizes events, facilitates networking, supports students still on campus, and advocates for the welfare of all BCE graduates — wherever they may be in the world.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- About BCE Institution -->
-        <section style="padding:6rem 0;background:#fff;">
-            <div class="container">
-                <div style="text-align:center;margin-bottom:4rem;" class="reveal">
-                    <span class="section-badge">Our Institution</span>
-                    <h2 style="font-size:2.5rem;color:hsl(var(--primary));">Bhagalpur College of Engineering</h2>
-                </div>
-                <div class="reveal" style="max-width:880px;margin:0 auto;">
-                    <div style="background:hsl(var(--bg-main));border-radius:var(--radius-md);padding:3rem;box-shadow:var(--shadow-md);border-left:5px solid hsl(var(--secondary));position:relative;overflow:hidden;">
-                        <div style="position:absolute;top:-20px;right:-20px;font-size:8rem;opacity:0.04;font-weight:900;color:hsl(var(--primary));line-height:1;pointer-events:none;">BCE</div>
-                        <p style="color:hsl(var(--text-muted));line-height:2;font-size:1.08rem;margin:0;">
-                            <strong style="color:hsl(var(--primary));">Bhagalpur College of Engineering (BCE)</strong>, located in the historic city of Bhagalpur, Bihar, is one of the oldest and most respected engineering institutions in the region. Known for its academic excellence and strong foundation in technical education, BCE has produced generations of skilled engineers who have made valuable contributions across industries in India and abroad. Bhagalpur itself, often referred to as the <em>"Silk City,"</em> is rich in culture, heritage, and educational significance.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Association Purpose -->
-        <section style="padding:6rem 0;background:hsl(var(--bg-main));">
-            <div class="container">
-                <div style="text-align:center;margin-bottom:4rem;" class="reveal">
-                    <span class="section-badge">Our Purpose</span>
-                    <h2 style="font-size:2.5rem;color:hsl(var(--primary));">What We Do</h2>
-                </div>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;" class="reveal">
-                    <div style="background:hsl(var(--bg-white));padding:3rem;border-radius:var(--radius-md);border-top:5px solid hsl(var(--secondary));box-shadow:var(--shadow-md);">
-                        <div style="width:48px;height:48px;border-radius:var(--radius-sm);background:hsla(var(--secondary),0.12);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--secondary))" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                        </div>
-                        <h3 style="font-size:1.4rem;color:hsl(var(--primary));margin-bottom:1rem;">Building a Connected Community</h3>
-                        <p style="color:hsl(var(--text-muted));line-height:1.9;">The Alumni Association of BCE aims to build a strong and connected community of former students, especially creating a vibrant networking platform for BCE alumni in Bangalore. The association is committed to the welfare and growth of current students by fostering mentorship, guidance, and meaningful engagement.</p>
-                    </div>
-                    <div style="background:hsl(var(--bg-white));padding:3rem;border-radius:var(--radius-md);border-top:5px solid hsl(var(--secondary));box-shadow:var(--shadow-md);">
-                        <div style="width:48px;height:48px;border-radius:var(--radius-sm);background:hsla(var(--secondary),0.12);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--secondary))" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
-                        </div>
-                        <h3 style="font-size:1.4rem;color:hsl(var(--primary));margin-bottom:1rem;">Bridging Academia &amp; Industry</h3>
-                        <p style="color:hsl(var(--text-muted));line-height:1.9;">By bringing alumni and students closer to industry opportunities, the association strives to bridge the gap between academic learning and professional growth, ensuring that BCE students are well-supported, inspired, and prepared for their future careers.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Campus Connect Initiative -->
-        <section style="padding:6rem 0;background:#fff;">
-            <div class="container">
-                <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:center;" class="reveal">
-                    <div>
-                        <div style="background:linear-gradient(135deg,hsl(var(--primary)) 0%,hsl(var(--primary-light)) 100%);border-radius:var(--radius-md);padding:3rem 2.5rem;box-shadow:var(--shadow-lg);color:white;height:100%;box-sizing:border-box;">
-                            <div style="display:inline-flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.12);padding:0.5rem 1.2rem;border-radius:var(--radius-full);font-size:0.85rem;font-weight:700;letter-spacing:0.08em;margin-bottom:2rem;text-transform:uppercase;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                                Key Initiative
-                            </div>
-                            <h3 style="font-size:2rem;font-weight:800;margin-bottom:1rem;line-height:1.2;">Campus<br>Connect</h3>
-                            <p style="opacity:0.8;line-height:1.8;font-size:0.95rem;">Mentor &amp; support — Bringing alumni and students together through structured engagement and real-world guidance.</p>
-                            <div style="margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.15);display:flex;flex-direction:column;gap:0.75rem;">
-                                <div style="display:flex;align-items:center;gap:0.75rem;font-size:0.9rem;opacity:0.9;"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--secondary))" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Mentorship Sessions</div>
-                                <div style="display:flex;align-items:center;gap:0.75rem;font-size:0.9rem;opacity:0.9;"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--secondary))" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Career Guidance</div>
-                                <div style="display:flex;align-items:center;gap:0.75rem;font-size:0.9rem;opacity:0.9;"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--secondary))" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Industry Exposure</div>
-                                <div style="display:flex;align-items:center;gap:0.75rem;font-size:0.9rem;opacity:0.9;"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--secondary))" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Financial Support for Needy Students</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <span class="section-badge">Our Flagship Programme</span>
-                        <h2 style="font-size:2.2rem;color:hsl(var(--primary));margin-bottom:1.5rem;">Campus Connect Programme</h2>
-                        <p style="color:hsl(var(--text-muted));line-height:1.9;font-size:1.05rem;margin-bottom:1.5rem;">
-                            <strong>Campus Connect</strong> is designed to bring alumni and current BCE students together through structured mentorship, career guidance sessions, and direct industry exposure.
-                        </p>
-                        <p style="color:hsl(var(--text-muted));line-height:1.9;font-size:1.05rem;">
-                            Through this programme, experienced alumni share real-world insights, help students navigate career choices, and open doors to internship and placement opportunities — ensuring no BCEian enters the professional world unprepared.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Executive Committee -->
-        <section style="padding:6rem 0;background:hsl(var(--bg-main));">
-            <div class="container">
-                <div style="text-align:center;margin-bottom:4rem;" class="reveal">
-                    <span class="section-badge">Leadership</span>
-                    <h2 style="font-size:2.5rem;color:hsl(var(--primary));">Executive Committee</h2>
-                    <p style="color:hsl(var(--text-muted));margin-top:0.75rem;max-width:520px;margin-left:auto;margin-right:auto;">The elected team steering the BCE Alumni Welfare Association's activities and initiatives.</p>
-                </div>
-
-                <!-- Office Bearers -->
-                <div style="max-width:900px;margin:0 auto;" class="reveal">
-                    <div style="background:hsl(var(--bg-white));border-radius:var(--radius-md);box-shadow:var(--shadow-md);overflow:hidden;">
-                        <!-- Header row -->
-                        <div style="display:grid;grid-template-columns:1fr 2fr;background:hsl(var(--primary));padding:1rem 2.5rem;font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:hsla(45,60%,70%,1);">
-                            <span>Designation</span>
-                            <span>Name</span>
-                        </div>
-                        <!-- Rows -->
-                        <div id="committee-rows">
-                            <div style="display:grid;grid-template-columns:1fr 2fr;padding:1.2rem 2.5rem;border-bottom:1px solid hsl(var(--bg-main));align-items:center;transition:background 0.2s;" onmouseover="this.style.background='hsl(var(--bg-main))'" onmouseout="this.style.background='transparent'">
-                                <span style="font-size:0.85rem;font-weight:700;color:hsl(var(--secondary));text-transform:uppercase;letter-spacing:0.05em;">President</span>
-                                <span style="font-size:1.05rem;font-weight:600;color:hsl(var(--primary));">Binay Kumar Roy</span>
-                            </div>
-                            <div style="display:grid;grid-template-columns:1fr 2fr;padding:1.2rem 2.5rem;border-bottom:1px solid hsl(var(--bg-main));align-items:center;transition:background 0.2s;" onmouseover="this.style.background='hsl(var(--bg-main))'" onmouseout="this.style.background='transparent'">
-                                <span style="font-size:0.85rem;font-weight:700;color:hsl(var(--secondary));text-transform:uppercase;letter-spacing:0.05em;">Vice President</span>
-                                <span style="font-size:1.05rem;font-weight:600;color:hsl(var(--primary));">Manish Kumar</span>
-                            </div>
-                            <div style="display:grid;grid-template-columns:1fr 2fr;padding:1.2rem 2.5rem;border-bottom:1px solid hsl(var(--bg-main));align-items:center;transition:background 0.2s;" onmouseover="this.style.background='hsl(var(--bg-main))'" onmouseout="this.style.background='transparent'">
-                                <span style="font-size:0.85rem;font-weight:700;color:hsl(var(--secondary));text-transform:uppercase;letter-spacing:0.05em;">General Secretary</span>
-                                <span style="font-size:1.05rem;font-weight:600;color:hsl(var(--primary));">Satya Prakash Roy</span>
-                            </div>
-                            <div style="display:grid;grid-template-columns:1fr 2fr;padding:1.2rem 2.5rem;border-bottom:1px solid hsl(var(--bg-main));align-items:center;transition:background 0.2s;" onmouseover="this.style.background='hsl(var(--bg-main))'" onmouseout="this.style.background='transparent'">
-                                <span style="font-size:0.85rem;font-weight:700;color:hsl(var(--secondary));text-transform:uppercase;letter-spacing:0.05em;">Joint Secretary</span>
-                                <span style="font-size:1.05rem;font-weight:600;color:hsl(var(--primary));">Atul Anand</span>
-                            </div>
-                            <div style="display:grid;grid-template-columns:1fr 2fr;padding:1.2rem 2.5rem;border-bottom:1px solid hsl(var(--bg-main));align-items:center;transition:background 0.2s;" onmouseover="this.style.background='hsl(var(--bg-main))'" onmouseout="this.style.background='transparent'">
-                                <span style="font-size:0.85rem;font-weight:700;color:hsl(var(--secondary));text-transform:uppercase;letter-spacing:0.05em;">Treasurer</span>
-                                <span style="font-size:1.05rem;font-weight:600;color:hsl(var(--primary));">Rajeev Ranjan</span>
-                            </div>
-                            <div style="display:grid;grid-template-columns:1fr 2fr;padding:1.2rem 2.5rem;border-bottom:1px solid hsl(var(--bg-main));align-items:center;transition:background 0.2s;" onmouseover="this.style.background='hsl(var(--bg-main))'" onmouseout="this.style.background='transparent'">
-                                <span style="font-size:0.85rem;font-weight:700;color:hsl(var(--secondary));text-transform:uppercase;letter-spacing:0.05em;">Joint Treasurer</span>
-                                <span style="font-size:1.05rem;font-weight:600;color:hsl(var(--primary));">Prafulla Kumar Singh</span>
-                            </div>
-                            <!-- Members -->
-                            <div style="display:grid;grid-template-columns:1fr 2fr;padding:1.2rem 2.5rem;border-bottom:1px solid hsl(var(--bg-main));align-items:center;background:hsla(var(--primary),0.02);transition:background 0.2s;" onmouseover="this.style.background='hsl(var(--bg-main))'" onmouseout="this.style.background='hsla(var(--primary),0.02)'">
-                                <span style="font-size:0.85rem;font-weight:600;color:hsl(var(--text-muted));text-transform:uppercase;letter-spacing:0.05em;">Member</span>
-                                <span style="font-size:1.05rem;font-weight:600;color:hsl(var(--primary));">Pankaj Kumar</span>
-                            </div>
-                            <div style="display:grid;grid-template-columns:1fr 2fr;padding:1.2rem 2.5rem;border-bottom:1px solid hsl(var(--bg-main));align-items:center;background:hsla(var(--primary),0.02);transition:background 0.2s;" onmouseover="this.style.background='hsl(var(--bg-main))'" onmouseout="this.style.background='hsla(var(--primary),0.02)'">
-                                <span style="font-size:0.85rem;font-weight:600;color:hsl(var(--text-muted));text-transform:uppercase;letter-spacing:0.05em;">Member</span>
-                                <span style="font-size:1.05rem;font-weight:600;color:hsl(var(--primary));">Dheeraj Kumar Singh</span>
-                            </div>
-                            <div style="display:grid;grid-template-columns:1fr 2fr;padding:1.2rem 2.5rem;border-bottom:1px solid hsl(var(--bg-main));align-items:center;background:hsla(var(--primary),0.02);transition:background 0.2s;" onmouseover="this.style.background='hsl(var(--bg-main))'" onmouseout="this.style.background='hsla(var(--primary),0.02)'">
-                                <span style="font-size:0.85rem;font-weight:600;color:hsl(var(--text-muted));text-transform:uppercase;letter-spacing:0.05em;">Member</span>
-                                <span style="font-size:1.05rem;font-weight:600;color:hsl(var(--primary));">Shekhar Srivastava</span>
-                            </div>
-                            <div style="display:grid;grid-template-columns:1fr 2fr;padding:1.2rem 2.5rem;border-bottom:1px solid hsl(var(--bg-main));align-items:center;background:hsla(var(--primary),0.02);transition:background 0.2s;" onmouseover="this.style.background='hsl(var(--bg-main))'" onmouseout="this.style.background='hsla(var(--primary),0.02)'">
-                                <span style="font-size:0.85rem;font-weight:600;color:hsl(var(--text-muted));text-transform:uppercase;letter-spacing:0.05em;">Member</span>
-                                <span style="font-size:1.05rem;font-weight:600;color:hsl(var(--primary));">Chandan Kumar</span>
-                            </div>
-                            <div style="display:grid;grid-template-columns:1fr 2fr;padding:1.2rem 2.5rem;align-items:center;background:hsla(var(--primary),0.02);transition:background 0.2s;" onmouseover="this.style.background='hsl(var(--bg-main))'" onmouseout="this.style.background='hsla(var(--primary),0.02)'">
-                                <span style="font-size:0.85rem;font-weight:600;color:hsl(var(--text-muted));text-transform:uppercase;letter-spacing:0.05em;">Member</span>
-                                <span style="font-size:1.05rem;font-weight:600;color:hsl(var(--primary));">Shweta Rani</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA -->
-        <section style="padding:6rem 0;background:#fff;text-align:center;" class="reveal">
-            <div class="container">
-                <h2 style="font-size:2.5rem;color:hsl(var(--primary));margin-bottom:1rem;">Have Questions?</h2>
-                <p style="color:hsl(var(--text-muted));margin-bottom:2rem;font-size:1.1rem;">We'd love to hear from you. Reach out to our team at any time.</p>
-                <a href="contact.html" class="btn-join" style="padding:1rem 3rem;">Contact Us</a>
-            </div>
-        </section>
-    </main>
-
-    <footer>
+    <section class="about-content">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-info">
-                    <div class="footer-brand-wrap">
-                        <img src="../assets/images/association-logo.png" alt="BCE Alumni Welfare Association" class="footer-assoc-logo">
-                        <span class="footer-logo">BCE <span>Alumni</span></span>
-                    </div>
-                    <p class="footer-text">Dedicated to fostering strong bonds between BCE graduates and empowering the global alumni community.</p>
+            <div class="about-grid">
+                <div class="reveal">
+                    <h2 style="text-align:left; margin-bottom:2rem;">Bridging Generations</h2>
+                    <p style="margin-bottom:1.5rem; font-size:1.1rem;">The <strong>BCE Alumni Welfare Association</strong> is more than just a network. It is a prestigious family of engineers who have shaped industries across the globe.</p>
+                    <p style="color:var(--text-muted); line-height:2;">Founded to nurture lifelong connections, our association works tirelessly to celebrate the accomplishments of our members while giving back to the institution that gave us our start.</p>
                 </div>
-                <div class="footer-links"><h4>Navigation</h4><ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="objectives.html">Objectives</a></li>
-                    <li><a href="directory.html">Directory</a></li>
-                    <li><a href="events.html">Events</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul></div>
-                <div class="footer-links"><h4>Events</h4><ul>
-                    <li><a href="events.html#upcoming">Upcoming Events</a></li>
-                    <li><a href="events.html#past">Past Events</a></li>
-                </ul></div>
-                <div class="footer-links"><h4>Contact Us</h4>
-                    <p class="footer-newsletter-text">Have questions or want to get involved?</p>
-                    <a href="contact.html" class="btn-join" style="display:inline-block;padding:0.75rem 1.5rem;font-size:0.9rem;margin-top:0.5rem;">Send a Message</a>
+                <div class="about-image reveal" style="transition-delay:0.2s;">
+                    <img src="../assets/images/campus-hero.png" alt="BCE Campus">
                 </div>
             </div>
-            <div class="footer-bottom"><p class="footer-bottom-text">&copy; 2026 BCE Alumni Welfare Association. All Rights Reserved.</p></div>
+        </div>
+    </section>
+
+    <section class="mission-section" style="padding-bottom: 0;">
+        <div class="container">
+            <h2 class="reveal">Our Institutional Focus</h2>
+            <p class="section-desc reveal">We are committed to three core pillars that define our mission and value to the BCE community.</p>
+            <div class="feature-grid flex-center-grid">
+                <div class="feature-card reveal" style="max-width: 400px;">
+                    <h3>Community First</h3>
+                    <p>Maintaining a robust, global directory of graduates to ensure every BCEian is just a message away from mentorship or opportunity.</p>
+                </div>
+                <div class="feature-card reveal" style="transition-delay:0.1s; max-width: 400px;">
+                    <h3>Academic Support</h3>
+                    <p>Bridging the gap between current students and industry leaders through mentorship, guidance, and financial support programmes.</p>
+                </div>
+                <div class="feature-card reveal" style="transition-delay:0.2s; max-width: 400px;">
+                    <h3>Institutional Growth</h3>
+                    <p>Advocating for the welfare and development of Bhagalpur College of Engineering to ensure its legacy continues for decades to come.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section>
+        <div class="container">
+            <div class="premium-header-wrap reveal">
+                <span class="section-badge">Leadership</span>
+                <h2>Association Position Holders</h2>
+                <p style="color:var(--text-muted); max-width:600px; margin: 1rem auto 0;">The dedicated team leading the BCE Alumni Welfare Association towards its mission.</p>
+            </div>
+            
+            <div class="position-grid">
+                <div class="position-card reveal">
+                    <div class="holder-name">Binay Kumar Roy</div>
+                    <div class="holder-title">President</div>
+                </div>
+                <div class="position-card reveal" style="transition-delay:0.05s;">
+                    <div class="holder-name">Manish Kumar</div>
+                    <div class="holder-title">Vice President</div>
+                </div>
+                <div class="position-card reveal" style="transition-delay:0.1s;">
+                    <div class="holder-name">Satya Prakash Roy</div>
+                    <div class="holder-title">General Secretary</div>
+                </div>
+                <div class="position-card reveal" style="transition-delay:0.15s;">
+                    <div class="holder-name">Atul Anand</div>
+                    <div class="holder-title">Joint Secretary</div>
+                </div>
+                <div class="position-card reveal" style="transition-delay:0.2s;">
+                    <div class="holder-name">Rajeev Ranjan</div>
+                    <div class="holder-title">Treasurer</div>
+                </div>
+                <div class="position-card reveal" style="transition-delay:0.25s;">
+                    <div class="holder-name">Prafulla Kumar Singh</div>
+                    <div class="holder-title">Joint Treasurer</div>
+                </div>
+                <div class="position-card reveal" style="transition-delay:0.3s;">
+                    <div class="holder-name">Pankaj Kumar</div>
+                    <div class="holder-title">Member</div>
+                </div>
+                <div class="position-card reveal" style="transition-delay:0.35s;">
+                    <div class="holder-name">Dheeraj Kumar Singh</div>
+                    <div class="holder-title">Member</div>
+                </div>
+                <div class="position-card reveal" style="transition-delay:0.4s;">
+                    <div class="holder-name">Shekhar Srivastava</div>
+                    <div class="holder-title">Member</div>
+                </div>
+                <div class="position-card reveal" style="transition-delay:0.45s;">
+                    <div class="holder-name">Chandan Kumar</div>
+                    <div class="holder-title">Member</div>
+                </div>
+                <div class="position-card reveal" style="transition-delay:0.5s;">
+                    <div class="holder-name">Shweta Rani</div>
+                    <div class="holder-title">Member</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-standard">
+        <div class="container">
+            <div class="footer-grid-premium">
+                <div class="footer-info">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <img src="../assets/images/association-logo.png" alt="BCE Logo" class="footer-assoc-logo">
+                        <a href="../index.html" class="footer-logo" style="margin-bottom: 0;">BCE <span>Alumni Welfare Association</span></a>
+                    </div>
+                    <p class="footer-text">The official alumni welfare association of Bhagalpur College of Engineering. Connecting generations since 1960.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="objectives.html">Objectives</a></li>
+                        <li><a href="directory.html">Directory</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="#">Wall of Fame</a></li>
+                        <li><a href="#">Mentorship</a></li>
+                        <li><a href="#">Giving Back</a></li>
+                        <li><a href="#">Campus Connect</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact Us</h4>
+                    <p class="footer-text" style="margin-bottom: 1rem;">Have questions? Reach out to our dedicated support team.</p>
+                    <a href="contact.html" class="btn-primary" style="display: inline-block; padding: 0.8rem 1.5rem; text-decoration: none; font-size: 0.9rem;">Send a Message</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 BCE Alumni Welfare Association. All Rights Reserved.
+            </div>
         </div>
     </footer>
 
-    <button class="back-to-top" id="backToTop" title="Back to Top" aria-label="Back to top">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+    <button class="back-to-top" id="backToTop">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
     </button>
-    <div class="toast-container" id="toastContainer"></div>
-    <script src="../js/data/alumni.js"></script>
-    <script src="../js/data/events.js"></script>
+
     <script src="../js/main.js"></script>
 </body>
 </html>

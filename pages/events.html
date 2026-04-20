@@ -76,10 +76,10 @@
 
     <nav class="navbar">
         <div class="container nav-content">
-            <div class="portal-brand">
-                <a href="../index.html" class="logo-cell"><img src="../assets/images/association-logo.png" alt="BCE Alumni Welfare Association Logo"></a>
-                <a href="../index.html" class="logo-text">BCE <span>Alumni</span></a>
-            </div>
+            <a href="../index.html" class="portal-brand">
+                <div class="logo-cell"><img src="../assets/images/association-logo.png" alt="BCE Alumni Welfare Association Logo"></div>
+                <div class="logo-text">BCE <span>Alumni Welfare Association</span></div>
+            </a>
             <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
@@ -88,7 +88,7 @@
                 <li><a href="events.html" class="active">Events</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <div style="display:flex;align-items:center;gap:1rem;">
+            <div class="nav-actions">
                 <button class="menu-toggle-btn" id="menuToggle" aria-label="Open menu">
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
                 </button>
@@ -96,14 +96,23 @@
         </div>
     </nav>
 
-    <header class="page-hero">
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <a href="../index.html" class="mobile-nav-link">Home</a>
+        <a href="about.html" class="mobile-nav-link">About Us</a>
+        <a href="objectives.html" class="mobile-nav-link">Objectives</a>
+        <a href="directory.html" class="mobile-nav-link">Directory</a>
+        <a href="events.html" class="mobile-nav-link">Events</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+    </div>
+
+    <header class="page-banner-premium reveal">
         <div class="container">
-            <h1 class="reveal">Alumni Events</h1>
-            <p class="reveal" style="transition-delay:0.2s;">Stay connected through reunions, seminars, and community gatherings organized by the BCE Alumni Welfare Association.</p>
+            <h1>Alumni Events</h1>
+            <p>Stay connected through reunions, seminars, and community gatherings organized by the BCE Alumni Welfare Association.</p>
         </div>
     </header>
 
-    <main class="container" style="padding:6rem 2rem;">
+    <main class="container" style="padding:8rem 2rem;">
         <!-- Tabs -->
         <div class="events-tabs reveal">
             <button class="tab-btn active" id="tabUpcoming" onclick="switchTab('upcoming')">
@@ -118,19 +127,28 @@
 
         <!-- Upcoming Section -->
         <div id="upcoming" class="tab-section active">
-            <h2 class="event-category-title reveal" id="upcoming-section">Upcoming Events</h2>
+            <div class="premium-header-wrap reveal">
+                <span class="section-badge">Stay Updated</span>
+                <h2>Upcoming Events</h2>
+            </div>
             <div id="upcoming-events-grid" class="events-grid reveal" style="transition-delay:0.3s;"></div>
         </div>
 
         <!-- Past Section -->
         <div id="past" class="tab-section">
-            <h2 class="event-category-title reveal" id="past-section">Past Events</h2>
+            <div class="premium-header-wrap reveal">
+                <span class="section-badge">Memories</span>
+                <h2>Past Events</h2>
+            </div>
             <div id="past-events-grid" class="events-grid reveal" style="transition-delay:0.3s;opacity:0.9;"></div>
 
             <!-- Photo Gallery -->
-            <div style="margin-top:6rem;" class="reveal">
-                <h2 class="event-category-title">Event Photo Gallery</h2>
-                <p style="color:hsl(var(--text-muted));margin-bottom:1rem;">Memories from our past gatherings and reunions.</p>
+            <div style="margin-top:8rem;" class="reveal">
+                <div class="premium-header-wrap">
+                    <span class="section-badge">Highlights</span>
+                    <h2>Event Photo Gallery</h2>
+                    <p style="color:var(--text-muted);margin-top:1rem;">Memories from our past gatherings and reunions worldwide.</p>
+                </div>
                 <div class="photo-gallery" id="photoGallery">
                     <!-- Photos rendered by JS below -->
                 </div>
@@ -138,34 +156,45 @@
         </div>
     </main>
 
-    <footer>
+    <footer class="footer-standard">
         <div class="container">
-            <div class="footer-grid">
+            <div class="footer-grid-premium">
                 <div class="footer-info">
-                    <div class="footer-brand-wrap">
-                        <img src="../assets/images/association-logo.png" alt="BCE Alumni Welfare Association" class="footer-assoc-logo">
-                        <span class="footer-logo">BCE <span>Alumni</span></span>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <img src="../assets/images/association-logo.png" alt="BCE Logo" class="footer-assoc-logo">
+                        <a href="../index.html" class="footer-logo" style="margin-bottom: 0;">BCE <span>Alumni Welfare Association</span></a>
                     </div>
-                    <p class="footer-text">Dedicated to fostering strong bonds between BCE graduates and empowering the global alumni community.</p>
+                    <p class="footer-text">The official alumni welfare association of Bhagalpur College of Engineering. Connecting generations since 1960.</p>
                 </div>
-                <div class="footer-links"><h4>Navigation</h4><ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="objectives.html">Objectives</a></li>
-                    <li><a href="directory.html">Directory</a></li>
-                    <li><a href="events.html">Events</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul></div>
-                <div class="footer-links"><h4>Events</h4><ul>
-                    <li><a href="#upcoming">Upcoming Events</a></li>
-                    <li><a href="#past">Past Events</a></li>
-                </ul></div>
-                <div class="footer-links"><h4>Contact Us</h4>
-                    <p class="footer-newsletter-text">Have questions or want to get involved?</p>
-                    <a href="contact.html" class="btn-join" style="display:inline-block;padding:0.75rem 1.5rem;font-size:0.9rem;margin-top:0.5rem;">Send a Message</a>
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="objectives.html">Objectives</a></li>
+                        <li><a href="directory.html">Directory</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="#">Wall of Fame</a></li>
+                        <li><a href="#">Mentorship</a></li>
+                        <li><a href="#">Giving Back</a></li>
+                        <li><a href="#">Campus Connect</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact Us</h4>
+                    <p class="footer-text" style="margin-bottom: 1rem;">Have questions? Reach out to our dedicated support team.</p>
+                    <a href="contact.html" class="btn-primary" style="display: inline-block; padding: 0.8rem 1.5rem; text-decoration: none; font-size: 0.9rem;">Send a Message</a>
                 </div>
             </div>
-            <div class="footer-bottom"><p class="footer-bottom-text">&copy; 2026 BCE Alumni Welfare Association. All Rights Reserved.</p></div>
+            <div class="footer-bottom">
+                &copy; 2026 BCE Alumni Welfare Association. All Rights Reserved.
+            </div>
         </div>
     </footer>
 
@@ -216,7 +245,7 @@
                             <p style="color:hsl(var(--text-muted));margin-bottom:1.5rem;">${event.description}</p>
                             <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;">
                                 <span style="font-size:0.85rem;color:hsl(var(--text-muted));">👥 ${event.rsvpCount} ${isPast ? 'attended' : 'registered'}</span>
-                                ${isPast ? '' : `<button class="btn-join rsvp-btn" data-id="${event.id}" style="font-size:0.9rem;border:none;cursor:pointer;${hasRSVP ? 'background:hsl(var(--primary));opacity:0.7;pointer-events:none;' : ''}">${hasRSVP ? '✓ Registered' : 'RSVP Now'}</button>`}
+                                ${isPast ? '' : `<button class="btn-rsvp rsvp-btn" data-id="${event.id}" style="${hasRSVP ? 'background:var(--nav-navy);color:white;opacity:0.7;pointer-events:none;' : ''}">${hasRSVP ? '✓ Registered' : 'RSVP Now'}</button>`}
                             </div>
                         </div>
                     </div>`;

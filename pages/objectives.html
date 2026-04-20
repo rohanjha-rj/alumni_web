@@ -22,12 +22,12 @@
 
     <nav class="navbar">
         <div class="container nav-content">
-            <div class="portal-brand">
-                <a href="../index.html" class="logo-cell">
+            <a href="../index.html" class="portal-brand">
+                <div class="logo-cell">
                     <img src="../assets/images/association-logo.png" alt="BCE Alumni Welfare Association Logo">
-                </a>
-                <a href="../index.html" class="logo-text">BCE <span>Alumni</span></a>
-            </div>
+                </div>
+                <div class="logo-text">BCE <span>Alumni Welfare Association</span></div>
+            </a>
             <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
@@ -36,7 +36,7 @@
                 <li><a href="events.html">Events</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <div style="display:flex;align-items:center;gap:1.25rem;">
+            <div class="nav-actions">
                 <button class="menu-toggle-btn" id="menuToggle" aria-label="Open menu">
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
                 </button>
@@ -44,55 +44,64 @@
         </div>
     </nav>
 
-    <header class="page-hero">
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <a href="../index.html" class="mobile-nav-link">Home</a>
+        <a href="about.html" class="mobile-nav-link">About Us</a>
+        <a href="objectives.html" class="mobile-nav-link">Objectives</a>
+        <a href="directory.html" class="mobile-nav-link">Directory</a>
+        <a href="events.html" class="mobile-nav-link">Events</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+    </div>
+
+    <header class="page-banner-premium reveal">
         <div class="container">
-            <h1 class="reveal">Aims &amp; Objectives</h1>
-            <p class="reveal" style="transition-delay:0.2s;">The principles and goals that guide every initiative of the BCE Alumni Welfare Association.</p>
+            <h1>Aims & Objectives</h1>
+            <p>The core principles and institutional goals that guide every initiative of the BCE Alumni Welfare Association since its inception.</p>
         </div>
     </header>
 
     <main>
 
         <!-- High-Level Objectives -->
-        <section style="padding:6rem 0;background:hsl(var(--bg-main));">
+        <section style="padding:8rem 0;background:hsl(var(--bg-light));">
             <div class="container">
-                <div style="text-align:center;margin-bottom:4rem;" class="reveal">
-                    <span class="section-badge">High-Level Goals</span>
-                    <h2 style="font-size:2.5rem;color:hsl(var(--primary));">What We Stand For</h2>
-                    <p style="color:hsl(var(--text-muted));max-width:620px;margin:1rem auto 0;line-height:1.8;">Following are the high-level objectives of the association, guiding our work in Bangalore and beyond.</p>
+                <div class="premium-header-wrap reveal">
+                    <span class="section-badge">Mission Statements</span>
+                    <h2>What We Stand For</h2>
+                    <p style="color:var(--text-muted);max-width:620px;margin:1rem auto 0;line-height:1.8;">Our objectives are designed to foster professional growth, student welfare, and lifelong institutional bonds.</p>
                 </div>
-                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;" class="reveal">
+                <div class="flex-center-grid reveal">
 
-                    <div style="background:hsl(var(--bg-white));border-radius:var(--radius-md);padding:2.5rem;box-shadow:var(--shadow-md);border-top:4px solid hsl(var(--secondary));transition:var(--transition-main);" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='none'">
-                        <div style="width:44px;height:44px;border-radius:var(--radius-sm);background:hsla(var(--secondary),0.12);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--secondary))" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <div class="aim-card-premium">
+                        <div class="aim-icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                         </div>
-                        <h3 style="font-size:1.15rem;color:hsl(var(--primary));margin-bottom:0.75rem;line-height:1.4;">Networking Platform in Bangalore</h3>
-                        <p style="color:hsl(var(--text-muted));line-height:1.8;font-size:0.95rem;">Creating a vibrant and active platform for the networking of BCE students and alumni based in Bangalore.</p>
+                        <h3>Global Networking</h3>
+                        <p style="color:var(--text-muted);line-height:1.8;font-size:0.95rem;">Creating a vibrant and active platform for the networking of BCE alumni based across the globe, starting from our hub in Bangalore.</p>
                     </div>
 
-                    <div style="background:hsl(var(--bg-white));border-radius:var(--radius-md);padding:2.5rem;box-shadow:var(--shadow-md);border-top:4px solid hsl(var(--secondary));transition:var(--transition-main);" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='none'">
-                        <div style="width:44px;height:44px;border-radius:var(--radius-sm);background:hsla(var(--secondary),0.12);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--secondary))" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <div class="aim-card-premium">
+                        <div class="aim-icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
                         </div>
-                        <h3 style="font-size:1.15rem;color:hsl(var(--primary));margin-bottom:0.75rem;line-height:1.4;">Welfare of BCE Students</h3>
-                        <p style="color:hsl(var(--text-muted));line-height:1.8;font-size:0.95rem;">Actively promoting the welfare of current students of BCE Bhagalpur through support, resources, and community engagement.</p>
+                        <h3>Student Welfare</h3>
+                        <p style="color:var(--text-muted);line-height:1.8;font-size:0.95rem;">Actively promoting the welfare of current students of BCE Bhagalpur through professional mentorship and financial support.</p>
                     </div>
 
-                    <div style="background:hsl(var(--bg-white));border-radius:var(--radius-md);padding:2.5rem;box-shadow:var(--shadow-md);border-top:4px solid hsl(var(--secondary));transition:var(--transition-main);" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='none'">
-                        <div style="width:44px;height:44px;border-radius:var(--radius-sm);background:hsla(var(--secondary),0.12);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--secondary))" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <div class="aim-card-premium">
+                        <div class="aim-icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
                         </div>
-                        <h3 style="font-size:1.15rem;color:hsl(var(--primary));margin-bottom:0.75rem;line-height:1.4;">Campus Connect — Mentor &amp; Support</h3>
-                        <p style="color:hsl(var(--text-muted));line-height:1.8;font-size:0.95rem;">Mentoring and supporting college students through our flagship Campus Connect programme — guiding them towards a successful future.</p>
+                        <h3>Campus Connect</h3>
+                        <p style="color:var(--text-muted);line-height:1.8;font-size:0.95rem;">Bridging the gap between the industry and the institution by sharing opportunities and career insights through our flagship programs.</p>
                     </div>
 
-                    <div style="background:hsl(var(--bg-white));border-radius:var(--radius-md);padding:2.5rem;box-shadow:var(--shadow-md);border-top:4px solid hsl(var(--secondary));transition:var(--transition-main);" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='none'">
-                        <div style="width:44px;height:44px;border-radius:var(--radius-sm);background:hsla(var(--secondary),0.12);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--secondary))" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+                    <div class="aim-card-premium">
+                        <div class="aim-icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/><path d="m9 12 2 2 4-4"/></svg>
                         </div>
-                        <h3 style="font-size:1.15rem;color:hsl(var(--primary));margin-bottom:0.75rem;line-height:1.4;">Closer to Industry</h3>
-                        <p style="color:hsl(var(--text-muted));line-height:1.8;font-size:0.95rem;">Bringing students closer to industry by sharing opportunities, job openings, and real-world career insights from our alumni network.</p>
+                        <h3>Industry Excellence</h3>
+                        <p style="color:var(--text-muted);line-height:1.8;font-size:0.95rem;">Helping our Almamater achieve status as a top engineering college through technical advocacy and active involvement.</p>
                     </div>
 
                 </div>
@@ -100,126 +109,134 @@
         </section>
 
         <!-- Detailed Objectives -->
-        <section style="padding:6rem 0;background:#fff;">
+        <section style="padding:8rem 0;background:#fff;">
             <div class="container">
-                <div style="text-align:center;margin-bottom:4rem;" class="reveal">
-                    <span class="section-badge">In Particular</span>
-                    <h2 style="font-size:2.5rem;color:hsl(var(--primary));">Detailed Objectives</h2>
-                    <p style="color:hsl(var(--text-muted));max-width:640px;margin:1rem auto 0;line-height:1.8;">A comprehensive set of commitments underpinning the work of the BCE Alumni Welfare Association.</p>
+                <div class="premium-header-wrap reveal">
+                    <span class="section-badge">Actionable Goals</span>
+                    <h2>Core Commitments</h2>
+                    <p style="color:var(--text-muted);max-width:640px;margin:1rem auto 0;line-height:1.8;">Comprehensive strategies that underpin the work of the association.</p>
                 </div>
-
-                <div style="display:flex;flex-direction:column;gap:1.5rem;max-width:960px;margin:0 auto;">
-
-                    <div class="obj-card reveal">
-                        <div class="obj-num">01</div>
+                <div class="flex-center-grid reveal">
+                    <div class="obj-item-premium" style="max-width: 500px;">
+                        <div class="obj-num-premium">01</div>
                         <div>
-                            <h3 style="font-size:1.2rem;color:hsl(var(--primary));margin-bottom:0.6rem;">Unite Graduates &amp; Build a Dynamic Network</h3>
-                            <p style="color:hsl(var(--text-muted));line-height:1.9;">To organise and unite the graduates of BCE and to develop a dynamic network of all alumni, bringing all under one umbrella. To encourage the formation of chapters to increase participation of alumni across geographies.</p>
+                            <h3 style="font-size:1.4rem;color:var(--nav-navy);margin-bottom:1rem;">Unite Graduates</h3>
+                            <p style="color:var(--text-muted);line-height:1.8; font-size:1rem;">Uniting graduates of BCE under one dynamic network and encouraging regional chapters worldwide.</p>
                         </div>
                     </div>
 
-                    <div class="obj-card reveal" style="transition-delay:0.05s;">
-                        <div class="obj-num">02</div>
+                    <div class="obj-item-premium" style="max-width: 500px;">
+                        <div class="obj-num-premium">02</div>
                         <div>
-                            <h3 style="font-size:1.2rem;color:hsl(var(--primary));margin-bottom:0.6rem;">Promote Brotherhood &amp; Solidarity</h3>
-                            <p style="color:hsl(var(--text-muted));line-height:1.9;">To promote friendly feelings and foster the spirit of brotherhood and solidarity among members of the association and others, strengthening lifelong bonds between BCEians.</p>
+                            <h3 style="font-size:1.4rem;color:var(--nav-navy);margin-bottom:1rem;">Spirit of Brotherhood</h3>
+                            <p style="color:var(--text-muted);line-height:1.8; font-size:1rem;">Fostering friendly feelings and lifelong solidarity among members of the association globally.</p>
                         </div>
                     </div>
 
-                    <div class="obj-card reveal" style="transition-delay:0.1s;">
-                        <div class="obj-num">03</div>
+                    <div class="obj-item-premium" style="max-width: 500px;">
+                        <div class="obj-num-premium">03</div>
                         <div>
-                            <h3 style="font-size:1.2rem;color:hsl(var(--primary));margin-bottom:0.6rem;">Uphold Ethical Values &amp; Social Responsibility</h3>
-                            <p style="color:hsl(var(--text-muted));line-height:1.9;">To promote a sense of ethical values, dignity and responsibility to the society and nation — encouraging alumni to use their skills and influence for the greater good.</p>
+                            <h3 style="font-size:1.4rem;color:var(--nav-navy);margin-bottom:1rem;">Ethical Responsibility</h3>
+                            <p style="color:var(--text-muted);line-height:1.8; font-size:1rem;">Upholding dignity and social responsibility, encouraging alumni to contribute meaningfully to society.</p>
                         </div>
                     </div>
 
-                    <div class="obj-card reveal" style="transition-delay:0.15s;">
-                        <div class="obj-num">04</div>
+                    <div class="obj-item-premium" style="max-width: 500px;">
+                        <div class="obj-num-premium">04</div>
                         <div>
-                            <h3 style="font-size:1.2rem;color:hsl(var(--primary));margin-bottom:0.6rem;">Facilitate Professional Growth &amp; Member Support</h3>
-                            <p style="color:hsl(var(--text-muted));line-height:1.9;">To act as a facilitator in the professional growth of the members of the association and extend due support in the event of distress to members — ensuring no BCEian stands alone.</p>
+                            <h3 style="font-size:1.4rem;color:var(--nav-navy);margin-bottom:1rem;">Professional Growth</h3>
+                            <p style="color:var(--text-muted);line-height:1.8; font-size:1rem;">Acting as a catalyst for professional development and supporting members during times of distress.</p>
                         </div>
                     </div>
 
-                    <div class="obj-card reveal" style="transition-delay:0.2s;">
-                        <div class="obj-num">05</div>
+                    <div class="obj-item-premium" style="max-width: 500px;">
+                        <div class="obj-num-premium">05</div>
                         <div>
-                            <h3 style="font-size:1.2rem;color:hsl(var(--primary));margin-bottom:0.6rem;">Fundraising &amp; Financial Management</h3>
-                            <p style="color:hsl(var(--text-muted));line-height:1.9;">Raising funds and donations to achieve the aims and objectives of the association and to further invest and manage the funds and money of the association in a responsible and transparent manner.</p>
+                            <h3 style="font-size:1.4rem;color:var(--nav-navy);margin-bottom:1rem;">Resource Management</h3>
+                            <p style="color:var(--text-muted);line-height:1.8; font-size:1rem;">Managing and investing association funds transparently to achieve our long-term goals.</p>
                         </div>
                     </div>
 
-                    <div class="obj-card reveal" style="transition-delay:0.25s;">
-                        <div class="obj-num">06</div>
+                    <div class="obj-item-premium" style="max-width: 500px;">
+                        <div class="obj-num-premium">06</div>
                         <div>
-                            <h3 style="font-size:1.2rem;color:hsl(var(--primary));margin-bottom:0.6rem;">Welfare Organisation for Needy Families</h3>
-                            <p style="color:hsl(var(--text-muted));line-height:1.9;">To develop as a welfare organisation to support the needy family members of the association, providing a safety net for those who require assistance during difficult times.</p>
+                            <h3 style="font-size:1.4rem;color:var(--nav-navy);margin-bottom:1rem;">Family Welfare</h3>
+                            <p style="color:var(--text-muted);line-height:1.8; font-size:1rem;">Providing a dedicated safety net and assistance for the families of association members in need.</p>
                         </div>
                     </div>
 
-                    <div class="obj-card reveal" style="transition-delay:0.3s;">
-                        <div class="obj-num">07</div>
+                    <div class="obj-item-premium" style="max-width: 500px;">
+                        <div class="obj-num-premium">07</div>
                         <div>
-                            <h3 style="font-size:1.2rem;color:hsl(var(--primary));margin-bottom:0.6rem;">Elevate BCE to a Top Engineering College</h3>
-                            <p style="color:hsl(var(--text-muted));line-height:1.9;">To help Alma Mater achieve the status of a top engineering college of the country — through advocacy, contributions, and active involvement in the institution's development.</p>
+                            <h3 style="font-size:1.4rem;color:var(--nav-navy);margin-bottom:1rem;">Institutional Elevation</h3>
+                            <p style="color:var(--text-muted);line-height:1.8; font-size:1rem;">Assisting BCE in becoming a premier engineering destination through consistent advocacy.</p>
                         </div>
                     </div>
 
-                    <div class="obj-card reveal" style="transition-delay:0.35s;">
-                        <div class="obj-num">08</div>
+                    <div class="obj-item-premium" style="max-width: 500px;">
+                        <div class="obj-num-premium">08</div>
                         <div>
-                            <h3 style="font-size:1.2rem;color:hsl(var(--primary));margin-bottom:0.6rem;">Mentor Students &amp; Support Future Leaders</h3>
-                            <p style="color:hsl(var(--text-muted));line-height:1.9;">To act as mentor for the students of the college and facilitate them in shaping their careers as future leaders — and to extend financial support to economically weaker students of the college.</p>
+                            <h3 style="font-size:1.4rem;color:var(--nav-navy);margin-bottom:1rem;">Student Mentorship</h3>
+                            <p style="color:var(--text-muted);line-height:1.8; font-size:1rem;">Actively shaping student careers as future leaders and providing direct financial scholarships.</p>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
 
         <!-- CTA -->
-        <section style="padding:6rem 0;background:hsl(var(--bg-main));text-align:center;" class="reveal">
+        <section style="padding:8rem 0;background:var(--bg-light);text-align:center;" class="reveal">
             <div class="container">
-                <h2 style="font-size:2.5rem;color:hsl(var(--primary));margin-bottom:1rem;">Be a Part of Our Mission</h2>
-                <p style="color:hsl(var(--text-muted));margin-bottom:2rem;font-size:1.1rem;max-width:600px;margin-left:auto;margin-right:auto;">Our objectives can only be realised with the active participation of every BCEian. Get involved today.</p>
+                <h2 style="font-size:2.5rem; color:var(--nav-navy);">Be a Part of Our Mission</h2>
+                <p style="color:var(--text-muted);margin:1.5rem auto 3rem;font-size:1.2rem;max-width:600px;">Our objectives can only be realised with the active participation of every BCEian. Get involved today.</p>
                 <div style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;">
-                    <a href="contact.html" class="btn-join" style="padding:1rem 3rem;">Contact Us</a>
-                    <a href="events.html" class="btn-secondary" style="padding:1rem 3rem;border-color:hsl(var(--primary));color:hsl(var(--primary));background:transparent;">View Events</a>
+                    <a href="contact.html" class="btn-primary" style="padding:1.1rem 3.5rem;">Join Association</a>
+                    <a href="events.html" class="btn-secondary" style="padding:1.1rem 3.5rem;border-color:var(--nav-navy);color:var(--nav-navy);background:transparent;">View Roadmap</a>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <footer>
+    <footer class="footer-standard">
         <div class="container">
-            <div class="footer-grid">
+            <div class="footer-grid-premium">
                 <div class="footer-info">
-                    <div class="footer-brand-wrap">
-                        <img src="../assets/images/association-logo.png" alt="BCE Alumni Welfare Association" class="footer-assoc-logo">
-                        <span class="footer-logo">BCE <span>Alumni</span></span>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <img src="../assets/images/association-logo.png" alt="BCE Logo" class="footer-assoc-logo">
+                        <a href="../index.html" class="footer-logo" style="margin-bottom: 0;">BCE <span>Alumni Welfare Association</span></a>
                     </div>
-                    <p class="footer-text">Dedicated to fostering strong bonds between BCE graduates and empowering the global alumni community.</p>
+                    <p class="footer-text">The official alumni welfare association of Bhagalpur College of Engineering. Connecting generations since 1960.</p>
                 </div>
-                <div class="footer-links"><h4>Navigation</h4><ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="objectives.html">Objectives</a></li>
-                    <li><a href="directory.html">Directory</a></li>
-                    <li><a href="events.html">Events</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul></div>
-                <div class="footer-links"><h4>Events</h4><ul>
-                    <li><a href="events.html#upcoming">Upcoming Events</a></li>
-                    <li><a href="events.html#past">Past Events</a></li>
-                </ul></div>
-                <div class="footer-links"><h4>Contact Us</h4>
-                    <p class="footer-newsletter-text">Have questions or want to get involved?</p>
-                    <a href="contact.html" class="btn-join" style="display:inline-block;padding:0.75rem 1.5rem;font-size:0.9rem;margin-top:0.5rem;">Send a Message</a>
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="objectives.html">Objectives</a></li>
+                        <li><a href="directory.html">Directory</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="#">Wall of Fame</a></li>
+                        <li><a href="#">Mentorship</a></li>
+                        <li><a href="#">Giving Back</a></li>
+                        <li><a href="#">Campus Connect</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact Us</h4>
+                    <p class="footer-text" style="margin-bottom: 1rem;">Have questions? Reach out to our dedicated support team.</p>
+                    <a href="contact.html" class="btn-primary" style="display: inline-block; padding: 0.8rem 1.5rem; text-decoration: none; font-size: 0.9rem;">Send a Message</a>
                 </div>
             </div>
-            <div class="footer-bottom"><p class="footer-bottom-text">&copy; 2026 BCE Alumni Welfare Association. All Rights Reserved.</p></div>
+            <div class="footer-bottom">
+                &copy; 2026 BCE Alumni Welfare Association. All Rights Reserved.
+            </div>
         </div>
     </footer>
 

@@ -4,15 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BCE Alumni Welfare Association</title>
-    <meta name="description" content="Connect with our global network of distinguished BCE alumni. Explore events, directory, and community activities.">
-    <meta property="og:title" content="BCE Alumni Welfare Association">
-    <meta property="og:description" content="Connecting and empowering the global community of BCE graduates.">
-    <meta property="og:type" content="website">
+    <meta name="description" content="Connect with the global network of Bhagalpur College of Engineering alumni. Prestigious community, networking, and legacy.">
     <link rel="icon" href="assets/images/association-logo.png" type="image/png">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="scroll-progress" id="scrollProgress"></div>
+
+    <div class="header-top-bar">
+        <div class="container top-bar-content">
+            <span>BCE ALUMNI WELFARE ASSOCIATION</span>
+            <span>EST. 1960</span>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="portal-brand">
+                <div class="logo-cell">
+                    <img src="assets/images/association-logo.png" alt="BCE Alumni Welfare Association Logo">
+                </div>
+                <div class="logo-text">BCE <span>Alumni Welfare Association</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="pages/about.html">About Us</a></li>
+                <li><a href="pages/objectives.html">Objectives</a></li>
+                <li><a href="pages/directory.html">Directory</a></li>
+                <li><a href="pages/events.html">Events</a></li>
+                <li><a href="pages/contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="pages/contact.html" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Join Network</a>
+                <button class="menu-toggle-btn" id="menuToggle" aria-label="Open menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
 
     <div class="mobile-menu-overlay" id="mobileMenu">
         <a href="index.html" class="mobile-nav-link">Home</a>
@@ -23,173 +52,113 @@
         <a href="pages/contact.html" class="mobile-nav-link">Contact</a>
     </div>
 
-    <nav class="navbar">
-        <div class="container nav-content">
-            <div class="portal-brand">
-                <a href="index.html" class="logo-cell">
-                    <img src="assets/images/association-logo.png" alt="BCE Alumni Welfare Association Logo">
-                </a>
-                <a href="index.html" class="logo-text">BCE <span>Alumni</span></a>
+    <header class="hero">
+        <div class="container hero-content reveal">
+            <div class="hero-logo-wrap">
+                <img src="assets/images/association-logo.png" alt="BCE Logo" class="hero-assoc-logo">
             </div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="pages/about.html">About Us</a></li>
-                <li><a href="pages/objectives.html">Objectives</a></li>
-                <li><a href="pages/directory.html">Directory</a></li>
-                <li><a href="pages/events.html">Events</a></li>
-                <li><a href="pages/contact.html">Contact</a></li>
-            </ul>
-            <div style="display:flex;align-items:center;gap:1.25rem;">
-                <button class="menu-toggle-btn" id="menuToggle" aria-label="Open menu">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <header class="hero bg-blobs">
-        <div class="container hero-content">
-            <div class="hero-logo-wrap reveal">
-                <img src="assets/images/association-logo.png" alt="BCE Alumni Welfare Association" class="hero-assoc-logo">
-            </div>
-            <h1 class="reveal" style="position:relative;z-index:1;">BCE Alumni Welfare<br><span class="text-gradient-gold">Association</span></h1>
-            <p class="reveal" style="transition-delay:0.2s;position:relative;z-index:1;">Connecting, empowering and celebrating our distinguished community of BCE graduates since 1960. Together we grow stronger.</p>
-            <div class="hero-btns reveal" style="transition-delay:0.4s;">
+            <h1>BCE ALUMNI<br>WELFARE ASSOCIATION</h1>
+            <p>A prestigious community of Bhagalpur College of Engineering graduates, bridging the gap between legacy and the future.</p>
+            <div class="hero-btns">
                 <a href="pages/directory.html" class="btn-primary">Explore Directory</a>
-                <a href="pages/events.html" class="btn-secondary">View Events</a>
+                <a href="pages/events.html" class="btn-secondary">Upcoming Events</a>
             </div>
         </div>
     </header>
 
-    <!-- Stats Section -->
-    <section class="quick-nav reveal" style="padding:8rem 0;">
+    <section class="bg-light">
         <div class="container">
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;">
-                <div class="stat-card">
-                    <h3 class="stat-number" data-target="50000" style="color:hsl(var(--secondary));font-size:2.5rem;">0</h3><span style="color:hsl(var(--secondary));font-size:2.5rem;">+</span>
-                    <p style="color:hsl(var(--text-muted));font-weight:500;">Total Alumni</p>
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem;">
+                <div class="stat-card reveal" style="text-align:center;">
+                    <h3 style="font-size:3rem; color:var(--nav-navy); margin-bottom:0.5rem;" data-target="50000">0</h3>
+                    <p style="color:var(--text-muted); font-weight:600; text-transform:uppercase; letter-spacing:0.05em; font-size:0.85rem;">Alumni Worldwide</p>
                 </div>
-                <div class="stat-card">
-                    <h3 class="stat-number" data-target="40" style="color:hsl(var(--secondary));font-size:2.5rem;">0</h3><span style="color:hsl(var(--secondary));font-size:2.5rem;">+</span>
-                    <p style="color:hsl(var(--text-muted));font-weight:500;">Graduating Batches</p>
+                <div class="stat-card reveal" style="text-align:center; transition-delay:0.1s;">
+                    <h3 style="font-size:3rem; color:var(--nav-navy); margin-bottom:0.5rem;" data-target="40">0</h3>
+                    <p style="color:var(--text-muted); font-weight:600; text-transform:uppercase; letter-spacing:0.05em; font-size:0.85rem;">Graduating Batches</p>
                 </div>
-                <div class="stat-card">
-                    <h3 class="stat-number" data-target="5" style="color:hsl(var(--secondary));font-size:2.5rem;">0</h3>
-                    <p style="color:hsl(var(--text-muted));font-weight:500;">Engineering Branches</p>
-                </div>
-                <div class="stat-card">
-                    <h3 class="stat-number" data-target="120" style="color:hsl(var(--secondary));font-size:2.5rem;">0</h3><span style="color:hsl(var(--secondary));font-size:2.5rem;">+</span>
-                    <p style="color:hsl(var(--text-muted));font-weight:500;">Countries Reached</p>
+                <div class="stat-card reveal" style="text-align:center; transition-delay:0.2s;">
+                    <h3 style="font-size:3rem; color:var(--nav-navy); margin-bottom:0.5rem;" data-target="120">0</h3>
+                    <p style="color:var(--text-muted); font-weight:600; text-transform:uppercase; letter-spacing:0.05em; font-size:0.85rem;">Countries Represented</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Quick Links Section -->
-    <section style="padding:0 0 6rem;background:hsl(var(--bg-main));">
+    <section>
         <div class="container">
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;">
-                <a href="pages/about.html" class="stat-card reveal" style="display:block;text-align:center;text-decoration:none;padding:2rem;border-bottom:3px solid hsl(var(--secondary));">
-                    <div style="display:flex;justify-content:center;margin-bottom:0.75rem;"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--secondary))" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
-                    <h4 style="color:hsl(var(--primary));margin-bottom:0.3rem;">About Us</h4>
-                    <p style="font-size:0.85rem;color:hsl(var(--text-muted));">Our story and mission</p>
-                </a>
-                <a href="pages/objectives.html" class="stat-card reveal" style="display:block;text-align:center;text-decoration:none;padding:2rem;border-bottom:3px solid hsl(var(--secondary));transition-delay:0.1s;">
-                    <div style="display:flex;justify-content:center;margin-bottom:0.75rem;"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--secondary))" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-                    <h4 style="color:hsl(var(--primary));margin-bottom:0.3rem;">Objectives</h4>
-                    <p style="font-size:0.85rem;color:hsl(var(--text-muted));">Our goals and vision</p>
-                </a>
-                <a href="pages/directory.html" class="stat-card reveal" style="display:block;text-align:center;text-decoration:none;padding:2rem;border-bottom:3px solid hsl(var(--secondary));transition-delay:0.2s;">
-                    <div style="display:flex;justify-content:center;margin-bottom:0.75rem;"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--secondary))" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-                    <h4 style="color:hsl(var(--primary));margin-bottom:0.3rem;">Directory</h4>
-                    <p style="font-size:0.85rem;color:hsl(var(--text-muted));">Find fellow BCEians</p>
-                </a>
-                <a href="pages/events.html" class="stat-card reveal" style="display:block;text-align:center;text-decoration:none;padding:2rem;border-bottom:3px solid hsl(var(--secondary));transition-delay:0.3s;">
-                    <div style="display:flex;justify-content:center;margin-bottom:0.75rem;"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--secondary))" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-                    <h4 style="color:hsl(var(--primary));margin-bottom:0.3rem;">Events</h4>
-                    <p style="font-size:0.85rem;color:hsl(var(--text-muted));">Upcoming & past events</p>
-                </a>
-                <a href="pages/contact.html" class="stat-card reveal" style="display:block;text-align:center;text-decoration:none;padding:2rem;border-bottom:3px solid hsl(var(--secondary));transition-delay:0.4s;">
-                    <div style="display:flex;justify-content:center;margin-bottom:0.75rem;"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--secondary))" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-                    <h4 style="color:hsl(var(--primary));margin-bottom:0.3rem;">Contact</h4>
-                    <p style="font-size:0.85rem;color:hsl(var(--text-muted));">Get in touch with us</p>
+            <h2>Distinguished Alumni</h2>
+            <p class="section-desc">Spotlighting achievers who have carried the BCE legacy to global heights.</p>
+            <div id="featured-grid" class="alumni-grid">
+                <!-- Dynamic Content via JS -->
+            </div>
+            <div style="text-align:center; margin-top:5rem;">
+                <a href="pages/directory.html" style="font-weight:700; color:var(--nav-navy); text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem;">
+                    View Full Directory 
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Events Preview -->
-    <section class="upcoming-events reveal" style="padding:8rem 0;background:#fff;">
+    <section class="bg-light">
         <div class="container">
-            <div style="text-align:center;margin-bottom:4rem;">
-                <h2 style="font-size:2.5rem;margin-bottom:1rem;">Upcoming Gatherings</h2>
-                <p style="color:hsl(var(--text-muted));">Mark your calendars for these exclusive alumni events.</p>
+            <h2>Upcoming Events</h2>
+            <p class="section-desc">Join us for networking, mentorship, and community gatherings.</p>
+            <div id="events-preview-grid" class="events-grid">
+                <!-- Dynamic Content via JS -->
             </div>
-            <div id="events-preview-grid" class="events-grid"></div>
-            <div style="text-align:center;margin-top:4rem;">
-                <a href="pages/events.html" class="btn-secondary" style="background:transparent;border-color:hsl(var(--primary));color:hsl(var(--primary));">View All Events</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Alumni -->
-    <section class="featured-alumni reveal" style="padding:6rem 0;background:hsl(var(--bg-main));">
-        <div class="container">
-            <div style="text-align:center;margin-bottom:4rem;">
-                <h2 style="font-size:2.5rem;color:hsl(var(--primary));">Featured Alumni</h2>
-                <p style="color:hsl(var(--text-muted));">Spotlighting our distinguished achievers across various industries.</p>
-            </div>
-            <div id="featured-grid" class="alumni-grid"></div>
-            <div style="text-align:center;margin-top:4rem;">
-                <a href="pages/directory.html" style="color:hsl(var(--secondary));font-weight:700;font-size:1.1rem;">View Full Directory &rarr;</a>
+            <div style="text-align:center; margin-top:5rem;">
+                <a href="pages/events.html" class="btn-secondary" style="color:var(--nav-navy); border-color:var(--nav-navy);">All Events</a>
             </div>
         </div>
     </section>
 
-    <!-- CTA Banner -->
-    <section class="cta-banner reveal" style="padding:8rem 0;background:#fff;text-align:center;">
+    <footer class="footer-standard">
         <div class="container">
-            <h2 style="font-size:3rem;margin-bottom:1.5rem;color:hsl(var(--primary));">Be part of our legacy</h2>
-            <p style="max-width:700px;margin:0 auto 3rem;color:hsl(var(--text-muted));font-size:1.2rem;">Stay connected with the BCE Alumni Welfare Association — network, mentor, and celebrate our shared heritage.</p>
-            <a href="pages/contact.html" class="btn-join" style="padding:1.2rem 4rem;font-size:1.2rem;">Get In Touch</a>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
+            <div class="footer-grid-premium">
                 <div class="footer-info">
-                    <div class="footer-brand-wrap">
-                        <img src="assets/images/association-logo.png" alt="BCE Alumni Welfare Association" class="footer-assoc-logo">
-                        <span class="footer-logo">BCE <span>Alumni</span></span>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <img src="assets/images/association-logo.png" alt="BCE Logo" class="footer-assoc-logo">
+                        <a href="index.html" class="footer-logo" style="margin-bottom: 0;">BCE <span>Alumni Welfare Association</span></a>
                     </div>
-                    <p class="footer-text">Dedicated to fostering strong bonds between BCE graduates and empowering the global alumni community.</p>
+                    <p class="footer-text">The official alumni welfare association of Bhagalpur College of Engineering. Connecting generations since 1960.</p>
                 </div>
-                <div class="footer-links"><h4>Navigation</h4><ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="pages/about.html">About Us</a></li>
-                    <li><a href="pages/objectives.html">Objectives</a></li>
-                    <li><a href="pages/directory.html">Directory</a></li>
-                    <li><a href="pages/events.html">Events</a></li>
-                    <li><a href="pages/contact.html">Contact</a></li>
-                </ul></div>
-                <div class="footer-links"><h4>Events</h4><ul>
-                    <li><a href="pages/events.html#upcoming">Upcoming Events</a></li>
-                    <li><a href="pages/events.html#past">Past Events</a></li>
-                </ul></div>
-                <div class="footer-links"><h4>Contact Us</h4>
-                    <p class="footer-newsletter-text">Have questions or want to get involved?</p>
-                    <a href="pages/contact.html" class="btn-join" style="display:inline-block;padding:0.75rem 1.5rem;font-size:0.9rem;margin-top:0.5rem;">Send a Message</a>
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="pages/about.html">About Us</a></li>
+                        <li><a href="pages/objectives.html">Objectives</a></li>
+                        <li><a href="pages/directory.html">Directory</a></li>
+                        <li><a href="pages/events.html">Events</a></li>
+                        <li><a href="pages/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="#">Wall of Fame</a></li>
+                        <li><a href="#">Mentorship</a></li>
+                        <li><a href="#">Giving Back</a></li>
+                        <li><a href="#">Campus Connect</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact Us</h4>
+                    <p class="footer-text" style="margin-bottom: 1rem;">Have questions? Reach out to our dedicated support team.</p>
+                    <a href="pages/contact.html" class="btn-primary" style="display: inline-block; padding: 0.8rem 1.5rem; text-decoration: none; font-size: 0.9rem;">Send a Message</a>
                 </div>
             </div>
-            <div class="footer-bottom"><p class="footer-bottom-text">&copy; 2026 BCE Alumni Welfare Association. All Rights Reserved.</p></div>
+            <div class="footer-bottom">
+                &copy; 2026 BCE Alumni Welfare Association. All Rights Reserved.
+            </div>
         </div>
     </footer>
 
-    <button class="back-to-top" id="backToTop" title="Back to Top" aria-label="Back to top">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+    <button class="back-to-top" id="backToTop">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
     </button>
-    <div class="toast-container" id="toastContainer"></div>
 
     <script src="js/data/alumni.js"></script>
     <script src="js/data/events.js"></script>
