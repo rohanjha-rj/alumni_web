@@ -1027,6 +1027,17 @@ footer {
 }
 
 .aim-icon-box {
+    background: rgba(250, 204, 21, 0.1);
+    color: var(--modern-gold);
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    transition: all 0.4s ease;
+}
 
 @media (max-width: 640px) {
     .bento-featured {
@@ -1118,4 +1129,57 @@ footer {
     .position-card {
         flex: 1 1 100%;
     }
+}
+
+/* --- Suggestion #5: Smooth Page Entrance --- */
+body {
+    animation: pageEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pageEntrance {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* --- Suggestion #2: Kinetic Typography --- */
+.txt-cycle {
+    color: var(--modern-gold);
+    font-weight: 800;
+    position: relative;
+    display: inline-block;
+    min-width: 100px;
+    transition: all 0.4s ease;
+}
+
+.txt-cycle.fade-out {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.txt-cycle.fade-in {
+    opacity: 1;   
+    transform: translateY(0);
+}
+
+/* --- Suggestion #10: SVG Signature Drawing --- */
+.hero-signature {
+    margin: 1.5rem 0 2.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.sig-path {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    transition: stroke-dashoffset 2s ease-in-out;
+}
+
+.sig-path.active {
+    stroke-dashoffset: 0;
 }

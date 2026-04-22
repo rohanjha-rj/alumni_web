@@ -234,4 +234,34 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // --- 11. Kinetic Typography (Suggestion #2) ---
+    const cycleEl = document.querySelector('.txt-cycle');
+    if (cycleEl) {
+        const words = JSON.parse(cycleEl.getAttribute('data-words'));
+        let index = 0;
+
+        setInterval(() => {
+            cycleEl.classList.add('fade-out');
+            setTimeout(() => {
+                index = (index + 1) % words.length;
+                cycleEl.textContent = words[index];
+                cycleEl.classList.remove('fade-out');
+                cycleEl.classList.add('fade-in');
+                setTimeout(() => cycleEl.classList.remove('fade-in'), 400);
+            }, 400);
+        }, 3000);
+    }
+
+    // --- 12. SVG Signature Trigger ---
+    const sigObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.5 });
+
+    const sigPath = document.querySelector('.sig-path');
+    if (sigPath) sigObserver.observe(sigPath);
 });
