@@ -1,56 +1,113 @@
 /**
  * BCE Alumni Portal — Global Logic
- * Handles: Reveal Animations, Stats Counter, Navigation, and Dynamic Grids
+ * Handles: Reveal Animations, Stats Counter, Navigation, Parallax, and Dynamic Grids
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // --- 1. Scroll Progress & Header Visibility ---
+
+    // --- 1. Global Magnetic Navigation ---
+    const navLinks = document.querySelector('.nav-links');
+    const highlighter = document.createElement('div');
+    highlighter.className = 'nav-highlighter';
+    if (navLinks) {
+        navLinks.appendChild(highlighter);
+
+        const links = navLinks.querySelectorAll('a');
+        const activeLink = navLinks.querySelector('a.active');
+
+        const updateHighlighter = (el) => {
+            if (!el) return;
+            const rect = el.getBoundingClientRect();
+            const parentRect = navLinks.getBoundingClientRect();
+            highlighter.style.width = `${rect.width}px`;
+            highlighter.style.left = `${rect.left - parentRect.left}px`;
+            highlighter.style.opacity = '1';
+        };
+
+        links.forEach(link => {
+            link.addEventListener('mouseenter', () => updateHighlighter(link));
+        });
+
+        navLinks.addEventListener('mouseleave', () => {
+            if (activeLink) {
+                updateHighlighter(activeLink);
+            } else {
+                highlighter.style.opacity = '0';
+            }
+        });
+
+        // Initialize position
+        setTimeout(() => updateHighlighter(activeLink), 100);
+    }
+
+    // --- 2. Parallax Hero Effect ---
+    const hero = document.querySelector('.hero');
+    const heroContent = document.querySelector('.hero-content');
+    if (hero && heroContent) {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            heroContent.style.transform = `translateY(${scrolled * 0.4}px)`;
+            heroContent.style.opacity = 1 - (scrolled / 700);
+        }, { passive: true });
+    }
+
+    // --- 3. Scroll Progress & Header Visibility ---
     const scrollProgress = document.getElementById('scrollProgress');
     const navbar = document.querySelector('.navbar');
-    
+
     window.addEventListener('scroll', () => {
         if (scrollProgress) {
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             scrollProgress.style.width = ((window.scrollY / height) * 100) + '%';
         }
-        
+
         if (navbar) {
             if (window.scrollY > 50) {
-                navbar.style.boxShadow = 'var(--shadow-lg)';
-                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+                navbar.style.background = 'rgba(255, 255, 255, 0.9)';
             } else {
                 navbar.style.boxShadow = 'none';
-                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.background = 'rgba(255, 255, 255, 0.8)';
             }
         }
     }, { passive: true });
 
-    // --- 2. Reveal Animations ---
+    // --- 4. Staggered Reveal Animations ---
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                if (entry.target.querySelector('[data-target]')) {
-                    animateStats(entry.target);
-                }
+                // Stagger logic for elements in same container
+                const delay = entry.target.dataset.delay || 0;
+                setTimeout(() => {
+                    entry.target.classList.add('active');
+                    if (entry.target.querySelector('[data-target]')) {
+                        animateStats(entry.target);
+                    }
+                }, delay);
             }
         });
     }, observerOptions);
 
+    // Apply staggered delays to specific grids
+    document.querySelectorAll('.alumni-grid, .events-grid, .stat-card-wrap').forEach(grid => {
+        grid.querySelectorAll('.reveal').forEach((el, index) => {
+            el.dataset.delay = index * 150; // 150ms stagger
+        });
+    });
+
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // --- 3. Stats Counter ---
+    // --- 5. Stats Counter ---
     function animateStats(container) {
         container.querySelectorAll('[data-target]').forEach(stat => {
             if (stat.getAttribute('data-animated') === 'true') return;
             stat.setAttribute('data-animated', 'true');
-            
+
             const target = parseInt(stat.getAttribute('data-target'));
             const duration = 2000;
             const start = 0;
@@ -70,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 4. Back to Top ---
+    // --- 6. Back to Top ---
     const backToTop = document.getElementById('backToTop');
     if (backToTop) {
         window.addEventListener('scroll', () => {
@@ -81,75 +138,95 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 5. Homepage: Featured Alumni Grid ---
+    // --- 7. Skeleton Loading Logic ---
+    const showSkeletons = (container, count, className) => {
+        if (!container) return;
+        container.innerHTML = '';
+        for (let i = 0; i < count; i++) {
+            const skeleton = document.createElement('div');
+            skeleton.className = `${className} skeleton`;
+            container.appendChild(skeleton);
+        }
+    };
+
+    // --- 8. Homepage: Featured Alumni Grid ---
     const alumniGrid = document.getElementById('featured-grid');
     if (alumniGrid && typeof alumniData !== 'undefined') {
-        alumniData.slice(0, 3).forEach(alumnus => {
-            const card = document.createElement('a');
-            card.href = `pages/directory.html?id=${alumnus.id}`;
-            card.className = 'alumni-card reveal';
-            
-            const badgesHtml = alumnus.badges 
-                ? alumnus.badges.slice(0, 2).map(b => `<span class="badge-chip">${b}</span>`).join('') 
-                : '';
+        showSkeletons(alumniGrid, 3, 'alumni-card');
 
-            card.innerHTML = `
-                <div class="card-img">
-                    <img src="${alumnus.image}" alt="${alumnus.name}" loading="lazy">
-                </div>
-                <h3 class="card-name">${alumnus.name}</h3>
-                <span class="card-role">${alumnus.role} @ ${alumnus.company}</span>
-                <div class="badge-row">${badgesHtml}</div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1.5rem; padding-top:1rem; border-top:1px solid var(--bg-secondary);">
-                    <span class="batch-tag">Class of ${alumnus.batch}</span>
-                    <span style="font-weight:700; font-size:0.85rem; color:var(--nav-navy);">${alumnus.branch}</span>
-                </div>
-            `;
-            alumniGrid.appendChild(card);
-        });
-        // Re-observe new elements
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        // Simulate loading for effect (Suggestion #8)
+        setTimeout(() => {
+            alumniGrid.innerHTML = '';
+            alumniData.slice(0, 3).forEach(alumnus => {
+                const card = document.createElement('a');
+                card.href = `pages/directory.html?id=${alumnus.id}`;
+                card.className = 'alumni-card reveal';
+
+                const badgesHtml = alumnus.badges
+                    ? alumnus.badges.slice(0, 2).map(b => `<span class="badge-chip">${b}</span>`).join('')
+                    : '';
+
+                card.innerHTML = `
+                    <div class="card-img">
+                        <img src="${alumnus.image}" alt="${alumnus.name}" loading="lazy">
+                    </div>
+                    <h3 class="card-name">${alumnus.name}</h3>
+                    <span class="card-role">${alumnus.role} @ ${alumnus.company}</span>
+                    <div class="badge-row">${badgesHtml}</div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1.5rem; padding-top:1rem; border-top:1px solid var(--bg-secondary);">
+                        <span class="batch-tag">Class of ${alumnus.batch}</span>
+                        <span style="font-weight:700; font-size:0.85rem; color:var(--nav-navy);">${alumnus.branch}</span>
+                    </div>
+                `;
+                alumniGrid.appendChild(card);
+            });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        }, 800);
     }
 
-    // --- 6. Homepage: Events Preview Grid ---
+    // --- 9. Homepage: Events Preview Grid ---
     const eventsGrid = document.getElementById('events-preview-grid');
     if (eventsGrid && typeof eventsData !== 'undefined') {
-        eventsData.filter(e => e.category === 'Upcoming').slice(0, 3).forEach(event => {
-            const card = document.createElement('div');
-            card.className = 'event-card reveal';
-            card.innerHTML = `
-                <div class="card-img">
-                    <img src="${event.image}" alt="${event.title}" loading="lazy">
-                </div>
-                <div style="font-size:0.8rem; font-weight:700; color:var(--modern-gold); text-transform:uppercase; margin-bottom:0.5rem; letter-spacing:0.05em;">
-                    ${event.date}
-                </div>
-                <h3 class="card-name" style="margin-bottom:0.75rem;">${event.title}</h3>
-                <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1.5rem;">${event.description.substring(0, 85)}...</p>
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                    <span style="font-size:0.85rem; color:var(--text-light);">📍 ${event.location}</span>
-                    <a href="pages/events.html" style="font-weight:700; color:var(--nav-navy); text-decoration:none; font-size:0.9rem;">Register →</a>
-                </div>
-            `;
-            eventsGrid.appendChild(card);
-        });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        showSkeletons(eventsGrid, 3, 'event-card');
+
+        setTimeout(() => {
+            eventsGrid.innerHTML = '';
+            eventsData.filter(e => e.category === 'Upcoming').slice(0, 3).forEach(event => {
+                const card = document.createElement('div');
+                card.className = 'event-card reveal';
+                card.innerHTML = `
+                    <div class="card-img">
+                        <img src="${event.image}" alt="${event.title}" loading="lazy">
+                    </div>
+                    <div style="font-size:0.8rem; font-weight:700; color:var(--modern-gold); text-transform:uppercase; margin-bottom:0.5rem; letter-spacing:0.05em;">
+                        ${event.date}
+                    </div>
+                    <h3 class="card-name" style="margin-bottom:0.75rem;">${event.title}</h3>
+                    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1.5rem;">${event.description.substring(0, 85)}...</p>
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span style="font-size:0.85rem; color:var(--text-light);">📍 ${event.location}</span>
+                        <a href="pages/events.html" style="font-weight:700; color:var(--nav-navy); text-decoration:none; font-size:0.9rem;">Register →</a>
+                    </div>
+                `;
+                eventsGrid.appendChild(card);
+            });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        }, 1000);
     }
-    // --- 7. Mobile Menu Toggle ---
+
+    // --- 10. Mobile Menu Toggle ---
     const menuToggle = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
-    
+
     if (menuToggle && mobileMenu) {
         menuToggle.addEventListener('click', () => {
             mobileMenu.classList.toggle('active');
-            // Toggle icon if needed
             const isOpen = mobileMenu.classList.contains('active');
-            menuToggle.innerHTML = isOpen 
+            menuToggle.innerHTML = isOpen
                 ? `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`
                 : `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>`;
         });
 
-        // Close menu on link click
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('active');
