@@ -108,7 +108,7 @@
         <a href="contact.html" class="mobile-nav-link">Contact</a>
     </div>
 
-    <header class="page-banner-premium reveal">
+    <header class="page-banner-premium reveal" style="background: linear-gradient(135deg, rgba(15,23,42,0.85) 0%, rgba(30,41,59,0.85) 100%), url('../assets/College pictures/college-9.jpeg'); background-size: cover; background-position: center;">
         <div class="container">
             <h1>Alumni Events</h1>
             <p>Stay connected through reunions, seminars, and community gatherings organized by the BCE Alumni Welfare Association.</p>
@@ -226,14 +226,16 @@
             const pastGrid = document.getElementById('past-events-grid');
             if (typeof eventsData === 'undefined') return;
 
+            const basePath = '../';
             function renderEvent(event) {
                 const rsvpKey = `rsvp-${event.id}`;
                 const hasRSVP = localStorage.getItem(rsvpKey) === 'true';
                 const isPast = event.category === 'Past';
+                const imgSrc = event.image.startsWith('http') ? event.image : basePath + event.image;
                 return `
                     <div class="event-card reveal">
                         <div class="event-img" style="position:relative;height:200px;overflow:hidden;">
-                            <img src="${event.image}" alt="${event.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+                            <img src="${imgSrc}" alt="${event.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
                             <div class="event-date-badge" style="position:absolute;top:1rem;right:1rem;background:white;padding:0.5rem 1rem;border-radius:8px;text-align:center;box-shadow:var(--shadow-md);color:hsl(var(--primary));">
                                 <b>${event.date.split(' ')[0]}</b><br>
                                 <span style="font-size:0.8rem;font-weight:700;">${event.date.split(' ')[1].replace(',','')}</span>
@@ -260,14 +262,14 @@
 
             // Photo gallery for past events
             const galleryPhotos = [
-                'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=300&fit=crop',
-                'https://images.unsplash.com/photo-1511578314322-379afb476865?w=400&h=300&fit=crop',
-                'https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=400&h=300&fit=crop',
-                'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=400&h=300&fit=crop',
-                'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop',
-                'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=400&h=300&fit=crop',
-                'https://images.unsplash.com/photo-1501386761578-eaa54b9a9add?w=400&h=300&fit=crop',
-                'https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=400&h=300&fit=crop',
+                '../assets/College pictures/college-2.jpeg',
+                '../assets/College pictures/college-4.jpeg',
+                '../assets/College pictures/college-8.jpeg',
+                '../assets/College pictures/college-10.jpeg',
+                '../assets/College pictures/college-11.jpeg',
+                '../assets/College pictures/college-15.jpeg',
+                '../assets/College pictures/college-18.jpeg',
+                '../assets/College pictures/college-19.jpeg',
             ];
             const gallery = document.getElementById('photoGallery');
             gallery.innerHTML = galleryPhotos.map((src, i) => `

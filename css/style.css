@@ -214,7 +214,7 @@ h4 {
 .hero {
     height: 90vh; /* Increased height */
     min-height: 700px;
-    background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('../assets/images/campus-hero.png');
+    background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('../assets/college pictures/college-7.jpeg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Basic parallax */
@@ -1182,4 +1182,39 @@ body {
 
 .sig-path.active {
     stroke-dashoffset: 0;
+}
+
+/* --- Campus Gallery --- */
+.campus-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.gallery-item:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
 }

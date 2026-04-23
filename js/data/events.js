@@ -1,4 +1,4 @@
-﻿/**
+/**
  * BCE Setu Alumni Portal — Events Data
  * Central data store for all alumni events.
  */
@@ -12,7 +12,7 @@ const eventsData = [
         category: "Upcoming",
         rsvpCount: 142,
         description: "Join us for our flagship annual gathering. Reconnect with batchmates, meet current students, and witness the growth of your alma mater.",
-        image: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&h=400&fit=crop"
+        image: "assets/College pictures/college-9.jpeg"
     },
     {
         id: 2,
@@ -23,7 +23,7 @@ const eventsData = [
         category: "Upcoming",
         rsvpCount: 89,
         description: "A series of talks and workshops by distinguished alumni in the tech industry. Focus on AI, Sustainability, and FinTech.",
-        image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=400&fit=crop"
+        image: "assets/College pictures/college-12.jpeg"
     },
     {
         id: 3,
@@ -34,7 +34,7 @@ const eventsData = [
         category: "Upcoming",
         rsvpCount: 56,
         description: "A platform for alumni to mentor final-year students on career paths, interview prep, and higher education.",
-        image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&h=400&fit=crop"
+        image: "assets/College pictures/college-13.jpeg"
     },
     {
         id: 4,
@@ -45,7 +45,7 @@ const eventsData = [
         category: "Past",
         rsvpCount: 310,
         description: "Celebrating 25 years of the 1998 batch. A night of nostalgia, awards, and dinner.",
-        image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&h=400&fit=crop"
+        image: "assets/College pictures/college-14.jpeg"
     }
 ];
 
