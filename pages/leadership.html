@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leadership | BCE Alumni Welfare Association</title>
+    <meta name="description"
+        content="Meet the dedicated leaders and executive committee of the BCE Alumni Welfare Association.">
+    <link rel="icon" href="../assets/images/association-logo.png" type="image/png">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .leadership-hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('../assets/images/campus-hero.png');
+            background-size: cover;
+            background-position: center;
+            padding: 10rem 0 8rem;
+            color: white;
+            text-align: center;
+        }
+
+        .executive-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .leader-card {
+            flex: 1 1 300px;
+            max-width: 400px;
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 3rem 2rem;
+            text-align: center;
+            border: 1px solid var(--bg-secondary);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--modern-gold);
+        }
+
+        .leader-img-wrap {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(135deg, var(--nav-navy), var(--modern-gold));
+            position: relative;
+        }
+
+        .leader-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            background: var(--bg-secondary);
+        }
+
+        .leader-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--nav-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .leader-role {
+            color: var(--modern-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .leader-batch {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--bg-secondary);
+            color: var(--nav-navy);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(15, 23, 42, 0.05);
+        }
+
+        .leader-bio {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .leader-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--nav-navy);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            background: var(--nav-navy);
+            color: white;
+        }
+
+        .president-section {
+            background: var(--bg-light);
+            padding: 8rem 0;
+        }
+
+        .president-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .president-msg-card {
+            background: white;
+            padding: 4rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .president-msg-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 40px;
+            font-size: 8rem;
+            color: var(--modern-gold);
+            opacity: 0.2;
+            font-family: serif;
+        }
+
+        @media (max-width: 900px) {
+            .president-wrap {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 4rem;
+            }
+        }
+
+        /* Roles & Responsibilities Section */
+        .roles-section {
+            padding: 8rem 0;
+            background: var(--bg-light);
+        }
+
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .role-duty-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--bg-secondary);
+            transition: var(--transition);
+        }
+
+        .role-duty-card:hover {
+            border-color: var(--modern-gold);
+            box-shadow: var(--shadow-md);
+        }
+
+        .role-duty-header {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--bg-secondary);
+            padding-bottom: 1rem;
+        }
+
+        .role-duty-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--nav-navy);
+        }
+
+        .role-duty-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--nav-navy);
+        }
+
+        .duty-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .duty-list li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+        }
+
+        .duty-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--modern-gold);
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="../index.html" class="portal-brand">
+                <div class="logo-cell">
+                    <img src="../assets/images/association-logo.png" alt="BCE Alumni Logo">
+                </div>
+                <div class="logo-text">BCE <span>Alumni Welfare Association</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="leadership.html" class="active">Leadership</a></li>
+                <li><a href="objectives.html">Objectives</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="menu-toggle-btn" id="menuToggle" aria-label="Open menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <a href="../index.html" class="mobile-nav-link">Home</a>
+        <a href="about.html" class="mobile-nav-link">About Us</a>
+        <a href="leadership.html" class="mobile-nav-link">Leadership</a>
+        <a href="objectives.html" class="mobile-nav-link">Objectives</a>
+        <a href="directory.html" class="mobile-nav-link">Directory</a>
+        <a href="events.html" class="mobile-nav-link">Events</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+    </div>
+
+    <header class="page-banner-premium reveal">
+        <div class="container">
+            <span class="section-badge" style="color:white; border-color:rgba(255,255,255,0.3);">Our Stewards</span>
+            <h1>Association Leadership</h1>
+            <p>Meet the dedicated team working to bridge generations and foster the BCE legacy worldwide.</p>
+        </div>
+    </header>
+
+    <section class="president-section">
+        <div class="container">
+            <div class="president-wrap">
+                <div class="reveal">
+                    <div class="leader-img-wrap" style="width: 300px; height: 300px;">
+                        <img src="../assets/images/leadership/BinayKumarRoy.jpeg" alt="Binay Kumar Roy"
+                            class="leader-img">
+                    </div>
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <h3 class="leader-name">Binay Kumar Roy</h3>
+                        <span class="leader-role">President</span>
+                        <div class="leader-batch">Batch 1966-1971 <br> Mechanical Engineering</div>
+                    </div>
+                </div>
+                <div class="president-msg-card reveal" style="transition-delay: 0.2s;">
+                    <h2 style="text-align: left; margin-bottom: 2rem;">President's Message</h2>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-main); font-style: italic;">
+                        "It is a profound honour to lead the BCE Alumni Welfare Association. Our mission is clear: to
+                        ensure that every graduate of Bhagalpur College of Engineering feels part of a global family. We
+                        are not just building a network; we are building a legacy of mentorship, welfare, and mutual
+                        success. Together, we can elevate our institution and support the next generation of engineers."
+                    </p>
+                    <div style="margin-top: 3rem; display: flex; align-items: center; gap: 1rem;">
+                        <div style="width: 50px; height: 2px; background: var(--modern-gold);"></div>
+                        <span style="font-weight: 700; color: var(--nav-navy);">Binay Kumar Roy, President (Batch
+                            1966-71)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="premium-header-wrap reveal">
+                <span class="section-badge">Executive Committee</span>
+                <h2>The Team</h2>
+                <p style="color:var(--text-muted); max-width:600px; margin: 1rem auto 0;">The dedicated professionals
+                    driving our association's initiatives across the globe.</p>
+            </div>
+
+            <div class="executive-grid">
+                <!-- Vice President -->
+                <div class="leader-card reveal">
+                    <div class="leader-img-wrap">
+                        <img src="../assets/images/leadership/Manish-Kumar.jpeg" alt="Manish Kumar" class="leader-img"
+                            style="object-position: top;">
+                    </div>
+                    <h3 class="leader-name">Manish Kumar</h3>
+                    <span class="leader-role">Vice President</span>
+                    <div class="leader-batch">Batch 1991-1995 <br> Electrical Engineering</div>
+                    <p class="leader-bio">Dedicated to strengthening industrial ties and providing mentorship to budding
+                        engineering talents.</p>
+                </div>
+
+                <!-- General Secretary -->
+                <div class="leader-card reveal" style="transition-delay: 0.1s;">
+                    <div class="leader-img-wrap">
+                        <img src="../assets/images/leadership/SatyaPrakash.jpeg" alt="Satya Prakash Roy"
+                            class="leader-img" style="object-fit: contain;">
+                    </div>
+                    <h3 class="leader-name">Satya Prakash Roy</h3>
+                    <span class="leader-role">General Secretary</span>
+                    <div class="leader-batch">Batch 2001-2005 <br> Computer Science and Engineering</div>
+                    <p class="leader-bio">Overseeing global operations and ensuring seamless communication across all
+                        alumni chapters.</p>
+                </div>
+
+                <!-- Joint Secretary -->
+                <div class="leader-card reveal" style="transition-delay: 0.2s;">
+                    <div class="leader-img-wrap">
+                        <img src="../assets/images/leadership/AtulAnand.png" alt="Atul Anand" class="leader-img">
+                    </div>
+                    <h3 class="leader-name">Atul Anand</h3>
+                    <span class="leader-role">Joint Secretary</span>
+                    <div class="leader-batch">Batch 2011-2015 <br> Computer Science and Engineering</div>
+                    <p class="leader-bio">Coordinating association events and social initiatives to keep the BCEian
+                        spirit alive.</p>
+                </div>
+
+                <!-- Treasurer -->
+                <div class="leader-card reveal">
+                    <div class="leader-img-wrap">
+                        <img src="../assets/images/leadership/Rajeev-Ranjan.png" alt="Rajeev Ranjan" class="leader-img">
+                    </div>
+                    <h3 class="leader-name">Rajeev Ranjan</h3>
+                    <span class="leader-role">Treasurer</span>
+                    <div class="leader-batch">Batch 1994-1998 <br> Civil Engineering</div>
+                    <p class="leader-bio">Managing the association's welfare funds with transparency and strategic
+                        foresight.</p>
+                </div>
+
+                <!-- Joint Treasurer -->
+                <div class="leader-card reveal" style="transition-delay: 0.1s;">
+                    <div class="leader-img-wrap">
+                        <img src="../assets/images/leadership/Prafulla-Kumar-Singh.jpeg" alt="Prafulla Kumar Singh"
+                            class="leader-img" style="object-fit: contain;">
+                    </div>
+                    <h3 class="leader-name">Prafulla Kumar Singh</h3>
+                    <span class="leader-role">Joint Treasurer</span>
+                    <div class="leader-batch">Batch 1994-1998 <br> Electrical Engineering</div>
+                    <p class="leader-bio">Assisting in financial oversight and ensuring resources are allocated to
+                        high-impact projects.</p>
+                </div>
+
+
+            </div>
+
+            <!-- Other Members List -->
+            <div class="premium-header-wrap reveal" style="margin-top: 8rem; padding: 4rem 2rem;">
+                <h3 style="margin-bottom: 3rem;">Committee Members</h3>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+                    <div class="position-card" style="padding: 1.5rem; flex: 1 1 200px; max-width: 250px; text-align: center;">
+                        <div class="holder-name" style="font-size: 1.1rem;">Pankaj Kumar</div>
+                        <div class="holder-title" style="font-size: 0.75rem;">Member</div>
+                    </div>
+                    <div class="position-card" style="padding: 1.5rem; flex: 1 1 200px; max-width: 250px; text-align: center;">
+                        <div class="holder-name" style="font-size: 1.1rem;">Dheeraj Kumar Singh</div>
+                        <div class="holder-title" style="font-size: 0.75rem;">Member</div>
+                    </div>
+                    <div class="position-card" style="padding: 1.5rem; flex: 1 1 200px; max-width: 250px; text-align: center;">
+                        <div class="holder-name" style="font-size: 1.1rem;">Shekhar Srivastava</div>
+                        <div class="holder-title" style="font-size: 0.75rem;">Member</div>
+                    </div>
+                    <div class="position-card" style="padding: 1.5rem; flex: 1 1 200px; max-width: 250px; text-align: center;">
+                        <div class="holder-name" style="font-size: 1.1rem;">Chandan Kumar</div>
+                        <div class="holder-title" style="font-size: 0.75rem;">Member</div>
+                    </div>
+                    <div class="position-card" style="padding: 1.5rem; flex: 1 1 200px; max-width: 250px; text-align: center;">
+                        <div class="holder-name" style="font-size: 1.1rem;">Shweta Rani</div>
+                        <div class="holder-title" style="font-size: 0.75rem;">Member</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="roles-section">
+        <div class="container">
+            <div class="premium-header-wrap reveal">
+                <span class="section-badge">Governance</span>
+                <h2>Duties of Office Bearers</h2>
+                <p style="color:var(--text-muted); max-width:600px; margin: 1rem auto 0;">The defined responsibilities
+                    ensuring the smooth operation and legal compliance of our association.</p>
+            </div>
+
+            <div class="roles-grid">
+                <!-- President -->
+                <div class="role-duty-card reveal">
+                    <div class="role-duty-header">
+                        <div class="role-duty-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                            </svg>
+                        </div>
+                        <h3 class="role-duty-title">President</h3>
+                    </div>
+                    <ul class="duty-list">
+                        <li>Preside at all general and Committee meetings.</li>
+                        <li>Responsible for the proper conduct of all association meetings.</li>
+                        <li>Exercise the casting vote when necessary.</li>
+                        <li>Sign the minutes of each meeting at the time of approval.</li>
+                        <li>Sign all cheques on behalf of the Association in conjunction with the General Secretary and
+                            Treasurer.</li>
+                        <li>Supervise the work of other office bearers from time to time.</li>
+                    </ul>
+                </div>
+
+                <!-- Vice President -->
+                <div class="role-duty-card reveal" style="transition-delay: 0.1s;">
+                    <div class="role-duty-header">
+                        <div class="role-duty-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+                        <h3 class="role-duty-title">Vice President</h3>
+                    </div>
+                    <ul class="duty-list">
+                        <li>Deputize for the President during his/her absence.</li>
+                        <li>Support executive initiatives and leadership coordination.</li>
+                    </ul>
+                </div>
+
+                <!-- General Secretary -->
+                <div class="role-duty-card reveal" style="transition-delay: 0.2s;">
+                    <div class="role-duty-header">
+                        <div class="role-duty-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                                <line x1="16" y1="13" x2="8" y2="13" />
+                                <line x1="16" y1="17" x2="8" y2="17" />
+                                <polyline points="10 9 9 9 8 9" />
+                            </svg>
+                        </div>
+                        <h3 class="role-duty-title">General Secretary</h3>
+                    </div>
+                    <ul class="duty-list">
+                        <li>Conduct Association business in accordance with established rules.</li>
+                        <li>Responsible for all correspondence and maintaining non-financial documents.</li>
+                        <li>Record proceedings of all meetings and maintain a detailed membership register.</li>
+                        <li>Sign all cheques on behalf of the Association with the President and Treasurer.</li>
+                        <li>File annual returns with the Registrar of Societies within 60 days of the AGM.</li>
+                    </ul>
+                </div>
+
+                <!-- Treasurer -->
+                <div class="role-duty-card reveal">
+                    <div class="role-duty-header">
+                        <div class="role-duty-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                            </svg>
+                        </div>
+                        <h3 class="role-duty-title">Treasurer</h3>
+                    </div>
+                    <ul class="duty-list">
+                        <li>Responsible for all finances and financial transactions of the Association.</li>
+                        <li>Maintain accurate accounts and financial records.</li>
+                        <li>Sign all cheques on behalf of the Association with the President and Secretary.</li>
+                        <li>Oversee the annual auditing of association accounts.</li>
+                    </ul>
+                </div>
+
+                <!-- Joint Secretary & Treasurer -->
+                <div class="role-duty-card reveal" style="transition-delay: 0.1s;">
+                    <div class="role-duty-header">
+                        <div class="role-duty-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                            </svg>
+                        </div>
+                        <h3 class="role-duty-title">Joint Office Bearers</h3>
+                    </div>
+                    <ul class="duty-list">
+                        <li><strong>Joint Secretary:</strong> Assist the Secretary and act in his/her absence.</li>
+                        <li><strong>Joint Treasurer:</strong> Assist the Treasurer in financial oversight and
+                            management.</li>
+                    </ul>
+                </div>
+
+                <!-- Executive Members -->
+                <div class="role-duty-card reveal" style="transition-delay: 0.2s;">
+                    <div class="role-duty-header">
+                        <div class="role-duty-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                        </div>
+                        <h3 class="role-duty-title">Executive Committee</h3>
+                    </div>
+                    <ul class="duty-list">
+                        <li>Carry out duties as directed by the President or the Association.</li>
+                        <li>Work towards specific initiatives to fulfill the objectives of the association.</li>
+                        <li>Financial advisors provide specialized guidance on welfare fund management.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-standard">
+        <div class="container">
+            <div class="footer-grid-premium">
+                <div class="footer-info">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <img src="../assets/images/association-logo.png" alt="BCE Logo" class="footer-assoc-logo">
+                        <a href="../index.html" class="footer-logo" style="margin-bottom: 0;">BCE <span>Alumni Welfare
+                                Association</span></a>
+                    </div>
+                    <p class="footer-text">The official alumni welfare association of Bhagalpur College of Engineering.
+                        Connecting generations since 1960.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="leadership.html">Leadership</a></li>
+                        <li><a href="objectives.html">Objectives</a></li>
+                        <li><a href="directory.html">Directory</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="#">Wall of Fame</a></li>
+                        <li><a href="#">Mentorship</a></li>
+                        <li><a href="#">Giving Back</a></li>
+                        <li><a href="#">Campus Connect</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact Us</h4>
+                    <p class="footer-text" style="margin-bottom: 1rem;">Have questions? Reach out to our dedicated
+                        support team.</p>
+                    <a href="contact.html" class="btn-primary"
+                        style="display: inline-block; padding: 0.8rem 1.5rem; text-decoration: none; font-size: 0.9rem;">Send
+                        a Message</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 BCE Alumni Welfare Association. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15" />
+        </svg>
+    </button>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
