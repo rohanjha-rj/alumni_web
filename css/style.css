@@ -233,6 +233,12 @@ h4 {
     max-width: 800px;
     position: relative;
     z-index: 2;
+    transition: transform 0.1s ease-out; /* Smooth parallax */
+}
+
+.hero-parallax-layer {
+    will-change: transform;
+    display: block;
 }
 
 .hero-logo-wrap {
@@ -439,13 +445,14 @@ h4 {
 /* --- Transitions --- */
 .reveal {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(30px) scale(0.98);
     transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform, opacity;
 }
 
 .reveal.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 
 /* --- Header Bar --- */
@@ -833,21 +840,28 @@ footer {
     border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
+/* Premium Floating Labels */
 .form-group-premium {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    position: relative;
 }
 
 .form-group-premium label {
-    display: block;
-    font-weight: 700;
-    font-size: 0.95rem;
-    margin-bottom: 0.75rem;
-    color: var(--nav-navy);
+    position: absolute;
+    top: 1.1rem;
+    left: 1.5rem;
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--text-muted);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    margin-bottom: 0;
+    z-index: 10;
 }
 
 .form-input-premium {
     width: 100%;
-    padding: 1.1rem 1.5rem;
+    padding: 1.5rem 1.5rem 0.7rem;
     border-radius: 14px;
     border: 2px solid #f1f5f9;
     background: #f8fafc;
@@ -857,10 +871,21 @@ footer {
     color: var(--nav-navy);
 }
 
-.form-input-premium:focus {
+.form-input-premium:focus,
+.form-input-premium:not(:placeholder-shown) {
     border-color: var(--modern-gold);
     background: white;
     box-shadow: 0 0 0 5px rgba(250, 204, 21, 0.1);
+}
+
+.form-input-premium:focus + label,
+.form-input-premium:not(:placeholder-shown) + label {
+    top: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--modern-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .form-textarea-premium {

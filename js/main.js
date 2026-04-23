@@ -40,14 +40,30 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => updateHighlighter(activeLink), 100);
     }
 
-    // --- 2. Parallax Hero Effect ---
+    // --- 2. Parallax Hero Effect (Enhanced) ---
     const hero = document.querySelector('.hero');
-    const heroContent = document.querySelector('.hero-content');
-    if (hero && heroContent) {
+    const parallaxLayers = document.querySelectorAll('.hero-parallax-layer');
+    
+    if (hero && parallaxLayers.length > 0) {
         window.addEventListener('scroll', () => {
             const scrolled = window.scrollY;
-            heroContent.style.transform = `translateY(${scrolled * 0.4}px)`;
-            heroContent.style.opacity = 1 - (scrolled / 700);
+            if (scrolled < 1000) { 
+                parallaxLayers.forEach(layer => {
+                    const speed = layer.dataset.speed || 0.2;
+                    layer.style.transform = `translateY(${scrolled * speed}px)`;
+                    
+                    // Add subtle rotation to the logo layer if it exists
+                    if (layer.classList.contains('hero-logo-wrap')) {
+                        layer.style.transform += ` rotate(${scrolled * 0.02}deg)`;
+                    }
+                });
+                
+                // Fade out hero content group as well
+                const heroContent = document.querySelector('.hero-content');
+                if (heroContent) {
+                    heroContent.style.opacity = 1 - (scrolled / 700);
+                }
+            }
         }, { passive: true });
     }
 
@@ -65,23 +81,24 @@ document.addEventListener('DOMContentLoaded', () => {
             if (window.scrollY > 50) {
                 navbar.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
                 navbar.style.background = 'rgba(255, 255, 255, 0.9)';
+                navbar.style.height = '70px';
             } else {
                 navbar.style.boxShadow = 'none';
                 navbar.style.background = 'rgba(255, 255, 255, 0.8)';
+                navbar.style.height = '80px';
             }
         }
     }, { passive: true });
 
-    // --- 4. Staggered Reveal Animations ---
+    // --- 4. Staggered Reveal Animations (Premium) ---
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                // Stagger logic for elements in same container
                 const delay = entry.target.dataset.delay || 0;
                 setTimeout(() => {
                     entry.target.classList.add('active');
@@ -89,18 +106,25 @@ document.addEventListener('DOMContentLoaded', () => {
                         animateStats(entry.target);
                     }
                 }, delay);
+                // Unobserve after animating for performance
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Apply staggered delays to specific grids
-    document.querySelectorAll('.alumni-grid, .events-grid, .stat-card-wrap').forEach(grid => {
-        grid.querySelectorAll('.reveal').forEach((el, index) => {
-            el.dataset.delay = index * 150; // 150ms stagger
+    const applyStagger = () => {
+        document.querySelectorAll('.alumni-grid, .events-grid, .stat-card-wrap, .obj-grid-premium').forEach(grid => {
+            grid.querySelectorAll('.reveal').forEach((el, index) => {
+                el.dataset.delay = index * 100; // Faster stagger for premium feel
+            });
         });
-    });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    };
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    applyStagger();
+
+    // Re-apply stagger when dynamic content is loaded
+    window.addEventListener('contentLoaded', applyStagger);
 
     // --- 5. Stats Counter ---
     function animateStats(container) {
@@ -180,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 alumniGrid.appendChild(card);
             });
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+            window.dispatchEvent(new Event('contentLoaded'));
         }, 800);
     }
 
@@ -210,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 eventsGrid.appendChild(card);
             });
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+            window.dispatchEvent(new Event('contentLoaded'));
         }, 1000);
     }
 
