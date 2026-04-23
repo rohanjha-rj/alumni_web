@@ -214,7 +214,7 @@ h4 {
 .hero {
     height: 90vh; /* Increased height */
     min-height: 700px;
-    background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('../assets/college pictures/college-7.jpeg');
+    background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('../assets/college-pictures/college-7.jpeg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Basic parallax */
