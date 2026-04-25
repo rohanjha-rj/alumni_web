@@ -12,7 +12,7 @@ const eventsData = [
         category: "Upcoming",
         rsvpCount: 142,
         description: "Join us for our flagship annual gathering. Reconnect with batchmates, meet current students, and witness the growth of your alma mater.",
-        image: "assets/college-pictures/college-9.jpeg"
+        image: "/assets/img/college/college-9.jpeg"
     },
     {
         id: 2,
@@ -23,7 +23,7 @@ const eventsData = [
         category: "Upcoming",
         rsvpCount: 89,
         description: "A series of talks and workshops by distinguished alumni in the tech industry. Focus on AI, Sustainability, and FinTech.",
-        image: "assets/college-pictures/college-12.jpeg"
+        image: "/assets/img/college/college-12.jpeg"
     },
     {
         id: 3,
@@ -34,7 +34,7 @@ const eventsData = [
         category: "Upcoming",
         rsvpCount: 56,
         description: "A platform for alumni to mentor final-year students on career paths, interview prep, and higher education.",
-        image: "assets/college-pictures/college-13.jpeg"
+        image: "/assets/img/college/college-13.jpeg"
     },
     {
         id: 4,
@@ -45,7 +45,7 @@ const eventsData = [
         category: "Past",
         rsvpCount: 310,
         description: "Celebrating 25 years of the 1998 batch. A night of nostalgia, awards, and dinner.",
-        image: "assets/college-pictures/college-14.jpeg"
+        image: "/assets/img/college/college-14.jpeg"
     }
 ];
 
@@ -128,4 +128,3 @@ const jobsData = [
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { eventsData, jobsData };
 }
-

@@ -1,0 +1,82 @@
+.events-tabs {
+    display: flex;
+    gap: 0;
+    background: white;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    margin-bottom: 4rem;
+}
+.tab-btn {
+    flex: 1;
+    padding: 1.2rem 2rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.tab-btn.active {
+    background: var(--nav-navy);
+    color: white;
+}
+.tab-btn:hover:not(.active) {
+    background: rgba(15, 23, 42, 0.05);
+    color: var(--nav-navy);
+}
+.tab-section { display: none; }
+.tab-section.active { display: block; }
+
+/* Photo gallery for past events */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.gallery-img {
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+.gallery-img:hover { transform: scale(1.03); box-shadow: var(--shadow-md); }
+.gallery-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.event-date-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    color: var(--nav-navy);
+}
+
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: #10b981;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow-lg);
+    z-index: 5000;
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}

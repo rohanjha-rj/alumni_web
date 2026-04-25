@@ -1,0 +1,15 @@
+.about-content { padding: 8rem 0; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+.about-image { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); }
+.about-image img { width: 100%; height: auto; display: block; }
+
+.mission-section { background: var(--bg-light); padding: 8rem 0; }
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 4rem; }
+.feature-card { background: white; padding: 3rem; border-radius: var(--radius); border: 1px solid var(--bg-secondary); }
+.feature-card h3 { margin-bottom: 1rem; color: var(--nav-navy); }
+.feature-card p { color: var(--text-muted); }
+
+@media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; gap: 4rem; text-align: center; }
+    .about-grid div:first-child { order: 2; }
+}

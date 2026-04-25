@@ -1,165 +1,121 @@
 # BCE Alumni Welfare Association — Official Website
 
-The official website of the **BCE Alumni Welfare Association**, representing graduates of Bhagalpur College of Engineering. Built with pure HTML, CSS, and Vanilla JavaScript — no frameworks, no dependencies.
+The official website of the **BCE Alumni Welfare Association**, representing graduates of Bhagalpur College of Engineering. This project utilizes a modern, modular, and component-based architecture built with pure HTML, CSS, and Vanilla JavaScript.
 
 ---
 
 ## 📁 Project Structure
 
+The project has been restructured for maximum efficiency, modularity, and ease of maintenance.
+
 ```
 alumni_web/
-│
 ├── index.html                   # Home page
-│
-├── pages/
-│   ├── about.html               # About Us — history, mission, vision, executive committee
-│   ├── objectives.html          # Objectives — 8 association objectives
-│   ├── directory.html           # Alumni Directory — searchable & filterable list
-│   ├── events.html              # Events — upcoming events + past events with photo gallery
-│   └── contact.html             # Contact — email, address, and contact form
-│
-├── css/
-│   └── style.css                # Global stylesheet (design system, all components)
-│
-├── js/
-│   ├── main.js                  # Global JS — nav, scroll, animations, stats counter
-│   └── data/
-│       ├── alumni.js            # Alumni data (used by directory page)
-│       └── events.js            # Events data (used by events page)
+├── 404.html                     # Custom 404 error page
 │
 ├── assets/
-│   └── images/
-│       └── association-logo.png # BCE Alumni Welfare Association official logo
+│   └── img/                     # Categorized assets
+│       ├── alumni/              # Leadership & alumni headshots
+│       ├── branding/            # Logos and identity
+│       ├── college/             # Campus photography
+│       └── ui/                  # UI elements and backgrounds
 │
-├── 404.html                     # Custom 404 error page
-└── README.md                    # This file
+├── components/                  # Reusable HTML snippets
+│   ├── header.html              # Global navigation
+│   └── footer.html              # Global footer
+│
+├── css/
+│   ├── base.css                 # Design tokens (colors, typography, resets)
+│   ├── layout.css               # Structural components (Nav, Hero, Footer)
+│   ├── components.css           # UI elements (Cards, Buttons, Forms)
+│   └── pages/                   # Page-specific modular styles
+│       ├── about.css
+│       ├── leadership.css
+│       └── ...
+│
+├── js/
+│   ├── core/
+│   │   ├── components.js        # Dynamic component loader & shared logic
+│   │   └── main.js              # Global interactions & animations
+│   └── data/
+│       ├── alumni.js            # Alumni database
+│       └── events.js            # Events database
+│
+└── pages/                       # Website subpages
+    ├── about.html
+    ├── leadership.html
+    ├── directory.html
+    ├── events.html
+    ├── objectives.html
+    └── contact.html
 ```
 
 ---
 
-## 🌐 Pages
+## 🚀 Key Architecture Features
 
-| Page | File | Description |
-|------|------|-------------|
-| **Home** | `index.html` | Landing page with hero banner, stats, quick links, events preview, and featured alumni |
-| **About Us** | `pages/about.html` | Association history, mission & vision, executive committee |
-| **Objectives** | `pages/objectives.html` | 8 core objectives of the association |
-| **Directory** | `pages/directory.html` | Searchable alumni list with filters (branch, batch, country, industry) |
-| **Events** | `pages/events.html` | Tabbed view — Upcoming Events and Past Events with photo gallery |
-| **Contact** | `pages/contact.html` | Contact form, email address, and physical address |
+### 1. Component-Based System
+Instead of duplicating the Header and Footer across every file, the project uses a custom-built loader in `js/core/components.js`. 
+- **Consistency**: Change the header once, and it updates across all pages.
+- **Active States**: Navigation links automatically highlight the active page.
+- **Dynamic Mobile Menu**: Centrally managed logic for mobile navigation.
 
----
+### 2. Modular CSS (Design System)
+The styling is split into logical modules to prevent "CSS Bloat":
+- `base.css`: The "Source of Truth" for brand colors, typography, and variables.
+- `layout.css`: Handles the global structure of the site.
+- `components.css`: Contains the "Design Language" for cards, buttons, and premium UI elements.
+- `pages/`: Specific styles for complex page layouts only.
 
-## 🎨 Design System
-
-Defined entirely via CSS custom properties in `css/style.css`:
-
-| Token | Value | Purpose |
-|-------|-------|---------|
-| `--primary` | `hsl(220, 65%, 12%)` | Deep navy — primary brand colour |
-| `--secondary` | `hsl(45, 60%, 52%)` | Gold — accent and highlights |
-| `--accent` | `hsl(48, 100%, 45%)` | Vivid gold — buttons and CTAs |
-| `--bg-main` | `hsl(210, 40%, 98%)` | Light off-white page background |
-| `--radius-md` | `16px` | Standard card border radius |
-| `--transition-main` | `0.4s cubic-bezier(...)` | Smooth hover/reveal transitions |
-
-**Typography:** [Outfit](https://fonts.google.com/specimen/Outfit) (headings & body) via Google Fonts
+### 3. Root-Relative Pathing
+All assets and links use root-relative paths (e.g., `/assets/img/...`), ensuring that the site remains functional regardless of directory depth.
 
 ---
 
-## ⚙️ JavaScript Features (`js/main.js`)
+## ⚙️ Modern UI/UX Features
 
-- **Mobile menu** — full-screen overlay with smooth open/close
-- **Scroll progress bar** — top-of-page reading progress indicator
-- **Reveal animations** — IntersectionObserver-powered scroll-in effects
-- **Stats counter** — animated number counting when section enters viewport
-- **Back-to-top button** — appears after scrolling 400px
-- **Featured alumni grid** — dynamically rendered from `js/data/alumni.js`
-- **Events preview grid** — dynamically rendered from `js/data/events.js`
-
-### Events Page (`pages/events.html`)
-- Tabbed UI switching between **Upcoming** and **Past Events**
-- **RSVP** for upcoming events (stored in `localStorage`)
-- **Photo gallery** for past events section
-
-### Directory Page (`pages/directory.html`)
-- Live search with autocomplete
-- Filters: branch, country, industry pills, graduation batch
-- PDF export via browser print
-- Skeleton loaders while filtering
-
-### Contact Page (`pages/contact.html`)
-- Client-side contact form with success state
-- Direct email link: `alumni@bcebhagalpur.ac.in`
+- **Multi-layer Parallax**: High-end hero effects on the home page.
+- **Reveal Animations**: IntersectionObserver-powered staggered reveals for all content.
+- **Kinetic Typography**: Dynamic word-cycling in the hero section.
+- **Floating Label Forms**: Premium contact form experience with smart validation.
+- **RSVP Persistence**: LocalStorage-based event registration tracking.
+- **Live Search & Filter**: Instant alumni directory filtering with skeleton loading states.
 
 ---
 
-## 🚀 Running Locally
+## 🌐 Running Locally
 
-This is a static website — no build step required.
+**IMPORTANT**: Because this project uses the `fetch()` API to load shared components and assets, it **must** be viewed through a web server. Opening the `.html` files directly from your file explorer will result in CORS errors.
 
-**Option 1 — Python (recommended):**
+### Recommended Methods:
+
+**Option 1 — VS Code (Best Experience):**
+Install the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension. Right-click `index.html` and select **"Open with Live Server"**.
+
+**Option 2 — Python:**
 ```bash
-cd alumni_web
-python -m http.server 8765
-# Open http://localhost:8765
+python -m http.server 8000
+# Visit http://localhost:8000
 ```
 
-**Option 2 — VS Code:**  
-Install the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension, right-click `index.html` → **Open with Live Server**.
-
-**Option 3 — Direct file:**  
-Open `index.html` directly in a browser (some JS features may be limited due to CORS).
-
----
-
-## 🖼️ Logo & Branding
-
-- **Association Logo:** `assets/images/association-logo.png`
-- Used in navbar, hero section, about page, footer (all pages), and contact page
-- All pages are branded as **BCE Alumni Welfare Association**
-
----
-
-## 📝 Adding Data
-
-### Alumni
-Edit `js/data/alumni.js` — each entry follows this structure:
-```js
-{
-  id: 1,
-  name: "Full Name",
-  role: "Job Title",
-  company: "Company Name",
-  batch: "2015",
-  branch: "CSE",          // CSE, ECE, ME, Civil, EE
-  country: "India",
-  industry: "Technology",
-  image: "https://...",
-  badges: ["Innovation Award"],
-  isMentor: true
-}
-```
-
-### Events
-Edit `js/data/events.js` — each entry follows this structure:
-```js
-{
-  id: 1,
-  title: "Annual Alumni Meet 2026",
-  date: "15 March, 2026",
-  time: "10:00 AM",
-  location: "BCE Campus, Bhagalpur",
-  description: "Brief description of the event.",
-  image: "https://...",
-  category: "Upcoming",   // or "Past"
-  rsvpCount: 142
-}
+**Option 3 — Node.js:**
+```bash
+npx serve .
 ```
 
 ---
 
-## 📬 Contact
+## 📝 Maintenance & Data Updates
+
+### Adding Alumni
+Update `js/data/alumni.js`. Each entry is a structured object. Use `/assets/img/alumni/` for profile pictures.
+
+### Adding Events
+Update `js/data/events.js`. Ensure you set the `category` to either `"Upcoming"` or `"Past"`.
+
+---
+
+## 📬 Contact & Governance
 
 **BCE Alumni Welfare Association**  
 Bhagalpur College of Engineering  

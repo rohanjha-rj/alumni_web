@@ -1,0 +1,366 @@
+/* --- COMPONENT STYLES --- */
+
+/* --- Buttons --- */
+.btn-primary {
+    background-color: var(--modern-gold);
+    color: #000;
+    padding: 1rem 2.5rem;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+    background-color: var(--gold-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white; /* Visibility on dark banners */
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    padding: 1rem 2.5rem;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--modern-gold);
+    color: white;
+}
+
+/* Dark version for light sections */
+.btn-secondary-dark {
+    color: var(--nav-navy);
+    border-color: rgba(15, 23, 42, 0.3);
+}
+
+.btn-secondary-dark:hover {
+    background: rgba(15, 23, 42, 0.05);
+    border-color: var(--nav-navy);
+}
+
+/* --- Cards --- */
+.stat-card,
+.alumni-card,
+.event-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    border: 1px solid var(--bg-secondary);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    max-width: 420px; /* Reduced card size */
+    width: 100%;
+    margin: 0 auto;
+}
+
+.alumni-card:hover,
+.event-card:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(250, 204, 21, 0.3);
+    transform: translateY(-4px);
+}
+
+/* Grids */
+.alumni-grid,
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    justify-content: center;
+}
+
+/* Specific Card Styling */
+.card-img {
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    aspect-ratio: 16/9;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-name {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.card-role {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.badge-chip {
+    background: var(--bg-secondary);
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    color: var(--text-muted);
+}
+
+.batch-tag {
+    background: var(--bg-secondary);
+    color: var(--nav-navy);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* --- Premium UI Components --- */
+.premium-header-wrap {
+    text-align: center;
+    margin-bottom: 5rem;
+    position: relative;
+    padding: 4rem 0;
+    background: var(--bg-light);
+    border-radius: var(--radius-md);
+}
+
+.premium-header-wrap h2 {
+    font-size: 3.5rem;
+    margin-top: 1.5rem;
+    color: var(--nav-navy);
+    letter-spacing: -0.03em;
+    font-weight: 800;
+}
+
+.section-badge {
+    display: inline-block;
+    background: rgba(250, 204, 21, 0.15);
+    color: #856404;
+    padding: 0.5rem 1.25rem;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
+/* Aim Cards */
+.aim-card-premium {
+    background: white;
+    padding: 3.5rem 2.5rem;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.aim-icon-box {
+    background: rgba(250, 204, 21, 0.1);
+    color: var(--modern-gold);
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    transition: all 0.4s ease;
+}
+
+/* Detailed Objectives */
+.obj-grid-premium {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 4rem;
+}
+
+.obj-item-premium {
+    flex: 1 1 350px;
+    max-width: 450px;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+    border: 1px solid #f1f5f9;
+    transition: all 0.4s ease;
+    height: 100%;
+    position: relative;
+    box-shadow: var(--shadow-sm);
+}
+
+.obj-item-premium:hover {
+    transform: translateX(10px);
+    border-color: var(--modern-gold);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+}
+
+.obj-num-premium {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--nav-navy);
+    background: var(--modern-gold);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+/* Form Components */
+.form-card-premium {
+    background: white;
+    padding: 4rem;
+    border-radius: 24px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.form-group-premium {
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+.form-group-premium label {
+    position: absolute;
+    top: 1.1rem;
+    left: 1.5rem;
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--text-muted);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    margin-bottom: 0;
+    z-index: 10;
+}
+
+.form-input-premium {
+    width: 100%;
+    padding: 1.5rem 1.5rem 0.7rem;
+    border-radius: 14px;
+    border: 2px solid #f1f5f9;
+    background: #f8fafc;
+    font-size: 1rem;
+    transition: all 0.3s;
+    outline: none;
+    color: var(--nav-navy);
+}
+
+.form-input-premium:focus,
+.form-input-premium:not(:placeholder-shown) {
+    border-color: var(--modern-gold);
+    background: white;
+    box-shadow: 0 0 0 5px rgba(250, 204, 21, 0.1);
+}
+
+.form-input-premium:focus + label,
+.form-input-premium:not(:placeholder-shown) + label {
+    top: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--modern-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.form-textarea-premium {
+    min-height: 180px;
+    resize: vertical;
+}
+
+/* --- Position Cards (Leadership) --- */
+.position-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--bg-secondary);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.position-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.holder-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--nav-navy);
+    margin-bottom: 0.25rem;
+}
+
+.holder-title {
+    color: var(--modern-gold);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+}
+
+/* Utilities */
+.section-desc {
+    text-align: center;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 5rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform, opacity;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.txt-cycle {
+    color: var(--modern-gold);
+    font-weight: 800;
+    position: relative;
+    display: inline-block;
+    min-width: 100px;
+}

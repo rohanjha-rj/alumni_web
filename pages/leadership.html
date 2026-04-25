@@ -7,284 +7,23 @@
     <title>Leadership | BCE Alumni Welfare Association</title>
     <meta name="description"
         content="Meet the dedicated leaders and executive committee of the BCE Alumni Welfare Association.">
-    <link rel="icon" href="../assets/images/association-logo.png" type="image/png">
-    <link rel="stylesheet" href="../css/style.css">
-    <style>
-        .leadership-hero {
-            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('../assets/college-pictures/college-3.jpeg');
-            background-size: cover;
-            background-position: center;
-            padding: 10rem 0 8rem;
-            color: white;
-            text-align: center;
-        }
+    <link rel="icon" href="/assets/img/branding/logo.png" type="image/png">
 
-        .executive-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 4rem;
-        }
-
-        .leader-card {
-            flex: 1 1 300px;
-            max-width: 400px;
-            background: white;
-            border-radius: var(--radius-md);
-            padding: 3rem 2rem;
-            text-align: center;
-            border: 1px solid var(--bg-secondary);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .leader-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--modern-gold);
-        }
-
-        .leader-img-wrap {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 2rem;
-            border-radius: 50%;
-            padding: 5px;
-            background: linear-gradient(135deg, var(--nav-navy), var(--modern-gold));
-            position: relative;
-        }
-
-        .leader-img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid white;
-            background: var(--bg-secondary);
-        }
-
-        .leader-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--nav-navy);
-            margin-bottom: 0.5rem;
-        }
-
-        .leader-role {
-            color: var(--modern-gold);
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 0.05em;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .leader-batch {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: var(--bg-secondary);
-            color: var(--nav-navy);
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(15, 23, 42, 0.05);
-        }
-
-        .leader-bio {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-        }
-
-        .leader-social {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .social-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: var(--bg-secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--nav-navy);
-            transition: var(--transition);
-            text-decoration: none;
-        }
-
-        .social-icon:hover {
-            background: var(--nav-navy);
-            color: white;
-        }
-
-        .president-section {
-            background: var(--bg-light);
-            padding: 8rem 0;
-        }
-
-        .president-wrap {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 6rem;
-            align-items: center;
-        }
-
-        .president-msg-card {
-            background: white;
-            padding: 4rem;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-lg);
-            position: relative;
-        }
-
-        .president-msg-card::before {
-            content: '"';
-            position: absolute;
-            top: -20px;
-            left: 40px;
-            font-size: 8rem;
-            color: var(--modern-gold);
-            opacity: 0.2;
-            font-family: serif;
-        }
-
-        @media (max-width: 900px) {
-            .president-wrap {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 4rem;
-            }
-        }
-
-        /* Roles & Responsibilities Section */
-        .roles-section {
-            padding: 8rem 0;
-            background: var(--bg-light);
-        }
-
-        .roles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .role-duty-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: var(--radius-md);
-            border: 1px solid var(--bg-secondary);
-            transition: var(--transition);
-        }
-
-        .role-duty-card:hover {
-            border-color: var(--modern-gold);
-            box-shadow: var(--shadow-md);
-        }
-
-        .role-duty-header {
-            display: flex;
-            align-items: center;
-            gap: 1.25rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid var(--bg-secondary);
-            padding-bottom: 1rem;
-        }
-
-        .role-duty-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--nav-navy);
-        }
-
-        .role-duty-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--nav-navy);
-        }
-
-        .duty-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .duty-list li {
-            position: relative;
-            padding-left: 1.75rem;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: var(--text-muted);
-        }
-
-        .duty-list li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--modern-gold);
-            font-weight: 700;
-        }
-    </style>
+    <!-- Modular Styles -->
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/pages/leadership.css">
 </head>
 
 <body>
     <div class="scroll-progress" id="scrollProgress"></div>
 
-    <nav class="navbar">
-        <div class="container nav-content">
-            <a href="../index.html" class="portal-brand">
-                <div class="logo-cell">
-                    <img src="../assets/images/association-logo.png" alt="BCE Alumni Logo">
-                </div>
-                <div class="logo-text">BCE <span>Alumni Welfare Association</span></div>
-            </a>
-            <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="leadership.html" class="active">Leadership</a></li>
-                <li><a href="objectives.html">Objectives</a></li>
-                <li><a href="directory.html">Directory</a></li>
-                <li><a href="events.html">Events</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="nav-actions">
-                <button class="menu-toggle-btn" id="menuToggle" aria-label="Open menu">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-                        <line x1="3" y1="6" x2="21" y2="6" />
-                        <line x1="3" y1="12" x2="21" y2="12" />
-                        <line x1="3" y1="18" x2="21" y2="18" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </nav>
+    <!-- Header Component Placeholder -->
+    <div id="header-placeholder"></div>
 
-    <div class="mobile-menu-overlay" id="mobileMenu">
-        <a href="../index.html" class="mobile-nav-link">Home</a>
-        <a href="about.html" class="mobile-nav-link">About Us</a>
-        <a href="leadership.html" class="mobile-nav-link">Leadership</a>
-        <a href="objectives.html" class="mobile-nav-link">Objectives</a>
-        <a href="directory.html" class="mobile-nav-link">Directory</a>
-        <a href="events.html" class="mobile-nav-link">Events</a>
-        <a href="contact.html" class="mobile-nav-link">Contact</a>
-    </div>
-
-    <header class="page-banner-premium reveal" style="background: linear-gradient(135deg, rgba(15,23,42,0.85) 0%, rgba(30,41,59,0.85) 100%), url('../assets/college-pictures/college-3.jpeg'); background-size: cover; background-position: center;">
+    <header class="page-banner-premium reveal"
+        style="background: linear-gradient(135deg, rgba(15,23,42,0.85) 0%, rgba(30,41,59,0.85) 100%), url('/assets/img/college/college-3.jpeg'); background-size: cover; background-position: center;">
         <div class="container">
             <span class="section-badge" style="color:white; border-color:rgba(255,255,255,0.3);">Our Stewards</span>
             <h1>Association Leadership</h1>
@@ -297,8 +36,7 @@
             <div class="president-wrap">
                 <div class="reveal">
                     <div class="leader-img-wrap" style="width: 300px; height: 300px;">
-                        <img src="../assets/images/leadership/BinayKumarRoy.jpeg" alt="Binay Kumar Roy"
-                            class="leader-img">
+                        <img src="/assets/img/alumni/BinayKumarRoy.jpeg" alt="Binay Kumar Roy" class="leader-img">
                     </div>
                     <div style="text-align: center; margin-top: 2rem;">
                         <h3 class="leader-name">Binay Kumar Roy</h3>
@@ -337,7 +75,7 @@
                 <!-- Vice President -->
                 <div class="leader-card reveal">
                     <div class="leader-img-wrap">
-                        <img src="../assets/images/leadership/Manish-Kumar.jpeg" alt="Manish Kumar" class="leader-img"
+                        <img src="/assets/img/alumni/Manish-Kumar.jpeg" alt="Manish Kumar" class="leader-img"
                             style="object-position: top;">
                     </div>
                     <h3 class="leader-name">Manish Kumar</h3>
@@ -350,8 +88,8 @@
                 <!-- General Secretary -->
                 <div class="leader-card reveal" style="transition-delay: 0.1s;">
                     <div class="leader-img-wrap">
-                        <img src="../assets/images/leadership/SatyaPrakash.jpeg" alt="Satya Prakash Roy"
-                            class="leader-img" style="object-fit: contain;">
+                        <img src="/assets/img/alumni/SatyaPrakash.jpeg" alt="Satya Prakash Roy" class="leader-img"
+                            style="object-fit: contain;">
                     </div>
                     <h3 class="leader-name">Satya Prakash Roy</h3>
                     <span class="leader-role">General Secretary</span>
@@ -363,7 +101,7 @@
                 <!-- Joint Secretary -->
                 <div class="leader-card reveal" style="transition-delay: 0.2s;">
                     <div class="leader-img-wrap">
-                        <img src="../assets/images/leadership/AtulAnand.png" alt="Atul Anand" class="leader-img">
+                        <img src="/assets/img/alumni/AtulAnand.png" alt="Atul Anand" class="leader-img">
                     </div>
                     <h3 class="leader-name">Atul Anand</h3>
                     <span class="leader-role">Joint Secretary</span>
@@ -375,7 +113,7 @@
                 <!-- Treasurer -->
                 <div class="leader-card reveal">
                     <div class="leader-img-wrap">
-                        <img src="../assets/images/leadership/Rajeev-Ranjan.png" alt="Rajeev Ranjan" class="leader-img">
+                        <img src="/assets/img/alumni/Rajeev-Ranjan.png" alt="Rajeev Ranjan" class="leader-img">
                     </div>
                     <h3 class="leader-name">Rajeev Ranjan</h3>
                     <span class="leader-role">Treasurer</span>
@@ -387,7 +125,7 @@
                 <!-- Joint Treasurer -->
                 <div class="leader-card reveal" style="transition-delay: 0.1s;">
                     <div class="leader-img-wrap">
-                        <img src="../assets/images/leadership/Prafulla-Kumar-Singh.jpeg" alt="Prafulla Kumar Singh"
+                        <img src="/assets/img/alumni/Prafulla-Kumar-Singh.jpeg" alt="Prafulla Kumar Singh"
                             class="leader-img" style="object-fit: contain;">
                     </div>
                     <h3 class="leader-name">Prafulla Kumar Singh</h3>
@@ -396,31 +134,34 @@
                     <p class="leader-bio">Assisting in financial oversight and ensuring resources are allocated to
                         high-impact projects.</p>
                 </div>
-
-
             </div>
 
             <!-- Other Members List -->
             <div class="premium-header-wrap reveal" style="margin-top: 8rem; padding: 4rem 2rem;">
                 <h3 style="margin-bottom: 3rem;">Committee Members</h3>
                 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
-                    <div class="position-card" style="padding: 1.5rem; flex: 1 1 200px; max-width: 250px; text-align: center;">
+                    <div class="position-card"
+                        style="padding: 1.5rem; flex: 1 1 200px; max-width: 250px; text-align: center;">
                         <div class="holder-name" style="font-size: 1.1rem;">Pankaj Kumar</div>
                         <div class="holder-title" style="font-size: 0.75rem;">Member</div>
                     </div>
-                    <div class="position-card" style="padding: 1.5rem; flex: 1 1 200px; max-width: 250px; text-align: center;">
+                    <div class="position-card"
+                        style="padding: 1.5rem; flex: 1 1 200px; max-width: 250px; text-align: center;">
                         <div class="holder-name" style="font-size: 1.1rem;">Dheeraj Kumar Singh</div>
                         <div class="holder-title" style="font-size: 0.75rem;">Member</div>
                     </div>
-                    <div class="position-card" style="padding: 1.5rem; flex: 1 1 200px; max-width: 250px; text-align: center;">
+                    <div class="position-card"
+                        style="padding: 1.5rem; flex: 1 1 200px; max-width: 250px; text-align: center;">
                         <div class="holder-name" style="font-size: 1.1rem;">Shekhar Srivastava</div>
                         <div class="holder-title" style="font-size: 0.75rem;">Member</div>
                     </div>
-                    <div class="position-card" style="padding: 1.5rem; flex: 1 1 200px; max-width: 250px; text-align: center;">
+                    <div class="position-card"
+                        style="padding: 1.5rem; flex: 1 1 200px; max-width: 250px; text-align: center;">
                         <div class="holder-name" style="font-size: 1.1rem;">Chandan Kumar</div>
                         <div class="holder-title" style="font-size: 0.75rem;">Member</div>
                     </div>
-                    <div class="position-card" style="padding: 1.5rem; flex: 1 1 200px; max-width: 250px; text-align: center;">
+                    <div class="position-card"
+                        style="padding: 1.5rem; flex: 1 1 200px; max-width: 250px; text-align: center;">
                         <div class="holder-name" style="font-size: 1.1rem;">Shweta Rani</div>
                         <div class="holder-title" style="font-size: 0.75rem;">Member</div>
                     </div>
@@ -570,53 +311,8 @@
         </div>
     </section>
 
-    <footer class="footer-standard">
-        <div class="container">
-            <div class="footer-grid-premium">
-                <div class="footer-info">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                        <img src="../assets/images/association-logo.png" alt="BCE Logo" class="footer-assoc-logo">
-                        <a href="../index.html" class="footer-logo" style="margin-bottom: 0;">BCE <span>Alumni Welfare
-                                Association</span></a>
-                    </div>
-                    <p class="footer-text">The official alumni welfare association of Bhagalpur College of Engineering.
-                        Connecting generations since 1960.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Navigation</h4>
-                    <ul>
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="leadership.html">Leadership</a></li>
-                        <li><a href="objectives.html">Objectives</a></li>
-                        <li><a href="directory.html">Directory</a></li>
-                        <li><a href="events.html">Events</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Community</h4>
-                    <ul>
-                        <li><a href="#">Wall of Fame</a></li>
-                        <li><a href="#">Mentorship</a></li>
-                        <li><a href="#">Giving Back</a></li>
-                        <li><a href="#">Campus Connect</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Contact Us</h4>
-                    <p class="footer-text" style="margin-bottom: 1rem;">Have questions? Reach out to our dedicated
-                        support team.</p>
-                    <a href="contact.html" class="btn-primary"
-                        style="display: inline-block; padding: 0.8rem 1.5rem; text-decoration: none; font-size: 0.9rem;">Send
-                        a Message</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                &copy; 2026 BCE Alumni Welfare Association. All Rights Reserved.
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Component Placeholder -->
+    <div id="footer-placeholder"></div>
 
     <button class="back-to-top" id="backToTop">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -625,7 +321,9 @@
         </svg>
     </button>
 
-    <script src="../js/main.js"></script>
+    <!-- Scripts -->
+    <script src="/js/core/components.js"></script>
+    <script src="/js/core/main.js"></script>
 </body>
 
 </html>

@@ -7,60 +7,24 @@
     <title>BCE Alumni Welfare Association</title>
     <meta name="description"
         content="Connect with the global network of Bhagalpur College of Engineering alumni. Prestigious community, networking, and legacy.">
-    <link rel="icon" href="assets/images/association-logo.png" type="image/png">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="/assets/img/branding/logo.png" type="image/png">
+    
+    <!-- Modular Styles -->
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/components.css">
 </head>
 
 <body>
     <div class="scroll-progress" id="scrollProgress"></div>
 
-
-    <nav class="navbar">
-        <div class="container nav-content">
-            <a href="index.html" class="portal-brand">
-                <div class="logo-cell">
-                    <img src="assets/images/association-logo.png" alt="BCE Alumni Welfare Association Logo">
-                </div>
-                <div class="logo-text">BCE <span>Alumni Welfare Association</span></div>
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="pages/about.html">About Us</a></li>
-                <li><a href="pages/leadership.html">Leadership</a></li>
-                <li><a href="pages/objectives.html">Objectives</a></li>
-                <li><a href="pages/directory.html">Directory</a></li>
-                <li><a href="pages/events.html">Events</a></li>
-                <li><a href="pages/contact.html">Contact</a></li>
-            </ul>
-            <div class="nav-actions">
-                <a href="pages/contact.html" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Join
-                    Network</a>
-                <button class="menu-toggle-btn" id="menuToggle" aria-label="Open menu">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-                        <line x1="3" y1="6" x2="21" y2="6" />
-                        <line x1="3" y1="12" x2="21" y2="12" />
-                        <line x1="3" y1="18" x2="21" y2="18" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <div class="mobile-menu-overlay" id="mobileMenu">
-        <a href="index.html" class="mobile-nav-link">Home</a>
-        <a href="pages/about.html" class="mobile-nav-link">About Us</a>
-        <a href="pages/leadership.html" class="mobile-nav-link">Leadership</a>
-        <a href="pages/objectives.html" class="mobile-nav-link">Objectives</a>
-        <a href="pages/directory.html" class="mobile-nav-link">Directory</a>
-        <a href="pages/events.html" class="mobile-nav-link">Events</a>
-        <a href="pages/contact.html" class="mobile-nav-link">Contact</a>
-    </div>
+    <!-- Header Component Placeholder -->
+    <div id="header-placeholder"></div>
 
     <header class="hero">
         <div class="container hero-content reveal">
             <div class="hero-logo-wrap hero-parallax-layer" data-speed="-0.15">
-                <img src="assets/images/association-logo.png" alt="BCE Logo" class="hero-assoc-logo">
+                <img src="/assets/img/branding/logo.png" alt="BCE Logo" class="hero-assoc-logo">
             </div>
             <div class="hero-text-wrap hero-parallax-layer" data-speed="0.35">
                 <h1>BCE ALUMNI<br>WELFARE ASSOCIATION</h1>
@@ -74,8 +38,8 @@
                     </svg>
                 </div>
                 <div class="hero-btns">
-                    <a href="pages/directory.html" class="btn-primary">Explore Directory</a>
-                    <a href="pages/events.html" class="btn-secondary">Upcoming Event(s)</a>
+                    <a href="/pages/directory.html" class="btn-primary">Explore Directory</a>
+                    <a href="/pages/events.html" class="btn-secondary">Upcoming Event(s)</a>
                 </div>
             </div>
         </div>
@@ -107,7 +71,6 @@
         </div>
     </section>
 
-
     <section>
         <div class="container">
             <h2>Distinguished Alumni</h2>
@@ -116,7 +79,7 @@
                 <!-- Dynamic Content via JS -->
             </div>
             <div style="text-align:center; margin-top:5rem;">
-                <a href="pages/directory.html"
+                <a href="/pages/directory.html"
                     style="font-weight:700; color:var(--nav-navy); text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem;">
                     View Full Directory
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -137,59 +100,14 @@
                 <!-- Dynamic Content via JS -->
             </div>
             <div style="text-align:center; margin-top:5rem;">
-                <a href="pages/events.html" class="btn-secondary"
+                <a href="/pages/events.html" class="btn-secondary"
                     style="color:var(--nav-navy); border-color:var(--nav-navy);">All Events</a>
             </div>
         </div>
     </section>
 
-    <footer class="footer-standard">
-        <div class="container">
-            <div class="footer-grid-premium">
-                <div class="footer-info">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                        <img src="assets/images/association-logo.png" alt="BCE Logo" class="footer-assoc-logo">
-                        <a href="index.html" class="footer-logo" style="margin-bottom: 0;">BCE <span>Alumni Welfare
-                                Association</span></a>
-                    </div>
-                    <p class="footer-text">The official alumni welfare association of Bhagalpur College of Engineering.
-                        Connecting generations since 1960.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Navigation</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="pages/about.html">About Us</a></li>
-                        <li><a href="pages/leadership.html">Leadership</a></li>
-                        <li><a href="pages/objectives.html">Objectives</a></li>
-                        <li><a href="pages/directory.html">Directory</a></li>
-                        <li><a href="pages/events.html">Events</a></li>
-                        <li><a href="pages/contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Community</h4>
-                    <ul>
-                        <li><a href="#">Wall of Fame</a></li>
-                        <li><a href="#">Mentorship</a></li>
-                        <li><a href="#">Giving Back</a></li>
-                        <li><a href="#">Campus Connect</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Contact Us</h4>
-                    <p class="footer-text" style="margin-bottom: 1rem;">Have questions? Reach out to our dedicated
-                        support team.</p>
-                    <a href="pages/contact.html" class="btn-primary"
-                        style="display: inline-block; padding: 0.8rem 1.5rem; text-decoration: none; font-size: 0.9rem;">Send
-                        a Message</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                &copy; 2026 BCE Alumni Welfare Association. All Rights Reserved.
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Component Placeholder -->
+    <div id="footer-placeholder"></div>
 
     <button class="back-to-top" id="backToTop">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -198,9 +116,11 @@
         </svg>
     </button>
 
-    <script src="js/data/alumni.js"></script>
-    <script src="js/data/events.js"></script>
-    <script src="js/main.js"></script>
+    <!-- Scripts -->
+    <script src="/js/data/alumni.js"></script>
+    <script src="/js/data/events.js"></script>
+    <script src="/js/core/components.js"></script>
+    <script src="/js/core/main.js"></script>
 </body>
 
 </html>

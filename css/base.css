@@ -1,0 +1,114 @@
+/* --- BASE STYLES & VARIABLES --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
+
+:root {
+    /* Brand Colors - SaaS Modern Palette */
+    --nav-navy: #0F172A;
+    --nav-navy-hsl: 222, 47%, 11%;
+    --modern-gold: #FACC15;
+    --modern-gold-hsl: 45, 93%, 47%;
+    --gold-hover: #EAB308;
+
+    /* Functional Colors */
+    --primary: var(--nav-navy-hsl);
+    --secondary: var(--modern-gold-hsl);
+    --bg-main: #FFFFFF;
+    --bg-light: #F8FAFC;
+    --bg-secondary: #F1F5F9;
+    --bg-white: 0, 0%, 100%;
+
+    /* Text Colors */
+    --text-main: #1E293B;
+    --text-muted: #64748B;
+    --text-light: #94A3B8;
+
+    /* Semantic Colors */
+    --success: #10B981;
+    --error: #EF4444;
+
+    /* Shadows - LinkedIn/SaaS Style */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
+    /* Misc */
+    --radius: 12px;
+    --radius-md: 16px;
+    --radius-sm: 8px;
+    --container-max: 1200px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    animation: pageEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: var(--nav-navy);
+    line-height: 1.2;
+}
+
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Animations */
+@keyframes pageEntrance {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--nav-navy);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--modern-gold);
+    border-radius: 10px;
+    border: 3px solid var(--nav-navy);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gold-hover);
+}
+
+/* Utilities */
+.bg-light { background-color: var(--bg-light); }
+.text-gold { color: var(--modern-gold); }
+.reveal {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform, opacity;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}

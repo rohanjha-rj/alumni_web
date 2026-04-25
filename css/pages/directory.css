@@ -1,0 +1,15 @@
+.directory-layout { display: grid; grid-template-columns: 280px 1fr; gap: 4rem; padding: 6rem 0; }
+
+/* Filter Sidebar */
+.filter-sidebar { position: sticky; top: 120px; height: fit-content; background: var(--bg-light); padding: 2rem; border-radius: var(--radius); border: 1px solid var(--bg-secondary); }
+.filter-group { margin-bottom: 2rem; }
+.filter-group label { display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.75rem; color: var(--nav-navy); text-transform: uppercase; letter-spacing: 0.05em; }
+select, input { width: 100%; padding: 0.75rem; border-radius: 8px; border: 1px solid var(--bg-secondary); outline: none; font-size: 0.95rem; }
+select:focus, input:focus { border-color: var(--modern-gold); box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.1); }
+
+.result-count { margin-bottom: 2rem; font-weight: 600; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; }
+
+@media (max-width: 900px) {
+    .directory-layout { grid-template-columns: 1fr; }
+    .filter-sidebar { position: static; margin-bottom: 3rem; }
+}
